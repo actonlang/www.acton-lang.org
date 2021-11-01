@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://www.acton-lang.org"
 
-theme = "juice"
+#theme = "juice"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -16,3 +16,10 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+juice_logo_name = "acton"
+juice_logo_path = "logo.svg"
+
+juice_extra_menu = [
+    { title = "Github", link = "https://github.com/actonlang/acton"}
+]
+repository_url = "https://github.com/actonlang/acton"

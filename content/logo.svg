@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="6cm" height="7cm" viewBox="428 384 117 126" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Background">
+    <ellipse style="fill: #ff00fa; fill-opacity: 0; stroke-opacity: 1; stroke-width: 2; stroke: #000000" cx="478.014" cy="389.885" rx="3.49" ry="3.49"/>
+    <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1348" y="1375">
+      <tspan x="1348" y="1375"></tspan>
+    </text>
+    <ellipse style="fill: #ff00fa; fill-opacity: 0; stroke-opacity: 1; stroke-width: 2; stroke: #000000" cx="434.216" cy="504.748" rx="3.49" ry="3.49"/>
+    <ellipse style="fill: #ff00fa; fill-opacity: 0; stroke-opacity: 1; stroke-width: 2; stroke: #000000" cx="454.745" cy="450.79" rx="3.49" ry="3.49"/>
+    <ellipse style="fill: #ff00fa; fill-opacity: 0; stroke-opacity: 1; stroke-width: 2; stroke: #000000" cx="509.82" cy="453.299" rx="3.49" ry="3.49"/>
+    <ellipse style="fill: #ff00fa; fill-opacity: 0; stroke-opacity: 1; stroke-width: 2; stroke: #000000" cx="539.492" cy="504.352" rx="3.49" ry="3.49"/>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="484.262" y1="389.925" x2="492.684" y2="389.979"/>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 492.684,389.979 A 4.84234,4.84234 0 0 1 497.179,393.1"/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="497.179" y1="393.1" x2="537.185" y2="498.288"/>
+    </g>
+    <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="436.524,498.683 452.438,456.855 "/>
+    <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="457.064,444.721 475.695,395.954 "/>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="440.697" y1="504.66" x2="443.075" y2="504.628"/>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 443.075,504.628 A 1.3685,1.3685 0 0 0 444.333,503.753"/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="444.333" y1="503.753" x2="462.308" y2="457.253"/>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 462.308,457.253 A 6,6 0 0 1 467.888,453.416"/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="467.888" y1="453.416" x2="503.414" y2="453.317"/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="465.509" y1="448.015" x2="481.585" y2="404.247"/>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 481.585,404.247 A 3.22774,3.22774 0 0 1 484.615,402.133"/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="484.615" y1="402.133" x2="488.642" y2="402.133"/>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 488.642,402.133 A 2.31487,2.31487 0 0 1 490.803,403.62"/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="490.803" y1="403.62" x2="507.536" y2="447.333"/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="533.322" y1="504.353" x2="530.39" y2="504.354"/>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 530.39,504.354 A 1.68502,1.68502 0 0 1 528.815,503.267"/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="528.815" y1="503.267" x2="512.127" y2="459.369"/>
+    </g>
+  </g>
+</svg>
