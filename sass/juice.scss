@@ -6,6 +6,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   background-color: var(--secondary-color);
+  color: var(--primary-text-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -69,6 +70,7 @@ header {
   justify-content: space-evenly;
   height: 100vh;
   background-color: var(--primary-color);
+  color: var(--primary-hero-text-color);
   overflow-x: hidden;
   padding: 0 40px;
 
@@ -117,7 +119,7 @@ main {
 .toc-sticky {
   border-radius: 3px;
   border-top: 5px solid var(--primary-color);
-  background-color: white;
+  background-color: var(--secondary-color-accent);
   position: sticky;
   position: -webkit-sticky;
   position: -moz-sticky;
@@ -239,4 +241,19 @@ footer {
     display: none;
   }
 
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero {
+    background-color: var(--secondary-color-accent);
+  }
+
+  img {
+    filter: brightness(.6) contrast(0.9);
+    transition: filter .5s ease-in-out;
+  }
+  img:hover {
+    filter: brightness(0.8) contrast(0.9);
+    opacity: 1;
+  }
 }
