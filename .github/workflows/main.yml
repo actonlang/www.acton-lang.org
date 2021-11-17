@@ -14,8 +14,20 @@ jobs:
         run: |
           echo "PAGES_BRANCH=gh-pages" >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
+      - name: 'Setup mdBook'
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: 'latest'
       - name: 'Checkout'
         uses: actions/checkout@master
+      - name: 'Checkout acton repo'
+        uses: actions/checkout@master
+        with:
+          repository: 'actonlang/acton'
+          path: 'acton'
+          token: ${{ secrets.ACTBOT_PAT }}
+      - name: 'Build acton-by-example'
+        run: cd acton/docs/acton-by-example && mdbook build -d ../../../static/acton-by-example
       - name: 'Build and deploy'
         uses: shalzz/zola-deploy-action@master
         env:
