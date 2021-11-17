@@ -1,20 +1,18 @@
 on:
   push:
-    branches:
-      - main 
   pull_request:
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: "Set vars for build only if not on main"
         run: |
-          echo "PAGES_BRANCH=gh-pages" >> $GITHUB_ENV
-          echo "BUILD_ONLY=false" >> $GITHUB_ENV
+          echo "PAGES_BRANCH=test-pages" >> $GITHUB_ENV
         if: github.ref != 'refs/heads/main'
       - name: "Set vars for deploy if on main"
         run: |
-          echo "BUILD_RELEASE=1" >> $GITHUB_ENV
+          echo "PAGES_BRANCH=gh-pages" >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
       - name: 'Checkout'
         uses: actions/checkout@master
@@ -24,4 +22,3 @@ jobs:
           BUILD_DIR: .
           TOKEN: ${{ secrets.ACTBOT_PAT }}
           PAGES_BRANCH: ${{ env.PAGES_BRANCH }}
-          BUILD_ONLY: ${{ env.BUILD_ONLY }}
