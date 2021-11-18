@@ -6,4 +6,5 @@ template = "page.html"
 
 # Learn Acton
 
-Sort of limited for now, see the [Acton tutorial](https://github.com/actonlang/acton/tree/main/docs/tutorial).
+- [Acton by Example](acton-by-example)
+- [Acton tutorial](https://github.com/actonlang/acton/tree/main/docs/tutorial)
