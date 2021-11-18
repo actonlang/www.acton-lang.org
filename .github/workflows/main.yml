@@ -30,7 +30,7 @@ jobs:
         run: |
           export PATH=/.cargo/bin:$PATH
           cd acton/docs/acton-by-example
-          mdbook build -d ../../../static/acton-by-example
+          mdbook build -d ../../../static/learn/acton-by-example
       - name: 'Build and deploy'
         uses: shalzz/zola-deploy-action@master
         env:
