@@ -147,16 +147,12 @@ main {
 
 .col-lg-3 {
   flex: 0 0 auto;
-  width: 31.25%;
-}
-
-
-.col-lg-5 {
-  flex: 0 0 auto;
+  width: 30%;
+  min-width: 150px;
   margin-left: 11px;
   margin-right: 11px;
-  width: 31.25%;
 }
+
 
 footer {
   padding: 50px;
