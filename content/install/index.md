@@ -22,7 +22,8 @@ sudo apt-get install -qy acton
 
 # Mac OS X using Homebrew
 
-Acton is available as a Homebrew tap, which can be installed with:
+Acton is available as a Homebrew tap for x86_64 CPUs. Apple M1 silicon is not currently supported.
+
 ```sh
 brew install actonlang/acton/acton
 ```
@@ -34,3 +35,7 @@ There are pre-built binary release tar balls available for download for Linux
 and Mac OS X in case the above package formats are not suitable. See the guide,
 [installing Acton from a release tar ball](from-tar-ball).
 
+
+# Building from source
+
+See [building from source](from-source).
