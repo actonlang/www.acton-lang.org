@@ -10,7 +10,11 @@ Acton is available for Linux and Mac OS X.
 
 # Debian / Ubuntu
 
-Install Acton via apt repository:
+## Supported versions
+- Debian 11 / x86_64
+- Ubuntu 20.04 / x86_64
+
+## Install via apt repository:
 
 ```sh
 wget -q -O - https://apt.acton-lang.io/acton.gpg | sudo apt-key add -
@@ -20,10 +24,15 @@ sudo apt-get install -qy acton
 ```
 
 
-# Mac OS X using Homebrew
+# Mac OS X
 
-Acton is available as a Homebrew tap for x86_64 CPUs. Apple M1 silicon is not currently supported.
+## Supported versions
+- MacOS 10.5 / x86_64
+- MacOS 11 / x86_64
+- MacOS 12 / aarch64 (M1)
+  - no pre-built binary package ("bottle" in Homebrew lingo) available so it will build from source
 
+## Install via Homebrew
 ```sh
 brew install actonlang/acton/acton
 ```
