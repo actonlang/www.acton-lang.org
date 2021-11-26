@@ -41,7 +41,7 @@ header {
 .logo {
   font-family: "Alfa Slab One", serif;
   font-size: 32px;
-  color: var(--primary-text-color);
+  color: var(--nav-text-color);
   display: flex;
   align-items: center;
   margin: 0 40px;
@@ -53,6 +53,7 @@ header {
 }
 
 .nav-item {
+  color: var(--nav-text-color);
   margin: 0 10px;
   text-decoration: none;
   font-size: 18px;
@@ -245,11 +246,11 @@ footer {
   }
 
   img {
-    filter: brightness(.6) contrast(0.9);
+    filter: brightness(.8) contrast(0.9);
     transition: filter .5s ease-in-out;
   }
   img:hover {
-    filter: brightness(0.8) contrast(0.9);
+    filter: brightness(1) contrast(1);
     opacity: 1;
   }
 }
