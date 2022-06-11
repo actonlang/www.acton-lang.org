@@ -26,7 +26,7 @@ dependencies for your platform.
 
 ## Debian
 ```
-apt install gcc libprotobuf-c-dev libutf8proc-dev
+apt install gcc libprotobuf-c-dev libutf8proc-dev uuid-dev
 ```
 
 ## Mac OS X
