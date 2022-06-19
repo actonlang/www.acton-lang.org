@@ -1,0 +1,984 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="hello.html"><strong aria-hidden="true">1.</strong> Hello World</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hello/args.html"><strong aria-hidden="true">1.1.</strong> Program Arguments</a></li></ol></li><li class="chapter-item expanded "><a href="projects.html"><strong aria-hidden="true">2.</strong> Acton Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="projects/directory_structure.html"><strong aria-hidden="true">2.1.</strong> Directory structure</a></li></ol></li><li class="chapter-item expanded "><a href="primitives.html"><strong aria-hidden="true">3.</strong> Variable data types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="primitives/scalars.html"><strong aria-hidden="true">3.1.</strong> Scalars</a></li><li class="chapter-item expanded "><a href="primitives/lists.html"><strong aria-hidden="true">3.2.</strong> Lists</a></li><li class="chapter-item expanded "><a href="primitives/dicts.html"><strong aria-hidden="true">3.3.</strong> Dictionaries</a></li><li class="chapter-item expanded "><a href="primitives/tuples.html"><strong aria-hidden="true">3.4.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="primitives/sets.html"><strong aria-hidden="true">3.5.</strong> Sets</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">4.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="functions/actor_methods.html"><strong aria-hidden="true">4.1.</strong> Actor methods</a></li><li class="chapter-item expanded "><a href="functions/higher_order.html"><strong aria-hidden="true">4.2.</strong> Higher order functions</a></li></ol></li><li class="chapter-item expanded "><a href="actors.html"><strong aria-hidden="true">5.</strong> Actors</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="actors/root.html"><strong aria-hidden="true">5.1.</strong> Root Actor</a></li><li class="chapter-item expanded "><a href="actors/lifetime.html"><strong aria-hidden="true">5.2.</strong> Lifetime</a></li><li class="chapter-item expanded "><a href="actors/attributes.html"><strong aria-hidden="true">5.3.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="actors/concurrency.html"><strong aria-hidden="true">5.4.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="actors/sync_method_call.html"><strong aria-hidden="true">5.5.</strong> Sync Method calls</a></li></ol></li><li class="chapter-item expanded "><a href="control_flow.html"><strong aria-hidden="true">6.</strong> Control flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="control_flow/if_else.html"><strong aria-hidden="true">6.1.</strong> if / elif / else</a></li><li class="chapter-item expanded "><a href="control_flow/for.html"><strong aria-hidden="true">6.2.</strong> for</a></li><li class="chapter-item expanded "><a href="control_flow/while.html"><strong aria-hidden="true">6.3.</strong> while</a></li></ol></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">7.</strong> Types</a></li><li class="chapter-item expanded "><a href="modules.html"><strong aria-hidden="true">8.</strong> Modules</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style='width:100%; height:208px;'><style type="text/css">svg { width: 100% !important; }</style><svg class="bob" font-family="arial" font-size="14" height="208" width="672" xmlns="http://www.w3.org/2000/svg"><defs><marker id="triangle" markerHeight="8" markerWidth="8" orient="auto" refX="4" refY="2" viewBox="0 0 8 4"><polygon class="fg_fill" points="0,0 0,4 8,2 0,0"/></marker><marker id="clear_triangle" markerHeight="10" markerWidth="10" orient="auto" refX="1" refY="7" viewBox="0 0 20 14"><polygon class="bg_fill" points="2,2 2,12 18,7 2,2"/></marker><marker id="circle" markerHeight="5" markerWidth="5" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><circle class="fg_fill" cx="10" cy="10" r="8"/></marker><marker id="square" markerHeight="5" markerWidth="5" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><rect class="fg_fill" height="20" width="20" x="0" y="0"/></marker><marker id="open_circle" markerHeight="10" markerWidth="10" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><circle class="bg_fill" cx="10" cy="10" r="4"/></marker><marker id="big_open_circle" markerHeight="20" markerWidth="20" orient="auto" refX="20" refY="20" viewBox="0 0 40 40"><circle class="bg_fill" cx="20" cy="20" r="6"/></marker></defs><style type="text/css">rect.backdrop {    fill: transparent;}text{    fill: var(--fg);}circle {    fill: none;    stroke: var(--fg);    stroke-width: 2;}line {    stroke: var(--fg);    stroke-width: 2;    stroke-opacity: 1;    fill-opacity: 1;    stroke-linecap: round;    stroke-linejoin: miter;}path {    fill: none;    stroke: var(--fg);    stroke-width: 2;    stroke-opacity: 1;    fill-opacity: 1;    stroke-linecap: round;    stroke-linejoin: miter;}line.dashed {    stroke-dasharray: 5;}.fg_fill {    fill: var(--fg);}.bg_fill {    fill: transparent;    stroke: var(--fg);    stroke-width: 2;}tspan.head{    fill: none;    stroke: none;}    </style><rect class="backdrop" height="208" width="672" x="0" y="0"/><g><line x1="56" x2="64" y1="168" y2="168"/></g><g><line x1="64" x2="72" y1="166" y2="166"/></g><g><line x1="64" x2="72" y1="170" y2="170"/></g><g><line x1="72" x2="80" y1="168" y2="168"/></g><g><line x1="80" x2="88" y1="166" y2="166"/></g><g><line x1="80" x2="88" y1="170" y2="170"/></g><g><line x1="88" x2="112" y1="136" y2="136"/><path d="M 86 132 A 4 4 0 0 0 88 136"/><path d="M 112 136 A 8 8 0 0 0 118 132"/></g><g><line x1="88" x2="96" y1="168" y2="168"/></g><g><line x1="96" x2="104" y1="166" y2="166"/></g><g><line x1="96" x2="104" y1="170" y2="170"/></g><g><line x1="104" x2="112" y1="168" y2="168"/></g><g><line x1="112" x2="120" y1="166" y2="166"/></g><g><line x1="112" x2="120" y1="170" y2="170"/></g><g><line x1="120" x2="128" y1="168" y2="168"/></g><g><line x1="128" x2="136" y1="166" y2="166"/></g><g><line x1="128" x2="136" y1="170" y2="170"/></g><g><line x1="130" x2="118" y1="108" y2="132"/><path d="M 136 104 A 8 8 0 0 0 130 108"/></g><g><line x1="136" x2="192" y1="104" y2="104"/><path d="M 198 108 A 8 8 0 0 0 192 104"/></g><g><line x1="136" x2="144" y1="168" y2="168"/></g><g><line x1="144" x2="152" y1="166" y2="166"/></g><g><line x1="144" x2="152" y1="170" y2="170"/></g><g><line x1="146" x2="86" y1="12" y2="132"/><path d="M 152 8 A 8 8 0 0 0 146 12"/></g><g><line x1="152" x2="176" y1="8" y2="8"/><path d="M 182 12 A 8 8 0 0 0 176 8"/></g><g><line x1="152" x2="176" y1="72" y2="72"/><path d="M 150 68 A 4 4 0 0 0 152 72"/><path d="M 176 72 A 4 4 0 0 0 178 68"/></g><g><line x1="152" x2="160" y1="168" y2="168"/></g><g><line x1="160" x2="150" y1="48" y2="68"/><line x1="160" x2="168" y1="48" y2="48"/><line x1="168" x2="178" y1="48" y2="68"/></g><g><line x1="160" x2="168" y1="166" y2="166"/></g><g><line x1="160" x2="168" y1="170" y2="170"/></g><g><line x1="168" x2="176" y1="168" y2="168"/></g><g><line x1="176" x2="184" y1="166" y2="166"/></g><g><line x1="176" x2="184" y1="170" y2="170"/></g><g><line x1="182" x2="242" y1="12" y2="132"/><path d="M 240 136 A 4 4 0 0 0 242 132"/></g><g><line x1="184" x2="192" y1="168" y2="168"/></g><g><line x1="192" x2="200" y1="166" y2="166"/></g><g><line x1="192" x2="200" y1="170" y2="170"/></g><g><line x1="198" x2="210" y1="108" y2="132"/><path d="M 210 132 A 8 8 0 0 0 216 136"/></g><g><line x1="200" x2="208" y1="168" y2="168"/></g><g><line x1="208" x2="216" y1="166" y2="166"/></g><g><line x1="208" x2="216" y1="170" y2="170"/></g><g><line x1="216" x2="240" y1="136" y2="136"/></g><g><line x1="216" x2="224" y1="168" y2="168"/></g><g><line x1="224" x2="232" y1="166" y2="166"/></g><g><line x1="224" x2="232" y1="170" y2="170"/></g><g><line x1="232" x2="240" y1="168" y2="168"/></g><g><line x1="240" x2="248" y1="166" y2="166"/></g><g><line x1="240" x2="248" y1="170" y2="170"/></g><g><line x1="248" x2="256" y1="168" y2="168"/></g><g><line x1="256" x2="264" y1="166" y2="166"/></g><g><line x1="256" x2="264" y1="170" y2="170"/></g><g><line x1="264" x2="282" y1="96" y2="132"/><path d="M 264 80 A 16 16 0 0 0 264 96"/><path d="M 282 132 A 8 8 0 0 0 288 136"/></g><g><line x1="264" x2="272" y1="168" y2="168"/></g><g><line x1="272" x2="280" y1="166" y2="166"/></g><g><line x1="272" x2="280" y1="170" y2="170"/></g><g><line x1="280" x2="290" y1="96" y2="116"/><path d="M 280 80 A 16 16 0 0 0 280 96"/><path d="M 290 116 A 8 8 0 0 0 296 120"/></g><g><line x1="280" x2="288" y1="168" y2="168"/></g><g><line x1="282" x2="264" y1="44" y2="80"/><path d="M 288 40 A 8 8 0 0 0 282 44"/></g><g><line x1="288" x2="320" y1="40" y2="40"/><path d="M 326 44 A 8 8 0 0 0 320 40"/></g><g><line x1="288" x2="320" y1="136" y2="136"/><path d="M 320 136 A 8 8 0 0 0 326 132"/></g><g><line x1="288" x2="296" y1="166" y2="166"/></g><g><line x1="288" x2="296" y1="170" y2="170"/></g><g><line x1="290" x2="280" y1="60" y2="80"/><path d="M 296 56 A 8 8 0 0 0 290 60"/></g><g><line x1="296" x2="312" y1="56" y2="56"/><path d="M 318 60 A 8 8 0 0 0 312 56"/></g><g><line x1="296" x2="312" y1="120" y2="120"/><path d="M 312 120 A 8 8 0 0 0 318 116"/></g><g><line x1="296" x2="304" y1="168" y2="168"/></g><g><line x1="304" x2="312" y1="166" y2="166"/></g><g><line x1="304" x2="312" y1="170" y2="170"/></g><g><line x1="312" x2="320" y1="168" y2="168"/></g><g><line x1="318" x2="320" y1="60" y2="64"/><line x1="320" x2="336" y1="64" y2="64"/><line x1="326" x2="336" y1="44" y2="64"/></g><g><line x1="318" x2="320" y1="116" y2="112"/><line x1="320" x2="336" y1="112" y2="112"/><line x1="326" x2="336" y1="132" y2="112"/></g><g><line x1="320" x2="328" y1="166" y2="166"/></g><g><line x1="320" x2="328" y1="170" y2="170"/></g><g><line x1="328" x2="336" y1="168" y2="168"/></g><g><line x1="336" x2="344" y1="166" y2="166"/></g><g><line x1="336" x2="344" y1="170" y2="170"/></g><g><line x1="344" x2="352" y1="168" y2="168"/></g><g><line x1="352" x2="360" y1="166" y2="166"/></g><g><line x1="352" x2="360" y1="170" y2="170"/></g><g><line x1="356" x2="356" y1="44" y2="52"/><path d="M 356 52 A 4 4 0 0 0 360 56"/><path d="M 360 40 A 4 4 0 0 0 356 44"/></g><g><line x1="360" x2="376" y1="40" y2="40"/><path d="M 376 40 A 4 4 0 0 0 380 36"/></g><g><line x1="360" x2="376" y1="56" y2="56"/><path d="M 380 60 A 4 4 0 0 0 376 56"/></g><g><line x1="360" x2="368" y1="168" y2="168"/></g><g><line x1="368" x2="376" y1="166" y2="166"/></g><g><line x1="368" x2="376" y1="170" y2="170"/></g><g><line x1="376" x2="384" y1="168" y2="168"/></g><g><line x1="380" x2="380" y1="12" y2="36"/><path d="M 384 8 A 4 4 0 0 0 380 12"/></g><g><line x1="380" x2="380" y1="60" y2="120"/><line x1="380" x2="386" y1="120" y2="132"/><path d="M 386 132 A 8 8 0 0 0 392 136"/></g><g><line x1="384" x2="392" y1="8" y2="8"/><path d="M 396 12 A 4 4 0 0 0 392 8"/></g><g><line x1="384" x2="392" y1="166" y2="166"/></g><g><line x1="384" x2="392" y1="170" y2="170"/></g><g><line x1="392" x2="416" y1="136" y2="136"/><path d="M 416 136 A 8 8 0 0 0 422 132"/></g><g><line x1="392" x2="400" y1="168" y2="168"/></g><g><line x1="396" x2="396" y1="12" y2="36"/><path d="M 396 36 A 4 4 0 0 0 400 40"/></g><g><line x1="396" x2="396" y1="60" y2="116"/><path d="M 396 116 A 4 4 0 0 0 400 120"/><path d="M 400 56 A 4 4 0 0 0 396 60"/></g><g><line x1="400" x2="416" y1="40" y2="40"/><path d="M 420 44 A 4 4 0 0 0 416 40"/></g><g><line x1="400" x2="416" y1="56" y2="56"/><path d="M 416 56 A 4 4 0 0 0 420 52"/></g><g><line x1="400" x2="408" y1="120" y2="120"/><path d="M 408 120 A 8 8 0 0 0 414 116"/></g><g><line x1="400" x2="408" y1="166" y2="166"/></g><g><line x1="400" x2="408" y1="170" y2="170"/></g><g><line x1="408" x2="416" y1="168" y2="168"/></g><g><line x1="414" x2="416" y1="116" y2="112"/><line x1="416" x2="432" y1="112" y2="112"/><line x1="422" x2="432" y1="132" y2="112"/></g><g><line x1="416" x2="424" y1="166" y2="166"/></g><g><line x1="416" x2="424" y1="170" y2="170"/></g><g><line x1="420" x2="420" y1="44" y2="52"/></g><g><line x1="424" x2="432" y1="168" y2="168"/></g><g><line x1="432" x2="440" y1="166" y2="166"/></g><g><line x1="432" x2="440" y1="170" y2="170"/></g><g><line x1="440" x2="448" y1="168" y2="168"/></g><g><line x1="448" x2="456" y1="166" y2="166"/></g><g><line x1="448" x2="456" y1="170" y2="170"/></g><g><line x1="456" x2="474" y1="96" y2="132"/><path d="M 456 80 A 16 16 0 0 0 456 96"/><path d="M 474 132 A 8 8 0 0 0 480 136"/></g><g><line x1="456" x2="464" y1="168" y2="168"/></g><g><line x1="464" x2="472" y1="166" y2="166"/></g><g><line x1="464" x2="472" y1="170" y2="170"/></g><g><line x1="472" x2="482" y1="96" y2="116"/><path d="M 472 80 A 16 16 0 0 0 472 96"/><path d="M 482 116 A 8 8 0 0 0 488 120"/></g><g><line x1="472" x2="480" y1="168" y2="168"/></g><g><line x1="474" x2="456" y1="44" y2="80"/><path d="M 480 40 A 8 8 0 0 0 474 44"/></g><g><line x1="480" x2="512" y1="40" y2="40"/><path d="M 518 44 A 8 8 0 0 0 512 40"/></g><g><line x1="480" x2="512" y1="136" y2="136"/><path d="M 512 136 A 8 8 0 0 0 518 132"/></g><g><line x1="480" x2="488" y1="166" y2="166"/></g><g><line x1="480" x2="488" y1="170" y2="170"/></g><g><line x1="482" x2="472" y1="60" y2="80"/><path d="M 488 56 A 8 8 0 0 0 482 60"/></g><g><line x1="488" x2="504" y1="56" y2="56"/><path d="M 510 60 A 8 8 0 0 0 504 56"/></g><g><line x1="488" x2="504" y1="120" y2="120"/><path d="M 504 120 A 8 8 0 0 0 510 116"/></g><g><line x1="488" x2="496" y1="168" y2="168"/></g><g><line x1="496" x2="504" y1="166" y2="166"/></g><g><line x1="496" x2="504" y1="170" y2="170"/></g><g><line x1="504" x2="512" y1="168" y2="168"/></g><g><line x1="510" x2="520" y1="60" y2="80"/><path d="M 520 96 A 16 16 0 0 0 520 80"/></g><g><line x1="510" x2="520" y1="116" y2="96"/></g><g><line x1="512" x2="520" y1="166" y2="166"/></g><g><line x1="512" x2="520" y1="170" y2="170"/></g><g><line x1="518" x2="536" y1="44" y2="80"/><path d="M 536 96 A 16 16 0 0 0 536 80"/></g><g><line x1="518" x2="536" y1="132" y2="96"/></g><g><line x1="520" x2="528" y1="168" y2="168"/></g><g><line x1="528" x2="536" y1="166" y2="166"/></g><g><line x1="528" x2="536" y1="170" y2="170"/></g><g><line x1="536" x2="544" y1="168" y2="168"/></g><g><line x1="544" x2="552" y1="166" y2="166"/></g><g><line x1="544" x2="552" y1="170" y2="170"/></g><g><line x1="552" x2="560" y1="168" y2="168"/></g><g><line x1="560" x2="568" y1="166" y2="166"/></g><g><line x1="560" x2="568" y1="170" y2="170"/></g><g><line x1="564" x2="564" y1="44" y2="132"/><path d="M 564 132 A 4 4 0 0 0 568 136"/><path d="M 568 40 A 4 4 0 0 0 564 44"/></g><g><line x1="568" x2="576" y1="40" y2="40"/><path d="M 580 44 A 4 4 0 0 0 576 40"/></g><g><line x1="568" x2="576" y1="136" y2="136"/><path d="M 576 136 A 4 4 0 0 0 580 132"/></g><g><line x1="568" x2="576" y1="168" y2="168"/></g><g><line x1="576" x2="584" y1="166" y2="166"/></g><g><line x1="576" x2="584" y1="170" y2="170"/></g><g><line x1="580" x2="584" y1="88" y2="80"/><line x1="580" x2="580" y1="96" y2="88"/><line x1="580" x2="580" y1="96" y2="132"/><line x1="594" x2="584" y1="60" y2="80"/><path d="M 600 56 A 8 8 0 0 0 594 60"/></g><g><line x1="584" x2="592" y1="168" y2="168"/></g><g><line x1="586" x2="576" y1="44" y2="64"/><path d="M 592 40 A 8 8 0 0 0 586 44"/></g><g><line x1="592" x2="632" y1="40" y2="40"/><path d="M 638 44 A 8 8 0 0 0 632 40"/></g><g><line x1="592" x2="600" y1="166" y2="166"/></g><g><line x1="592" x2="600" y1="170" y2="170"/></g><g><line x1="600" x2="624" y1="56" y2="56"/><path d="M 628 60 A 4 4 0 0 0 624 56"/></g><g><line x1="600" x2="608" y1="168" y2="168"/></g><g><line x1="608" x2="616" y1="166" y2="166"/></g><g><line x1="608" x2="616" y1="170" y2="170"/></g><g><line x1="616" x2="624" y1="168" y2="168"/></g><g><line x1="624" x2="632" y1="166" y2="166"/></g><g><line x1="624" x2="632" y1="170" y2="170"/></g><g><line x1="628" x2="628" y1="60" y2="132"/><path d="M 628 132 A 4 4 0 0 0 632 136"/></g><g><line x1="632" x2="640" y1="136" y2="136"/><path d="M 640 136 A 4 4 0 0 0 644 132"/></g><g><line x1="632" x2="640" y1="168" y2="168"/></g><g><line x1="638" x2="644" y1="44" y2="56"/><line x1="644" x2="644" y1="56" y2="132"/></g><g><line x1="640" x2="648" y1="166" y2="166"/></g><g><line x1="640" x2="648" y1="170" y2="170"/></g><g><line x1="648" x2="656" y1="168" y2="168"/></g><g><line x1="656" x2="664" y1="166" y2="166"/></g><g><line x1="656" x2="664" y1="170" y2="170"/></g><g><line x1="664" x2="672" y1="168" y2="168"/></g><g><text x="313" y="204">by</text></g><g><text x="337" y="204">Example</text></g></svg></div>
+<p><a href="https://www.acton-lang.org/">Acton</a> is a general purpose programming language designed to be useful for a wide range of applications. It provides a persistent programming environment, alleviating the need for manually persisting program state and can run in a distributed mode for fault tolerance and scaling.</p>
+<p>Acton by Example is a collection of runnable examples that illustrate various Acton concepts. Follow along by <a href="https://www.acton-lang.org/install">installing Acton locally</a>.</p>
+<p>Some previous experience with programming languages is probably helpful.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World</a></h1>
+<p>We follow tradition and introduce Acton with the following minimal example</p>
+<p>Source:</p>
+<pre><code class="language-python"># This is a comment, which is ignored by the compiler.
+
+# This is the main actor, which we will tell the compiler to use as the root
+# actor by setting `--root main` when compiling the program
+actor main(env):
+    print(&quot;Hello World!&quot;)
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc hello.act --root main
+./hello
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Hello World!
+</code></pre>
+<h2 id="description"><a class="header" href="#description">Description</a></h2>
+<p>An executing Acton program consists of a collection of interacting actors. Here we have just a single actor, which has been given the name <code>main</code>. By convention, the <em>root actor</em> of a system takes a parameter <code>env</code>, which represents the execution environment. <code>env</code> has methods for accessing command line arguments, reading from and writing to keyboard/screen and files, working with sockets etc. When the program is executed, the run time system creates the root actor, hands it the <code>env</code> and runs its initialization code, which here is just a single command, to print a message on screen.</p>
+<p>The careful reader may ask why <code>print</code> is not a method of <code>env</code>. The answer is that we see <code>print</code> as such a ubiquitous function that it should be possible to use without having to thread an <code>env</code> parameter to all sub-units.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="program-arguments"><a class="header" href="#program-arguments">Program Arguments</a></h1>
+<p>Program arguments are available as the attribute <code>argv</code> on the <code>env</code> actor. <code>env.argv</code> is a list where the first element contains the name of the shell command and the second element being the first proper argument.</p>
+<p>We can rewrite our program to print a user supplied name to greet rather than the world.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    print(&quot;Hello &quot; + env.argv[1] + &quot;!&quot;)
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run, with argument:</p>
+<pre><code class="language-sh">actonc hello.act --root main
+./hello Johan
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Hello Johan!
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="acton-projects"><a class="header" href="#acton-projects">Acton Projects</a></h1>
+<p>Besides compiling individual <code>.act</code> files, it is possible to organize Acton source files into a an <strong>Acton Project</strong>, which simplifies many common tasks.</p>
+<p>Use <code>actonc</code> to create a project called <code>foo</code>:</p>
+<pre><code class="language-sh">actonc new foo
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Created project foo
+Enter your new project directory with:
+  cd foo
+Compile:
+  actonc build --root foo.main
+Run:
+  ./out/rel/bin/foo
+</code></pre>
+<h2 id="description-1"><a class="header" href="#description-1">Description</a></h2>
+<p>Use <code>actonc build</code> to build a project. The current working directory must be the project directory or a sub-directory to the project directory. <code>actonc</code> will discover all source files and compile them according to dependency order.</p>
+<p>Specify a root actor with a qualified name, like <code>foo.main</code>, to produce an executable.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="project-directory-structure"><a class="header" href="#project-directory-structure">Project directory structure</a></h1>
+<p>The directory structure of an Acton project follows a certain convention.</p>
+<pre><code>.
+├── Acton.toml
+├── build.sh
+├── out
+│   ├── dev
+│   │   ├── bin
+│   │   │   └── foo
+│   │   └── lib
+│   │       ├── foo.o
+│   │       └── libActonProject.a
+│   ├── rel
+│   │   ├── bin
+│   │   │   └── foo
+│   │   └── lib
+│   │       ├── foo.o
+│   │       └── libActonProject.a
+│   └── types
+│       ├── foo.c
+│       ├── foo.h
+│       ├── foo.root.c
+│       └── foo.ty
+├── README.org
+└── src
+    └── foo.act
+</code></pre>
+<p>An <code>Acton.toml</code> file must be present in the project root, otherwise it is not
+considered a project.</p>
+<p><code>src/</code> is used for all source files of the project. Use subdirectories to create
+hierarchies of modules, for example <code>src/a/b.act</code> is imported in an Acton
+program as <code>import a.b</code>.</p>
+<p>Output goes into <code>out/</code> with subdirectories <code>out/rel/</code> and <code>out/dev</code> for release
+mode and development mode respectively. A project archive file
+(<code>libActonProject.a</code>) contains the compiled output of all modules, but is
+considered an internal implementation detail. Don't touch it.</p>
+<p>Executable binaries go in <code>out/dev/bin</code> and <code>out/rel/bin</code> respectively. The name
+of the binary is the name of the module which contains the specified root actor.
+In the example above, the root actor is <code>foo.main</code>, i.e. actor <code>main</code> in the
+module <code>foo</code> and consequently, the executable name is <code>foo</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variable-data-types"><a class="header" href="#variable-data-types">Variable data types</a></h1>
+<p>Acton supports a plethora of primitive data types.</p>
+<ul>
+<li><code>int</code> integers, like <code>1</code>, <code>2</code>, <code>123512</code> or <code>-6542</code></li>
+<li><code>float</code> floats, like <code>1.3</code> or <code>-382.31</code></li>
+<li><code>bool</code> boolean, like <code>True</code> or <code>False</code></li>
+<li><code>str</code> strings, like <code>foo</code>
+<ul>
+<li>strings support unicode characters</li>
+</ul>
+</li>
+<li><a href="primitives/lists.html">lists</a> like <code>[1, 2, 3]</code> or <code>[&quot;foo&quot;, &quot;bar&quot;]</code></li>
+<li><a href="primitives/dicts.html">dictionaries</a> like <code>{&quot;foo&quot;: 1, &quot;bar&quot;: 3}</code></li>
+<li><a href="primitives/tuples.html">tuples</a> like <code>(1, &quot;foo&quot;)</code></li>
+<li><a href="primitives/sets.html">sets</a> like <code>{&quot;foo&quot;, &quot;bar&quot;}</code></li>
+</ul>
+<p>In Acton, mutable state can only be held by actors. You can define a global variable at the top level in your program, but it becomes constant. Assigning to the same name in an actor will overshadow the global variable.</p>
+<p>Source:</p>
+<pre><code class="language-python">foo = 3    # this is a global constant and cannot be changed
+
+def printfoo():
+    print(&quot;global foo:&quot;, foo)  # this will print the global foo
+
+actor main(env):
+    # this sets a local variable with the name foo, shadowing the global constant foo
+    foo = 4
+    print(&quot;local foo, shadowing the global foo:&quot;, foo)
+
+    printfoo()
+
+    await async env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">local foo, shadowing the global foo: 4
+global foo: 3
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="scalars"><a class="header" href="#scalars">Scalars</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    i = 42       # an integer
+    f = 13.37    # a float
+    
+    print(i)
+    print(f)
+
+    s = &quot;Hello&quot;  # a string
+    print(s)
+    # a slice of a string
+    print(s[0:1])
+    
+    b = True     # a boolean
+    print(b)
+    
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc scalars.act --root main
+./scalars
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">42
+13.37
+Hello
+H
+True
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lists"><a class="header" href="#lists">Lists</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    l = [&quot;foo&quot;, &quot;foo&quot;]
+    l.append(&quot;bar&quot;)
+    l.insert(0, &quot;Firsty&quot;)
+    l.append(&quot;banana&quot;)
+
+    # Indexing starts at 0
+    print(&quot;First item: &quot; + l[0])
+    # Negative index counts from the end
+    print(&quot;Last item : &quot; + l[-1])
+
+    # Note how we need to explicitly cast the list to str before printing
+    print(&quot;List items: &quot; + str(l))
+    # We can take a slice of a list with [start:stop] where the start index is
+    # inclusive but the stop index is exclusive, just like in Python.
+    # A slice of a list is also a list, so cast to str.
+    print(&quot;A slice   : &quot; + str(l[2:4]))
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc lists.act --root main
+./lists
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">First item: Firsty
+Last item : banana
+List items: [Firsty, foo, foo, bar, banana]
+A slice   : [foo, bar]
+</code></pre>
+<ul>
+<li>All items in a list must be of the same type
+<ul>
+<li>It is not allowed to mix, like <code>[&quot;foo&quot;, 1]</code> leads to a compiler error</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dictionaries"><a class="header" href="#dictionaries">Dictionaries</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    d = {&quot;foo&quot;: 1, &quot;bar&quot;: 2}
+    d[&quot;cookie&quot;] = 3
+
+    print(&quot;Dict: &quot; + str(d))
+    print(&quot;len : &quot; + str(len(d)))
+    print(&quot;item foo: &quot; + str(d[&quot;foo&quot;]))
+    
+    d[&quot;bar&quot;] = 42
+    del d[&quot;foo&quot;]
+    print(&quot;Dict: &quot; + str(d))
+    
+    print(&quot;Dict keys: &quot; + str(list(d.keys())))
+    print(&quot;Dict values: &quot; + str(list(d.values())))
+
+    print(&quot;Dict items:&quot;)
+    for k, v in d.items():
+        print(&quot;  dict key &quot; + k + &quot;=&quot; + str(v))
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc dicts.act --root main
+./dicts
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Dict: {foo:1, bar:2, cookie:3}
+len : 3
+item foo: 1
+Dict: {bar:42, cookie:3}
+Dict keys: [bar, cookie]
+Dict values: [42, 3]
+Dict items:
+  dict key bar=42
+  dict key cookie=3
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuples"><a class="header" href="#tuples">Tuples</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    # Items in a tuple can be of different types
+    t = (&quot;foo&quot;, 42)
+    # Items are accessed liked attributes on a object (this is so we can find 
+    # out type of items at compile time).
+    print(t)
+    print(t.0)
+    print(t.1)
+    
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc sets.act --root main
+./sets
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">(foo, 42)
+foo
+42
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sets"><a class="header" href="#sets">Sets</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    s = {&quot;foo&quot;, &quot;foo&quot;}
+    print(s)
+    s.add(&quot;bar&quot;)
+    print(s)
+    print(len(s))
+    print(s)
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc sets.act --root main
+./sets
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">{foo}
+{bar, foo}
+2
+{bar, foo}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>Functions are declared using the <code>def</code> keyword.</p>
+<p>Use <code>return foo</code> to return variable <code>foo</code>. If no <code>return</code> keyword is used or a lone <code>return</code> without argument is given, the function will return <code>None</code>.</p>
+<p>Source:</p>
+<pre><code class="language-python">def multiply(a, b):
+    print(&quot;Multiplying&quot;, a, &quot;with&quot;, b)
+    return a*b
+    
+actor main(env):
+    result = multiply(3, 4)
+    print(&quot;Result:&quot;, result)
+    await async env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Multiplying 3 with 4
+Result: 12
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actor-methods"><a class="header" href="#actor-methods">Actor methods</a></h1>
+<p>Actor methods are declared under an <code>actor</code> using the <code>def</code> keyword.</p>
+<p>An actor method runs in the context of the actor and can access its private state. As Actors are sequential processes, calling other methods on the local actor or any function is going to be run sequentially.</p>
+<p>Calling an actor method on the local actor can be done simply by calling it by its name, without any prefix such as <code>self.</code>.</p>
+<p>All actor methods are public. Call a method on another actor by calling <code>actor_name.method_name()</code>. Calling methods on other actors can be done <a href="functions//actors/sync_method_call.html">synchronously</a> or <a href="functions//actors/async_method_call.html">asynchronously</a>.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+def multiply(a, b):
+    print(&quot;Multiplying&quot;, a, &quot;with&quot;, b)
+    return a*b
+    
+actor main(env):
+    var secret = 42
+
+    def compute(a):
+        print(&quot;Computing result based on our secret&quot;, secret)
+        res = multiply(a, secret)
+        return res
+
+    result = compute(3)
+    print(&quot;Result:&quot;, result)
+    await async env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Computing result based on our secret 42
+Multiplying 3 with 42
+Result: 126
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="higher-order-functions"><a class="header" href="#higher-order-functions">Higher order functions</a></h1>
+<p>Acton supports higher order functions which means you can pass a function as an argument to another function.</p>
+<p>Source:</p>
+<pre><code class="language-python">def multiply_with_3(a):
+    print(&quot;Multiplying with 3&quot;)
+    return 3*a
+
+def multiply_with_42(a):
+    print(&quot;Multiplying with 42&quot;)
+    return 42*a
+
+def compute(a, fun):
+    &quot;&quot;&quot;Compute value from a using function fun&quot;&quot;&quot;
+    return fun(a)
+    
+actor main(env):
+    print( compute(7, multiply_with_3) )
+    print( compute(7, multiply_with_42) )
+    await async env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Multiplying with 3
+21
+Multiplying with 42
+294
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actors"><a class="header" href="#actors">Actors</a></h1>
+<p><strong>Actors</strong> is a key concept in Acton. Each actor is a small sequential process with its own private state. Actors communicate with each other through messages, in practice by calling methods on other actors or reading their attributes.</p>
+<p>Source:</p>
+<pre><code class="language-python"># An actor definition
+actor Act(name):
+
+    # Top level code in an actor runs when initializing an actor instance, like
+    # __init__() in Python.
+    print(&quot;Starting up actor &quot; + name)
+    
+    def hello():
+        # We can directly access actor arguments, like `name`
+        print(&quot;Hello world from &quot; + name)
+        # TODO: remove 'return True' as it should not be necessary, but with the
+        # default (returning None), we get a segfault when we do await async on 
+        # this method.
+        return True
+
+actor main(env):
+    # Create an actor instance a of Act
+    a = Act(&quot;FOO&quot;)
+    # Call the actor method hello
+    await async a.hello()
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc actors.act --root main
+./actors
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Starting up actor FOO
+Hello world from FOO
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="root-actor"><a class="header" href="#root-actor">Root Actor</a></h1>
+<p>Like C has a main() function, Acton has a root actor. To compile a binary executable, the root actor must be specified using <code>--root</code> when invoking <code>actonc</code>. While the convention is to call the root actor <code>main</code>, you are free to name it anything.</p>
+<pre><code class="language-sh">actonc --root main myprogram.act
+</code></pre>
+<p>A normal Acton program consists of many actors that are structured in a hierarchical tree. The root actor is at the root of the tree and is responsible for starting all other actors directly or indirectly. The Acton Run Time System (RTS) will bootstrap the root actor.</p>
+<div style='width:100%; height:256px;'><style type="text/css">svg { width: 100% !important; }</style><svg class="bob" font-family="arial" font-size="14" height="256" width="312" xmlns="http://www.w3.org/2000/svg"><defs><marker id="triangle" markerHeight="8" markerWidth="8" orient="auto" refX="4" refY="2" viewBox="0 0 8 4"><polygon class="fg_fill" points="0,0 0,4 8,2 0,0"/></marker><marker id="clear_triangle" markerHeight="10" markerWidth="10" orient="auto" refX="1" refY="7" viewBox="0 0 20 14"><polygon class="bg_fill" points="2,2 2,12 18,7 2,2"/></marker><marker id="circle" markerHeight="5" markerWidth="5" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><circle class="fg_fill" cx="10" cy="10" r="8"/></marker><marker id="square" markerHeight="5" markerWidth="5" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><rect class="fg_fill" height="20" width="20" x="0" y="0"/></marker><marker id="open_circle" markerHeight="10" markerWidth="10" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><circle class="bg_fill" cx="10" cy="10" r="4"/></marker><marker id="big_open_circle" markerHeight="20" markerWidth="20" orient="auto" refX="20" refY="20" viewBox="0 0 40 40"><circle class="bg_fill" cx="20" cy="20" r="6"/></marker></defs><style type="text/css">rect.backdrop {    fill: transparent;}text{    fill: var(--fg);}circle {    fill: none;    stroke: var(--fg);    stroke-width: 2;}line {    stroke: var(--fg);    stroke-width: 2;    stroke-opacity: 1;    fill-opacity: 1;    stroke-linecap: round;    stroke-linejoin: miter;}path {    fill: none;    stroke: var(--fg);    stroke-width: 2;    stroke-opacity: 1;    fill-opacity: 1;    stroke-linecap: round;    stroke-linejoin: miter;}line.dashed {    stroke-dasharray: 5;}.fg_fill {    fill: var(--fg);}.bg_fill {    fill: transparent;    stroke: var(--fg);    stroke-width: 2;}tspan.head{    fill: none;    stroke: none;}    </style><rect class="backdrop" height="256" width="312" x="0" y="0"/><g><line marker-end="url(#triangle)" x1="72" x2="50" y1="144" y2="188"/></g><g><line marker-end="url(#triangle)" x1="88" x2="110" y1="144" y2="188"/></g><g><line x1="112" x2="114" y1="32" y2="36"/><path d="M 112 16 A 16 16 0 0 0 112 32"/><path d="M 114 36 A 8 8 0 0 0 120 40"/></g><g><line marker-end="url(#triangle)" x1="112" x2="90" y1="48" y2="92"/></g><g><line x1="114" x2="112" y1="12" y2="16"/><path d="M 120 8 A 8 8 0 0 0 114 12"/></g><g><line x1="120" x2="152" y1="8" y2="8"/><path d="M 158 12 A 8 8 0 0 0 152 8"/></g><g><line x1="120" x2="152" y1="40" y2="40"/><path d="M 152 40 A 8 8 0 0 0 158 36"/></g><g><line x1="158" x2="160" y1="12" y2="16"/><path d="M 160 32 A 16 16 0 0 0 160 16"/></g><g><line x1="158" x2="160" y1="36" y2="32"/></g><g><line marker-end="url(#triangle)" x1="160" x2="182" y1="48" y2="92"/></g><g><line x1="180" x2="180" y1="144" y2="192"/><line marker-end="url(#triangle)" x1="180" x2="180" y1="192" y2="204"/></g><g><line x1="200" x2="224" y1="144" y2="192"/><line marker-end="url(#triangle)" x1="224" x2="230" y1="192" y2="204"/></g><g><line x1="208" x2="236" y1="120" y2="120"/><line x1="236" x2="248" y1="120" y2="144"/><line x1="248" x2="272" y1="144" y2="192"/><line marker-end="url(#triangle)" x1="272" x2="278" y1="192" y2="204"/></g><g><text x="41" y="220">1</text></g><g><text x="81" y="124">A</text></g><g><text x="113" y="220">2</text></g><g><text x="121" y="28">root</text></g><g><text x="177" y="236">3</text></g><g><text x="185" y="124">B</text></g><g><text x="233" y="236">4</text></g><g><text x="289" y="236">5</text></g><g><circle class="open" cx="44" cy="216" r="16"/></g><g><circle class="open" cx="84" cy="120" r="16"/></g><g><circle class="open" cx="116" cy="216" r="16"/></g><g><circle class="open" cx="180" cy="232" r="16"/></g><g><circle class="open" cx="188" cy="120" r="16"/></g><g><circle class="open" cx="236" cy="232" r="16"/></g><g><circle class="open" cx="292" cy="232" r="16"/></g></svg></div>
+<p>Any executable Acton program must have a root actor defined, i.e. must be compiled with <code>--root ROOT</code>. Acton libraries (that are included in an another Acton program), do not need a root actor.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lifetime"><a class="header" href="#lifetime">Lifetime</a></h1>
+<p>The main function in most imperative and functional programming languages start at the top and when they reach the end of the function, the whole program exit. Actors do not exit on their own. Once an actor has been created, it runs the initialization code contained in the body of the actor, after which it will wait for incoming messages in the form of actor methods calls.</p>
+<p>This means that a simple program like this modified helloworld (the <code>env.exit()</code> call has been removed) will run indefinitely.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    print(&quot;Hello world!&quot;)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc noexit.act --root main
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">$ ./noexit
+&lt;you will never get your prompt back&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actor-attributes--constants"><a class="header" href="#actor-attributes--constants">Actor Attributes &amp; Constants</a></h1>
+<p>Actors typically contain some private state. We define variable attributes at the top level in the actor using the <code>var</code> keyword and can then access them from any method within the local actor. Note how <code>self.</code> is not needed. Private variables are not visible from other actors.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor Act():
+    var something = 40  # private actor variable attribute
+    fixed = 1234        # public constant
+    
+    def hello():
+        # We can access local actor variable attributes directly, no need for 
+        # self.something or similar
+        something += 2
+        print(&quot;Hello, I'm Act &amp; value of 'something' is: &quot; + str(something))
+
+actor main(env):
+    actor1 = Act()
+    await async actor1.hello()
+    print(&quot;Externally visible constant: &quot;, actor1.fixed)
+    # This would give an error, try uncommenting it
+    # print(actor1.something)
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc attrs.act --root main
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Hello, I'm Act &amp; value of 'something' is: 42
+Externally visible constant:  1234
+</code></pre>
+<p>Without the <code>var</code> keyword, an actor attribute is a constant. As constants are not mutable, it is safe to make it visible to other actors and it can be accessed like an attribute on an object.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actor-concurrency"><a class="header" href="#actor-concurrency">Actor concurrency</a></h1>
+<p>Multiple actors run concurrently. In this example we can see how the two actors Foo and Bar run concurrently. The main actor is also running concurrently, although it doesn't do anything beyond creating the Foo and Bar actors and exiting after some time.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor Counter(name):
+    var counter = 0
+
+    def periodic():
+        print(&quot;I am &quot; + name + &quot; and I have counted to &quot; + str(counter))
+        counter += 1
+
+        # 'after 1' tells the run time system to schedule the specified
+        # function, in this case periodic(), i.e. ourselves, after 1 second
+        after 1: periodic()
+
+    # First invocation of periodic()
+    periodic()
+
+
+actor main(env):
+    # Create two instances of the Counter actor, each with a unique name
+    foo = Counter(&quot;Foo&quot;)
+    bar = Counter(&quot;Bar&quot;)
+    
+    def exit():
+        await async env.exit(0)
+
+    # exit the whole program after 10 seconds
+    after 10: exit()
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc concurrency.act --root main
+./concurrency
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">I am Foo and I have counted to 0
+I am Bar and I have counted to 0
+I am Foo and I have counted to 1
+I am Bar and I have counted to 1
+I am Foo and I have counted to 2
+I am Bar and I have counted to 2
+I am Foo and I have counted to 3
+I am Bar and I have counted to 3
+I am Foo and I have counted to 4
+I am Bar and I have counted to 4
+I am Bar and I have counted to 5
+I am Foo and I have counted to 5
+I am Bar and I have counted to 6
+I am Foo and I have counted to 6
+I am Bar and I have counted to 7
+I am Foo and I have counted to 7
+I am Foo and I have counted to 8
+I am Bar and I have counted to 8
+I am Foo and I have counted to 9
+I am Bar and I have counted to 9
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sync-method-calls"><a class="header" href="#sync-method-calls">Sync Method calls</a></h1>
+<p>While async is good for performance it makes it somewhat convoluted, forcing use of callbacks, to just return a value. Acton makes it possible to call other actors in a synchronous fashion for ease of use.</p>
+<p>A method is called <strong>synchronously</strong> when the return value is used.</p>
+<p>Source:</p>
+<pre><code class="language-python">import acton.rts
+
+actor DeepT():
+    def compute():
+        # some heavy computation going on
+        acton.rts.sleep(1)
+        return 42
+
+actor main(env):
+    d1 = DeepT()
+
+    answer = d1.compute()
+    print(&quot;The answer is&quot;, answer)
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc sync.act --root main
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">The answer is 42
+</code></pre>
+<p>The call flow can be illustrated like this. We can see how the execution of <code>main</code> is suspended while it is waiting for the return value from actor <code>d1</code>.</p>
+<div style='width:100%; height:64px;'><style type="text/css">svg { width: 100% !important; }</style><svg class="bob" font-family="arial" font-size="14" height="64" width="328" xmlns="http://www.w3.org/2000/svg"><defs><marker id="triangle" markerHeight="8" markerWidth="8" orient="auto" refX="4" refY="2" viewBox="0 0 8 4"><polygon class="fg_fill" points="0,0 0,4 8,2 0,0"/></marker><marker id="clear_triangle" markerHeight="10" markerWidth="10" orient="auto" refX="1" refY="7" viewBox="0 0 20 14"><polygon class="bg_fill" points="2,2 2,12 18,7 2,2"/></marker><marker id="circle" markerHeight="5" markerWidth="5" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><circle class="fg_fill" cx="10" cy="10" r="8"/></marker><marker id="square" markerHeight="5" markerWidth="5" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><rect class="fg_fill" height="20" width="20" x="0" y="0"/></marker><marker id="open_circle" markerHeight="10" markerWidth="10" orient="auto" refX="10" refY="10" viewBox="0 0 20 20"><circle class="bg_fill" cx="10" cy="10" r="4"/></marker><marker id="big_open_circle" markerHeight="20" markerWidth="20" orient="auto" refX="20" refY="20" viewBox="0 0 40 40"><circle class="bg_fill" cx="20" cy="20" r="6"/></marker></defs><style type="text/css">rect.backdrop {    fill: transparent;}text{    fill: var(--fg);}circle {    fill: none;    stroke: var(--fg);    stroke-width: 2;}line {    stroke: var(--fg);    stroke-width: 2;    stroke-opacity: 1;    fill-opacity: 1;    stroke-linecap: round;    stroke-linejoin: miter;}path {    fill: none;    stroke: var(--fg);    stroke-width: 2;    stroke-opacity: 1;    fill-opacity: 1;    stroke-linecap: round;    stroke-linejoin: miter;}line.dashed {    stroke-dasharray: 5;}.fg_fill {    fill: var(--fg);}.bg_fill {    fill: transparent;    stroke: var(--fg);    stroke-width: 2;}tspan.head{    fill: none;    stroke: none;}    </style><rect class="backdrop" height="64" width="328" x="0" y="0"/><g><line marker-end="url(#circle)" marker-start="url(#circle)" x1="92" x2="156" y1="8" y2="8"/><line marker-end="url(#triangle)" marker-start="url(#circle)" x1="156" x2="174" y1="8" y2="44"/></g><g><line marker-start="url(#circle)" x1="180" x2="232" y1="56" y2="56"/><path d="M 232 56 A 8 8 0 0 0 238 52"/></g><g><line marker-end="url(#triangle)" x1="238" x2="254" y1="52" y2="20"/></g><g><line marker-end="url(#circle)" marker-start="url(#circle)" x1="260" x2="324" y1="8" y2="8"/></g><g><text x="25" y="12">main</text></g><g><text x="25" y="60">d1</text></g></svg></div>
+<p>While synchronous is <em>bad</em> because we block waiting for someone else, we are only ever going to wait for another actor to run its method. There is never any wait for I/O or other indefinite waiting, only blocking wait for computation within the Acton system. This is achieved by the lack of blocking calls for I/O, thus even if there is a chain of actors waiting for each other</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control flow</a></h1>
+<p>A crucial part in any imperative program is to control the flow of execution. Acton supports a number of different constructs for this:</p>
+<ul>
+<li><a href="control_flow/if_else.html"><code>if</code> / <code>else</code></a></li>
+<li><a href="control_flow/for.html"><code>for</code></a></li>
+<li><a href="control_flow/while.html"><code>while</code></a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if--elif--else"><a class="header" href="#if--elif--else">if / elif / else</a></h1>
+<p>Acton supports the <code>if</code> / <code>elif</code> / <code>else</code> construct - the corner stone of programming control flow.</p>
+<p>The conditionals evaluated by <code>if</code> / <code>elif</code> / <code>else</code> are expressions.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+def whatnum(n):
+
+    if n &lt; 0:
+        print(n, &quot;is negative&quot;)
+    elif n &gt; 0:
+        print(n, &quot;is positive&quot;)
+    else:
+        print(n, &quot;is zero&quot;)
+
+
+def inrange(n):
+    if n &lt; 10 and n &gt; 5:
+        print(n, &quot;is between 5 and 10&quot;)
+    else:
+        print(n, &quot;is outside of the range 5-10&quot;)
+
+actor main(env):
+
+    whatnum(5)
+    whatnum(1337)
+    whatnum(-7)
+    whatnum(0)
+    
+    inrange(3)
+    inrange(-7)
+    inrange(7)
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc while.act --root main
+</code></pre>
+<p>Note that the output is random and you could get a different result.</p>
+<p>Output:</p>
+<pre><code class="language-sh">5 is positive
+1337 is positive
+-7 is negative
+0 is zero
+3 is outside of the range 5-10
+-7 is outside of the range 5-10
+7 is between 5 and 10
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="for"><a class="header" href="#for">for</a></h1>
+<p>Iteration is a core concept in programming and for loops are perhaps the most well known.</p>
+<p>Acton supports the <code>for in</code> construct to iterate through an <code>Iterator</code>.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+actor main(env):
+
+    for n in range(1, 100, 1):
+        if n % 15 == 0:
+            print(&quot;fizzbuzz&quot;)
+        elif n % 3 == 0:
+            print(&quot;fizz&quot;)
+        elif n % 5 == 0:
+            print(&quot;buzz&quot;)
+        else:
+            print(n)
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc while.act --root main
+</code></pre>
+<p>Note that the output is random and you could get a different result.</p>
+<p>Output:</p>
+<pre><code class="language-sh">1
+2
+fizz
+4
+buzz
+fizz
+7
+8
+fizz
+buzz
+11
+fizz
+13
+14
+fizzbuzz
+16
+17
+fizz
+19
+buzz
+fizz
+22
+23
+fizz
+buzz
+26
+fizz
+28
+29
+fizzbuzz
+31
+32
+fizz
+34
+buzz
+fizz
+37
+38
+fizz
+buzz
+41
+fizz
+43
+44
+fizzbuzz
+46
+47
+fizz
+49
+buzz
+fizz
+52
+53
+fizz
+buzz
+56
+fizz
+58
+59
+fizzbuzz
+61
+62
+fizz
+64
+buzz
+fizz
+67
+68
+fizz
+buzz
+71
+fizz
+73
+74
+fizzbuzz
+76
+77
+fizz
+79
+buzz
+fizz
+82
+83
+fizz
+buzz
+86
+fizz
+88
+89
+fizzbuzz
+91
+92
+fizz
+94
+buzz
+fizz
+97
+98
+fizz
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="while"><a class="header" href="#while">while</a></h1>
+<p>The <code>while</code> construct can be used to run a loop <strong>while</strong> a condition is true.</p>
+<p>Source:</p>
+<pre><code class="language-python">import random
+
+def throw_dice():
+    number = random.randint(1,6)
+    print(&quot;Dice:&quot;, number)
+    return number
+
+actor main(env):
+    var luck = True
+
+    while luck:
+        if throw_dice() == 4:
+            # ran out of luck, nobody likes a 4
+            luck = False
+
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc while.act --root main
+</code></pre>
+<p>Note that the output is random and you could get a different result.</p>
+<p>Output:</p>
+<pre><code class="language-sh">Dice: 3
+Dice: 1
+Dice: 5
+Dice: 2
+Dice: 4
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
+<p>Acton is a statically typed language. Unlike traditional languages like C or Java, where the type of every variable must be explicitly stated, we can write most Acton programs without types. The Acton compiler features a powerful type inferencer which will then infer the type.</p>
+<p>It is possible to specify the types of variables or arguments in a function through type hints. The syntax is similar to type hints in Python.</p>
+<p>Source:</p>
+<pre><code class="language-python"># 'a: int' means the first argument `a` should be of type int
+# 'b: int' means the second argument `b` should be of type str
+# The function returns nothing
+def foo(a: int, b: str) -&gt; None:
+    print(a, b)
+    
+# A functions type signature can also be written on a separate line
+bar : (int, str) -&gt; None
+def bar(a, b):
+    print(a, b)
+
+actor main(env):
+    # i1 is explicitly specified as an integer while s1 is a str
+    i1 : int = 1234
+    s1 : str = &quot;hello&quot;
+    foo(i1, s1)
+    bar(i1, s1)
+
+    # The literal value 1234 is an integer, so when we assign it to i2, the
+    # compiler can easily infer that the type of i2 is int. Similarly for s2
+    # since the literal value &quot;foo&quot; is clearly a string
+    i2 = 1234
+    s2 = &quot;hello&quot;
+    foo(i2, s2)
+    bar(i2, s2)
+    
+    await async env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc types.act --root main
+./types
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">1234 hello
+1234 hello
+1234 hello
+1234 hello
+</code></pre>
+<p>Try changing the type of <code>i1</code> or <code>s1</code> and you will find that the compiler complains that it cannot solve the types of the program.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="modules"><a class="header" href="#modules">Modules</a></h1>
+<p>Acton modules can be used to hierarchically structure programs by splitting code into smaller logical units (modules).</p>
+<p>Import modules by using the <code>import</code> keyword. The module will be available with its fully qualified name.</p>
+<p>Use <code>from</code> .. <code>import</code> to import a single function from a module.</p>
+<p>Functions and modules can be aliased using the <code>as</code> keyword.</p>
+<pre><code class="language-python">import acton.rts
+import acton.rts as arts
+from acton.rts import sleep
+from acton.rts import sleep as sleepy
+
+actor main(env):
+    acton.rts.sleep(0)   # using the fully qualified name
+    arts.sleep(0)        # using aliased module name
+    sleep(0)             # using the directly imported function
+    sleepy(0)            # using function alias
+
+    await async env.exit(0)
+</code></pre>
+<p>Remember, all state in an Acton program must be held by actors. There can be no mutable variables in an Acton module, only constants!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

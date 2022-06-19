@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.acton-lang.org/sitemap.xml
