@@ -16,16 +16,16 @@ using `actonc` to compile Acton programs.
 
 ## Debian
 ```
-apt install gcc haskell-stack libbsd-dev libprotobuf-c-dev libutf8proc-dev make uuid-dev zlib1g-dev
+apt install gcc haskell-stack libbsd-dev libmd-dev libprotobuf-c-dev libutf8proc-dev libuv1-dev make pkg-config procps uuid-dev zlib1g-dev
 ```
 
-## Mac OS on x86_64
+## Mac OS X on x86_64
 
 ```sh
 brew install argp-standalone haskell-stack protobuf-c utf8proc util-linux
 ```
 
-## Mac OS on M1
+## Mac OS X on M1
 ```sh
 brew install --HEAD haskell-stack
 brew install argp-standalone llvm protobuf-c utf8proc util-linux
