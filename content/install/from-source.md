@@ -51,6 +51,6 @@ make
 # Running tests
 You can run the test suite through:
 ```
-make -C test
+make test
 ```
 
