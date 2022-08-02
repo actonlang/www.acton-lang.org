@@ -14,9 +14,16 @@ git clone git@github.com:actonlang/acton.git
 Install the build time dependencies. This also includes the dependencies for
 using `actonc` to compile Acton programs.
 
-## Debian
+## Debian / Ubuntu
 ```
 apt install gcc haskell-stack libbsd-dev libmd-dev libprotobuf-c-dev libutf8proc-dev libuv1-dev make pkg-config procps uuid-dev zlib1g-dev
+```
+
+On older distributions (like Ubuntu 20.04), stack is too old to properly function and needs to first be upgraded.
+
+```sh
+stack upgrade
+export PATH=~/.local/bin:$PATH
 ```
 
 ## Mac OS X on x86_64
