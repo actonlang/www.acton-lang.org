@@ -30,7 +30,4 @@ apt install gcc uuid-dev
 ```
 
 ## Mac OS X
-```
-brew install protobuf-c util-linux
-```
-
+No dependencies required! Acton and Mac OS ships with everything needed!

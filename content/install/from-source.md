@@ -29,13 +29,13 @@ export PATH=~/.local/bin:$PATH
 ## Mac OS X on x86_64
 
 ```sh
-brew install argp-standalone haskell-stack protobuf-c utf8proc util-linux
+brew install argp-standalone haskell-stack libuv pkg-config protobuf-c utf8proc
 ```
 
 ## Mac OS X on M1
 ```sh
 brew install --HEAD haskell-stack
-brew install argp-standalone llvm protobuf-c utf8proc util-linux
+brew install argp-standalone haskell-stack libuv pkg-config protobuf-c utf8proc
 ```
 Ensure you add LLVM to your path:
 ```sh
