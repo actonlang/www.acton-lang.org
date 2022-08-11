@@ -34,7 +34,6 @@ brew install argp-standalone haskell-stack libuv pkg-config protobuf-c utf8proc
 
 ## Mac OS X on M1
 ```sh
-brew install --HEAD haskell-stack
 brew install argp-standalone haskell-stack libuv pkg-config protobuf-c utf8proc
 ```
 Ensure you add LLVM to your path:
@@ -43,10 +42,12 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 ```
 
 # Building the Acton system
-Simply run `make` in the project root:
+Run `make` in the project root:
 ```
-make
+make -j
 ```
+
+`-j` is for parallel make using as many CPU cores as available on your machine.
 
 # Running tests
 You can run the test suite through:
