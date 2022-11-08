@@ -20,14 +20,3 @@ $ tar jxvf acton-*
 
 You will want to include the `acton/bin` directory in your `PATH` so you can use
 `actonc`.
-
-`actonc` has run time dependencies and you will need to install the necessary
-dependencies for your platform.
-
-## Debian
-```
-apt install gcc uuid-dev
-```
-
-## Mac OS X
-No dependencies required! Acton and Mac OS ships with everything needed!
