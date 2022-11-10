@@ -17,6 +17,12 @@ jobs:
       - name: 'Clear out cargo stuff'
         run: |
           rm -rf /home/runner/.cargo
+      - name: 'Check cargo / rustc version'
+        run: |
+          which cargo || true
+          which rust || true
+          cargo --version || true
+          rustc --version || true
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
@@ -24,6 +30,12 @@ jobs:
         with:
           command: install
           args: mdbook mdbook-svgbob
+      - name: 'Check cargo / rustc version'
+        run: |
+          which cargo || true
+          which rust || true
+          cargo --version || true
+          rustc --version || true
       - name: 'Checkout'
         uses: actions/checkout@master
       - name: 'Checkout acton repo'
