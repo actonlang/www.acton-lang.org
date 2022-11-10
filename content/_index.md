@@ -5,28 +5,28 @@ template = "index.html"
 [extra]
 
 [[extra.list]]
-title = "Persistent Environment"
-content = "No need to use a database or distributed queue again. Acton automatically persists and resumes the state of your application, while providing strong consistency guarantees"
+title = "Distributed Computing built in"
+content = "Write programs that seamlessly run as a distributed system over an entire data center or region. All without a single line of RPC code."
+
+[[extra.list]]
+title = "Orthogonal Persistence"
+content = "Acton can automatically persist the state of your application to a built-in (distributed) backend. No need to use a database or message broker ever again."
 
 [[extra.list]]
 title = "Fault Tolerant"
-content = "Built-in redundancy; Acton's transactional, high performance distributed RTS can seamlessly resume applications after hardware or software crashes"
+content = "Built-in redundancy; Acton's transactional, high performance distributed RTS can seamlessly resume applications after hardware failures"
 
 [[extra.list]]
 title = "Non-stop"
-content = "Never stop for an upgrade; Live upgrade your running application through code and data migration"
+content = "Never stop for an upgrade; Live upgrade your running application through compiler-supported code and data migration"
 
 [[extra.list]]
-title = "Massively Scalable"
-content = "The actor model naturally lends itself to writing scalable applications and the Acton distributed RTS will run your applications across thousands of servers"
+title = "Any scale"
+content = "Acton programs, and the actor model, work well from simple script style applications running on a single machine up to large distributed systems across a DC. Run at your scale"
 
 [[extra.list]]
-title = "Safe"
-content = "Static and strongly typed, Acton is safe yet simple to use with low overhead thanks to powerful type inferencing"
-
-[[extra.list]]
-title = "Fast"
-content = "Acton is a compiled language, backed by a high performance distributed runtime system"
+title = "Safe & Fast"
+content = "Static and strongly typed, Acton is safe yet simple to use with low overhead thanks to powerful type inferencing. Being a compiled language, backed by a high performance distributed run time system, Acton is fast."
 
 +++
 
