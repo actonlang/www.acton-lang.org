@@ -14,10 +14,13 @@ jobs:
         run: |
           echo "PAGES_BRANCH=gh-pages" >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
-      - name: 'Install cargo'
-        run: sudo apt-get install -qy cargo
-      - name: 'Install mdbook & svgbob'
-        run: cargo install mdbook mdbook-svgbob
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: mdbook mdbook-svgbob
       - name: 'Checkout'
         uses: actions/checkout@master
       - name: 'Checkout acton repo'
