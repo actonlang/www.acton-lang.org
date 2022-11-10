@@ -4,7 +4,7 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: "Set vars for build only if not on main"
         run: |
@@ -15,7 +15,9 @@ jobs:
           echo "PAGES_BRANCH=gh-pages" >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
       - name: 'Install cargo'
-        run: sudo apt-get install -qy cargo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -qy cargo
       - name: 'Install mdbook & svgbob'
         run: cargo install mdbook mdbook-svgbob
       - name: 'Checkout'
