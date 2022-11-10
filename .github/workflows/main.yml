@@ -14,6 +14,9 @@ jobs:
         run: |
           echo "PAGES_BRANCH=gh-pages" >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
+      - name: 'Clear out cargo stuff'
+        run: |
+          rm -rf /home/runner/.cargo
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
