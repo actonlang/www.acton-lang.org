@@ -8,6 +8,6 @@ We pull in documentation from the main Acton git repository, build it and publis
 ## Serving locally
 
 ``` sh
-mdbook serve
+zola serve
 ```
 
