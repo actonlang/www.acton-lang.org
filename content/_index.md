@@ -9,12 +9,12 @@ title = "Distributed Computing built in"
 content = "Write programs that seamlessly run as a distributed system over an entire data center or region. All without a single line of RPC code."
 
 [[extra.list]]
-title = "Orthogonal Persistence"
-content = "Acton can automatically persist the state of your application to a built-in (distributed) backend. No need to use a database or message broker ever again."
+title = "Durable State"
+content = "Acton automatically persists the state of your application (orthogonal persistence) to a built-in distributed backend. No need to use a database or message broker ever again. 0 lines of persistence code."
 
 [[extra.list]]
 title = "Fault Tolerant"
-content = "Built-in redundancy; Acton's transactional, high performance distributed RTS can seamlessly resume applications after hardware failures"
+content = "Built-in redundancy; Acton's transactional, high performance distributed RTS can seamlessly resume application state after hardware failures"
 
 [[extra.list]]
 title = "Non-stop"
@@ -22,7 +22,7 @@ content = "Never stop for an upgrade; Live upgrade your running application thro
 
 [[extra.list]]
 title = "Any scale"
-content = "Acton programs, and the actor model, work well from simple script style applications running on a single machine up to large distributed systems across a DC. Run at your scale"
+content = "Acton programs, and the actor model, work well from simple script style applications on a single machine up to large distributed systems across a Data Center. Run at your scale."
 
 [[extra.list]]
 title = "Safe & Fast"
