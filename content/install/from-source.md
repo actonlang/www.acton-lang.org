@@ -15,7 +15,7 @@ Install the build time dependencies.
 
 ## Debian / Ubuntu
 ```
-apt install haskell-stack make pkg-config procps
+apt install git haskell-stack make pkg-config procps
 ```
 
 On older distributions (like Ubuntu 20.04), stack is too old to properly function and needs to be upgraded first.
