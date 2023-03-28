@@ -17,6 +17,11 @@ jobs:
         if: github.ref == 'refs/heads/main'
       - name: 'Install cargo'
         run: sudo apt-get install -qy cargo
+      - name: "Cache cargo"
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo
+          key: cargo-zola
       - name: 'Install mdbook & svgbob'
         run: cargo install mdbook mdbook-svgbob
       - name: 'Checkout'
