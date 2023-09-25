@@ -15,10 +15,10 @@ Install the build time dependencies.
 
 ## Debian / Ubuntu
 ```
-apt install automake autopoint bison bzip2 curl gcc git haskell-stack libprotobuf-c-dev libtool make pkg-config procps zlib1g-dev
+apt install bzip2 curl g++ haskell-stack make procps zlib1g-dev
 ```
 
-On older distributions (like Ubuntu 20.04), stack is too old to properly function and needs to be upgraded first.
+Debian 12 (bookworm) or Ubuntu 23.04 or newer are required to get a fresh enough version of stack that works with GHC 9. On older distributions, stack needs to be upgraded first.
 
 ```sh
 stack upgrade
@@ -28,7 +28,7 @@ export PATH=~/.local/bin:$PATH
 ## Mac OS X
 
 ```sh
-brew install automake gettext haskell-stack libtool pkg-config protobuf-c
+brew install haskell-stack
 ```
 
 # Building the Acton system
