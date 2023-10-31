@@ -8,7 +8,7 @@ template = "page.html"
 
 Acton is available for Linux and Mac OS X.
 
-The platforms listed here are for developing with Acton. The final binary executable produced from compiling an `.act` can run on other platforms, for example Ubuntu 18.04 and can be made to run on even older systems through static linking, see https://www.acton-lang.org/learn/acton-by-example/compilation.html
+The platforms listed here are for developing with Acton. The final binary executable produced from compiling an `.act` can run on other platforms, for example Ubuntu 18.04 and can be made to run on even older systems through static linking, see [Acton by Example: compilation](https://www.acton-lang.org/learn/acton-by-example/compilation.html)
 
 # Debian / Ubuntu
 
