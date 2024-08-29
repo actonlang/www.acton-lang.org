@@ -22,8 +22,8 @@ jobs:
         with:
           path: ~/.cargo
           key: cargo
-      - name: 'Install mdbook-svgbob'
-        run: cargo install --locked mdbook mdbook-svgbob
+      - name: 'Install mdbook'
+        run: cargo install --locked mdbook mdbook-tabs mdbook-svgbob
       - name: 'Checkout'
         uses: actions/checkout@master
       - name: 'Checkout acton repo'
