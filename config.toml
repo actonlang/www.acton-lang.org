@@ -18,6 +18,7 @@ juice_logo_name = "acton"
 juice_logo_path = "logo.svg"
 
 juice_extra_menu = [
+    { title = "Blog", link = "/blog"},
     { title = "Github", link = "https://github.com/actonlang/acton"}
 ]
 repository_url = "https://github.com/actonlang/acton"
