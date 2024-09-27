@@ -1,5 +1,5 @@
 +++
-title = "List of blog posts"
+title = "Posts"
 weight = 8
 sort_by = "date"
 template = "blog.html"
