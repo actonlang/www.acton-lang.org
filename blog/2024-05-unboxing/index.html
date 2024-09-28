@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color: #FED43F;
+        --primary-color-touch: #FED43F;
+        /* Primary theme text color */
+        --primary-text-color: #543631;
+        --nav-text-color: #543631;
+        /* Primary theme link color */
+        --primary-link-color: #F9BB2D;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-color-accent: #FEFEF0;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #d46e13;
+        --tertiary-color: #479693;
+    }
+
+    @media (prefers-color-scheme: dark){
+        :root {
+            /* Primary theme color */
+            --primary-color: #B5972B;
+            /* --primary-color: #806700; */
+            /* --primary-color: #423710; */
+            /* --primary-color: #303030; */
+            --primary-color-touch: #FED43F;
+            /* --primary-color: #7a661d; */
+            /* Primary theme text color */
+            /* --primary-text-color: #5c3b35; */
+            /* --primary-text-color: #B19992; */
+            --primary-text-color: #999;
+            --primary-hero-text-color: #FED43F;
+            --nav-text-color: #CCC;
+            /* --primary-hero-text-color: #202020; */
+            /* Primary theme link color */
+            --primary-link-color: #F9BB2D;
+            /* Secondary color: the background body color */
+            --secondary-color: #202020;
+            --secondary-color-accent: #303030;
+            --secondary-text-color: #9c9a96;
+            /* Highlight text color of table of content */
+            --toc-highlight-text-color: #FED43F;
+            --tertiary-color: #194643;
+        }
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://www.acton-lang.org/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;">
+    <div class="logo">
+        <img src="https://www.acton-lang.org/logo.svg" alt="logo">
+        acton
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;install&#x2F;">Install</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;learn&#x2F;">Learn</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;about&#x2F;">About</a>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="&#x2F;blog">Blog</a>
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;actonlang&#x2F;acton">Github</a>
+        
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2024-05-unboxing/#unboxing-integers">Unboxing Integers</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2024-05-unboxing/#boxed-values"><small>- Boxed values</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2024-05-unboxing/#unboxing-boxed-integers"><small>- Unboxing boxed integers</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2024-05-unboxing/#optimal-code-with-unboxed-integers-discrete-cosine-transform"><small>- Optimal code with unboxed integers - Discrete Cosine Transform</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2024-05-unboxing/#doubly-good-for-the-gc-and-memory-subsystem"><small>- Doubly good for the GC and memory subsystem</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2024-05-unboxing/#performance-comparison"><small>- Performance comparison</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2024-05-unboxing/#future-work"><small>- Future work</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<h1 id="unboxing-integers">Unboxing Integers</h1>
+<p>Acton's new integer unboxing feature can speed up number-heavy applications by 100x or more. In this post, we'll break down what integer unboxing is, how it works, and why it matters for your performance-critical code.</p>
+<p><strong>Boxed (yellow) vs Unboxed (green) vs Python (Yellow)</strong>
+<a href="/blog/boxed-vs-unboxed.png"><img src="/blog/boxed-vs-unboxed.png" alt="" /></a></p>
+<h2 id="boxed-values">Boxed values</h2>
+<p>In many programming languages, values like integers or strings are stored in a boxed fashion. The box is a structure in memory that holds the type of the value, like "signed 64 bit integer", as well as the actual value, like <code>42</code>. This is different than the most basic representation in computer memory, which is really just the value itself, like a series of 64 bits, without the meta-data of what type the value is of. We can think of this basic representation as "unboxed", there is no box to tell us what type of value is stored, it's just some stored bits. The downside of such unboxed values is that you have to keep track of the type of a value by some other means. When writing C programs, this is natural and just the way things works, like we know that variable <code>a</code> is of type <code>int</code> in the program code, so no need to also repeat that in memory but it does require the programmer to bear this burden. With higher level languages and in particular those that support generic types, it becomes necessary to keep track of value types and using boxed types is the simplest means to achieving this. Acton uses boxed values in general.</p>
+<p>There's nothing wrong with boxed values, it's just that it comes with some performance overhead, so for compute intensive code, this can add up to make quite a difference. We might end up spending more time looking at the box and following pointers than doing the actual computation.</p>
+<p>For a contemporary 64 bit CPU, a <em>machine word</em>, the normal sized chunk that the CPU deals with, is 64 bits and so any type that is 64 bits or smaller can be passed around directly. C ABI calling convention typically passes a 64 bit integer argument value to a function using a CPU register, which is incredibly fast. In contrast, a boxed value is instead sent as a pointer to the box and then the receiving function has to fetch the box and then the value from memory, which can be considerably slower.</p>
+<h2 id="unboxing-boxed-integers">Unboxing boxed integers</h2>
+<p>Unboxing is the process of removing the box around a value, allowing the value to be passed and operated on directly without any extra layers of indirection. In Acton, integers were traditionally stored as boxed values—meaning that instead of simply passing the raw number around, we were also managing metadata (such as the type of value) along with the value itself. This made certain operations, especially mathematical ones, slower than necessary.</p>
+<p>By unboxing these integers, we can bypass this overhead. When an integer is unboxed, it’s stored and passed around as a raw, untagged machine word. This is similar to how a language like C would handle primitive types such as int. The result? Faster memory access and improved computational performance, especially for tight loops and arithmetic-heavy code.</p>
+<p>The Acton compiler now has support for automatically detecting when an integer can be unboxed, and it will generate optimized C code accordingly. This allows you to write clean, expressive code while still benefiting from low-level performance optimizations under the hood.</p>
+<p>In this first iteration, unboxing is supported for local variables and variables passed as arguments between functions. Object attributes are always boxed.</p>
+<h2 id="optimal-code-with-unboxed-integers-discrete-cosine-transform">Optimal code with unboxed integers - Discrete Cosine Transform</h2>
+<p>The discrete cosine transform is a very popular and widely used algorithm used for image compression. And here it is, in an Acton version:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>math
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dct</span><span>(</span><span style="color:#bf616a;">k</span><span>,</span><span style="color:#bf616a;">n</span><span>,</span><span style="color:#bf616a;">l</span><span>):
+</span><span>    </span><span style="color:#b48ead;">return </span><span>math.</span><span style="color:#bf616a;">cos</span><span>(math.pi/l * (n + </span><span style="color:#d08770;">0.5</span><span>) * k)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dct_sum</span><span>(</span><span style="color:#bf616a;">l</span><span>):
+</span><span>    s = </span><span style="color:#d08770;">0
+</span><span>    k = </span><span style="color:#d08770;">0
+</span><span>    </span><span style="color:#b48ead;">while </span><span>k &lt; l:
+</span><span>        n = </span><span style="color:#d08770;">0
+</span><span>        </span><span style="color:#b48ead;">while </span><span>n &lt; l:
+</span><span>            s += </span><span style="color:#bf616a;">dct</span><span>(k,n,l)
+</span><span>            n += </span><span style="color:#d08770;">1
+</span><span>        k += </span><span style="color:#d08770;">1
+</span><span>    </span><span style="color:#b48ead;">return </span><span>s
+</span></code></pre>
+<p>The values operated on here are i64 and with the new support in the Acton compiler for unboxed values, the generated C code is the following:</p>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#b48ead;">double </span><span style="color:#8fa1b3;">dctQ_U_dct </span><span>(</span><span style="color:#b48ead;">double </span><span style="color:#bf616a;">U_1k</span><span>, </span><span style="color:#b48ead;">double </span><span style="color:#bf616a;">U_2n</span><span>, </span><span style="color:#b48ead;">double </span><span style="color:#bf616a;">U_3l</span><span>) {
+</span><span>    </span><span style="color:#b48ead;">double</span><span> U_4N_tmp = </span><span style="color:#96b5b4;">cos</span><span>((((mathQ_pi-&gt;val / U_3l) * (U_2n + </span><span style="color:#d08770;">0.5</span><span>)) * U_1k));
+</span><span>    </span><span style="color:#b48ead;">return</span><span> U_4N_tmp;
+</span><span>}
+</span><span style="color:#b48ead;">double </span><span style="color:#8fa1b3;">dctQ_U_5dct_sum </span><span>(</span><span style="color:#b48ead;">double </span><span style="color:#bf616a;">U_6l</span><span>) {
+</span><span>    </span><span style="color:#b48ead;">double</span><span> U_7s = </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">double</span><span> U_8k = </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">while </span><span>((U_8k &lt; U_6l)) {
+</span><span>        </span><span style="color:#b48ead;">double</span><span> U_9n = </span><span style="color:#d08770;">0</span><span>;
+</span><span>        </span><span style="color:#b48ead;">while </span><span>((U_9n &lt; U_6l)) {
+</span><span>            U_7s += </span><span style="color:#bf616a;">dctQ_U_dct</span><span>(U_8k, U_9n, U_6l);
+</span><span>            U_9n += </span><span style="color:#d08770;">1</span><span>;
+</span><span>        }
+</span><span>        U_8k += </span><span style="color:#d08770;">1</span><span>;
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return</span><span> U_7s;
+</span><span>}
+</span></code></pre>
+<p>Which is pretty much as simple and optimal as one would write by hand, bar the naming convention. In other words, using Acton, which can certainly be considered a higher level language than C, comes with essentially no overhead for this program. Boxed values are doubly bad because they also exert a massive pressure on the memory subsystem, both when allocating on the heap and when the GC subsystem is collecting garbage. This makes a tremendous difference in performance, especially for larger values where memory consumption grows. With unboxing, we avoid the extra memory allocation and instead store values on the stack and pass them to functions via CPU registers.</p>
+<h2 id="doubly-good-for-the-gc-and-memory-subsystem">Doubly good for the GC and memory subsystem</h2>
+<p>By not allocating memory for boxed values, we avoid the need for the garbage collector to clean up after them. This is a double win for performance, as the garbage collector can be a significant bottleneck in many applications. Acton currently uses the Boehm GC (but not for long!), which is a mark-sweep collector with a stop-the-world. All Acton Run Time System worker threads are stopped while running the GC which means that otherwise parallelizable code might not end up being very fast because we become concurrency constrained around GC. Using unboxed values avoids malloc &amp; GC altogether and so our application can easily run concurrently.</p>
+<h2 id="performance-comparison">Performance comparison</h2>
+<p>In this graph we can see the performance difference between the boxed and unboxed versions of the DCT program. Depending on the input size, the unboxed version can be 100x or even faster. Python is also included in this comparison where it scores better than the boxed version but still significantly slower than the unboxed version.</p>
+<p><strong>Boxed (red) vs Unboxed (green) vs Python (Yellow)</strong>
+<a href="/blog/boxed-vs-unboxed-vs-python.png"><img src="/blog/boxed-vs-unboxed-vs-python.png" alt="" /></a></p>
+<p>If we remove Acton's boxed version, we can zoom in on the unboxed and Python versions. Acton's unboxed version is, by quite a fair margin, consistently faster than Python, for all input sizes. The difference becomes more pronounced as the input size grows and at 10000, Acton is ~15x faster than Python.</p>
+<p><strong>Unboxed (green) vs Python (yellow)</strong>
+<a href="/blog/unboxed-vs-python.png"><img src="/blog/unboxed-vs-python.png" alt="" /></a></p>
+<p>Many computationally intensive applications are written in C and receive a thin wrapper in Python or some other high level language. Acton now offers an appealing alternative; writing normal Acton code is as fast as C code but remains Pythonic and simple to read and develop, while it is still possible for more specialized cases to write C code and integrate in an Acton module.</p>
+<h2 id="future-work">Future work</h2>
+<p>The current implementation of unboxing in Acton supports local variables and function arguments. In the future, we plan to extend this support to object and actor attributes as well. This will further improve the performance of Acton programs, especially those that rely heavily on object-oriented programming.</p>
+<p>Further, monomorphization is a technique that can be used to specialize generic functions for specific types. This can be used to optimize the performance of functions that are called with a small number of different types. We plan to explore monomorphization in Acton to further improve the performance of generic functions.</p>
+<p>Until then, enjoy the speed boost that unboxed integers bring to your Acton programs!</p>
+
+
+        </div>
+
+        
+        
+    </main>
+
+    
+    <footer>
+        <small class="subtext">
+            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2021
+        </small>
+    </footer>
+    
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>

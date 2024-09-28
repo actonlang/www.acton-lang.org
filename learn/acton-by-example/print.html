@@ -1,0 +1,2553 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="svgbob.css">
+        <link rel="stylesheet" href="theme/tabs.css">
+        <link rel="stylesheet" href="./mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="index.html"><strong aria-hidden="true">1.</strong> Getting started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="hello.html"><strong aria-hidden="true">1.1.</strong> Hello World</a></li><li class="chapter-item "><a href="installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item "><a href="hello/shebang.html"><strong aria-hidden="true">1.3.</strong> Acton scripts</a></li><li class="chapter-item "><a href="projects.html"><strong aria-hidden="true">1.4.</strong> Acton Projects</a></li><li class="chapter-item "><a href="hello/running_tests.html"><strong aria-hidden="true">1.5.</strong> Running Tests</a></li></ol></li><li class="chapter-item "><a href="primitives.html"><strong aria-hidden="true">2.</strong> Language</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="primitives.html"><strong aria-hidden="true">2.1.</strong> Variable data types</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="primitives/scalars.html"><strong aria-hidden="true">2.1.1.</strong> Scalars</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="primitives/float.html"><strong aria-hidden="true">2.1.1.1.</strong> float</a></li></ol></li><li class="chapter-item "><a href="primitives/lists.html"><strong aria-hidden="true">2.1.2.</strong> Lists</a></li><li class="chapter-item "><a href="primitives/dicts.html"><strong aria-hidden="true">2.1.3.</strong> Dictionaries</a></li><li class="chapter-item "><a href="primitives/tuples.html"><strong aria-hidden="true">2.1.4.</strong> Tuples</a></li><li class="chapter-item "><a href="primitives/sets.html"><strong aria-hidden="true">2.1.5.</strong> Sets</a></li></ol></li><li class="chapter-item "><a href="functions.html"><strong aria-hidden="true">2.2.</strong> Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="functions/actor_methods.html"><strong aria-hidden="true">2.2.1.</strong> Actor methods</a></li><li class="chapter-item "><a href="functions/higher_order.html"><strong aria-hidden="true">2.2.2.</strong> Higher order functions</a></li></ol></li><li class="chapter-item "><a href="types/intro.html"><strong aria-hidden="true">2.3.</strong> Types</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="types/explicit.html"><strong aria-hidden="true">2.3.1.</strong> Explicit types</a></li><li class="chapter-item "><a href="types/generics.html"><strong aria-hidden="true">2.3.2.</strong> Generics</a></li></ol></li><li class="chapter-item "><a href="classes/intro.html"><strong aria-hidden="true">2.4.</strong> Classes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="classes/inheritance.html"><strong aria-hidden="true">2.4.1.</strong> Inheritance</a></li></ol></li><li class="chapter-item "><a href="protocols/intro.html"><strong aria-hidden="true">2.5.</strong> Protocols</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="protocols/dispatch.html"><strong aria-hidden="true">2.5.1.</strong> Method Dispatch</a></li></ol></li><li class="chapter-item "><a href="actors.html"><strong aria-hidden="true">2.6.</strong> Actors</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="actors/root.html"><strong aria-hidden="true">2.6.1.</strong> Root Actor</a></li><li class="chapter-item "><a href="actors/lifetime.html"><strong aria-hidden="true">2.6.2.</strong> Lifetime</a></li><li class="chapter-item "><a href="actors/attributes.html"><strong aria-hidden="true">2.6.3.</strong> Attributes</a></li><li class="chapter-item "><a href="actors/concurrency.html"><strong aria-hidden="true">2.6.4.</strong> Concurrency</a></li><li class="chapter-item "><a href="actors/sync_method_call.html"><strong aria-hidden="true">2.6.5.</strong> Sync Method calls</a></li><li class="chapter-item "><a href="actors/async_method_call.html"><strong aria-hidden="true">2.6.6.</strong> Async Method calls</a></li><li class="chapter-item "><a href="actors/cleanup.html"><strong aria-hidden="true">2.6.7.</strong> Cleanup</a></li></ol></li><li class="chapter-item "><a href="control_flow.html"><strong aria-hidden="true">2.7.</strong> Control flow</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="control_flow/actors.html"><strong aria-hidden="true">2.7.1.</strong> actors</a></li><li class="chapter-item "><a href="control_flow/if_else.html"><strong aria-hidden="true">2.7.2.</strong> if / elif / else</a></li><li class="chapter-item "><a href="control_flow/for.html"><strong aria-hidden="true">2.7.3.</strong> for</a></li><li class="chapter-item "><a href="control_flow/while.html"><strong aria-hidden="true">2.7.4.</strong> while</a></li><li class="chapter-item "><a href="control_flow/after_sleep.html"><strong aria-hidden="true">2.7.5.</strong> after / sleep</a></li></ol></li><li class="chapter-item "><a href="security.html"><strong aria-hidden="true">2.8.</strong> Security</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="security/capabilities.html"><strong aria-hidden="true">2.8.1.</strong> Capabilities</a></li></ol></li><li class="chapter-item "><a href="environment.html"><strong aria-hidden="true">2.9.</strong> Environment</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="environment/variables.html"><strong aria-hidden="true">2.9.1.</strong> Environment variables</a></li><li class="chapter-item "><a href="environment/stdin.html"><strong aria-hidden="true">2.9.2.</strong> Reading stdin input</a></li><li class="chapter-item "><a href="environment/interactive_stdin.html"><strong aria-hidden="true">2.9.3.</strong> Interactive stdin input</a></li></ol></li><li class="chapter-item "><a href="modules.html"><strong aria-hidden="true">2.10.</strong> Modules</a></li></ol></li><li class="chapter-item "><a href="stdlib.html"><strong aria-hidden="true">3.</strong> Standard library</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/re.html"><strong aria-hidden="true">3.1.</strong> Regular Expression</a></li></ol></li><li class="chapter-item "><a href="testing.html"><strong aria-hidden="true">4.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="testing/unit_test.html"><strong aria-hidden="true">4.1.</strong> Unit tests</a></li><li class="chapter-item "><a href="testing/sync_actor_test.html"><strong aria-hidden="true">4.2.</strong> Sync actor tests</a></li><li class="chapter-item "><a href="testing/async_actor_test.html"><strong aria-hidden="true">4.3.</strong> Async actor tests</a></li><li class="chapter-item "><a href="testing/env_test.html"><strong aria-hidden="true">4.4.</strong> Env tests</a></li><li class="chapter-item "><a href="testing/failures_errors.html"><strong aria-hidden="true">4.5.</strong> Failures vs errors</a></li><li class="chapter-item "><a href="testing/flaky.html"><strong aria-hidden="true">4.6.</strong> Flaky tests</a></li><li class="chapter-item "><a href="testing/performance.html"><strong aria-hidden="true">4.7.</strong> Performance testing</a></li><li class="chapter-item "><a href="testing/perf_record.html"><strong aria-hidden="true">4.8.</strong> Perf comparison</a></li></ol></li><li class="chapter-item "><a href="compilation.html"><strong aria-hidden="true">5.</strong> Build System</a></li><li class="chapter-item "><a href="package_management.html"><strong aria-hidden="true">6.</strong> Package Management</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="pkg/add_dependency.html"><strong aria-hidden="true">6.1.</strong> Add Dependency</a></li><li class="chapter-item "><a href="pkg/local_dependencies.html"><strong aria-hidden="true">6.2.</strong> Local Dependencies</a></li><li class="chapter-item "><a href="pkg/remove_dependency.html"><strong aria-hidden="true">6.3.</strong> Remove Dependency</a></li><li class="chapter-item "><a href="pkg/fetch_dependencies.html"><strong aria-hidden="true">6.4.</strong> Fetch Deps (Airplane mode)</a></li><li class="chapter-item "><a href="zig_dependencies.html"><strong aria-hidden="true">6.5.</strong> Zig / C / C++ dependencies</a></li></ol></li><li class="chapter-item "><a href="security/intro.html"><strong aria-hidden="true">7.</strong> Security and Trust</a></li><li class="chapter-item "><a href="working_with_zig.html"><strong aria-hidden="true">8.</strong> Working with Zig / C / C++</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ext/integrating_c_library.html"><strong aria-hidden="true">8.1.</strong> Integrating a C library (zlib)</a></li></ol></li><li class="chapter-item "><a href="rts.html"><strong aria-hidden="true">9.</strong> Run Time System</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style='width:100%; height:288px;'><style type="text/css">svg { width: 100% !important; }</style><svg xmlns="http://www.w3.org/2000/svg" width="680" height="288"><style>line, path, circle, rect, polygon{stroke:var(--fg);stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:arial;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}<!--separator--></style><defs><marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,0 0,4 4,2 0,0"></polygon></marker><marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,2 2,0 4,2 2,4 0,2"></polygon></marker><marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="filled"></circle></marker><marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="bg_filled"></circle></marker><marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="3" class="bg_filled"></circle></marker></defs><rect class="backdrop" x="0" y="0" width="680" height="288"></rect><text x="322" y="28" >A</text><text x="338" y="28" >Guide</text><text x="386" y="28" >to</text><text x="578" y="108" >.</text><text x="578" y="156" >|</text><line x1="56" y1="264" x2="64" y2="264" class="solid"></line><line x1="64" y1="262" x2="72" y2="262" class="solid"></line><line x1="64" y1="266" x2="72" y2="266" class="solid"></line><line x1="72" y1="264" x2="80" y2="264" class="solid"></line><line x1="80" y1="262" x2="88" y2="262" class="solid"></line><line x1="80" y1="266" x2="88" y2="266" class="solid"></line><line x1="88" y1="264" x2="96" y2="264" class="solid"></line><line x1="96" y1="262" x2="104" y2="262" class="solid"></line><line x1="96" y1="266" x2="104" y2="266" class="solid"></line><line x1="104" y1="264" x2="112" y2="264" class="solid"></line><line x1="112" y1="262" x2="120" y2="262" class="solid"></line><line x1="112" y1="266" x2="120" y2="266" class="solid"></line><line x1="120" y1="264" x2="128" y2="264" class="solid"></line><line x1="128" y1="262" x2="136" y2="262" class="solid"></line><line x1="128" y1="266" x2="136" y2="266" class="solid"></line><line x1="136" y1="264" x2="144" y2="264" class="solid"></line><line x1="144" y1="262" x2="152" y2="262" class="solid"></line><line x1="144" y1="266" x2="152" y2="266" class="solid"></line><line x1="152" y1="264" x2="160" y2="264" class="solid"></line><line x1="160" y1="262" x2="168" y2="262" class="solid"></line><line x1="160" y1="266" x2="168" y2="266" class="solid"></line><line x1="168" y1="264" x2="176" y2="264" class="solid"></line><line x1="176" y1="262" x2="184" y2="262" class="solid"></line><line x1="176" y1="266" x2="184" y2="266" class="solid"></line><line x1="184" y1="264" x2="192" y2="264" class="solid"></line><line x1="192" y1="262" x2="200" y2="262" class="solid"></line><line x1="192" y1="266" x2="200" y2="266" class="solid"></line><line x1="200" y1="264" x2="208" y2="264" class="solid"></line><line x1="208" y1="262" x2="216" y2="262" class="solid"></line><line x1="208" y1="266" x2="216" y2="266" class="solid"></line><line x1="216" y1="264" x2="224" y2="264" class="solid"></line><line x1="224" y1="262" x2="232" y2="262" class="solid"></line><line x1="224" y1="266" x2="232" y2="266" class="solid"></line><line x1="232" y1="264" x2="240" y2="264" class="solid"></line><line x1="240" y1="262" x2="248" y2="262" class="solid"></line><line x1="240" y1="266" x2="248" y2="266" class="solid"></line><line x1="248" y1="264" x2="256" y2="264" class="solid"></line><line x1="256" y1="262" x2="264" y2="262" class="solid"></line><line x1="256" y1="266" x2="264" y2="266" class="solid"></line><line x1="264" y1="264" x2="272" y2="264" class="solid"></line><line x1="272" y1="262" x2="280" y2="262" class="solid"></line><line x1="272" y1="266" x2="280" y2="266" class="solid"></line><line x1="280" y1="264" x2="288" y2="264" class="solid"></line><line x1="288" y1="262" x2="296" y2="262" class="solid"></line><line x1="288" y1="266" x2="296" y2="266" class="solid"></line><line x1="296" y1="264" x2="304" y2="264" class="solid"></line><line x1="304" y1="262" x2="312" y2="262" class="solid"></line><line x1="304" y1="266" x2="312" y2="266" class="solid"></line><line x1="312" y1="264" x2="320" y2="264" class="solid"></line><line x1="320" y1="262" x2="328" y2="262" class="solid"></line><line x1="320" y1="266" x2="328" y2="266" class="solid"></line><line x1="328" y1="264" x2="336" y2="264" class="solid"></line><line x1="336" y1="262" x2="344" y2="262" class="solid"></line><line x1="336" y1="266" x2="344" y2="266" class="solid"></line><line x1="344" y1="264" x2="352" y2="264" class="solid"></line><line x1="352" y1="262" x2="360" y2="262" class="solid"></line><line x1="352" y1="266" x2="360" y2="266" class="solid"></line><line x1="360" y1="264" x2="368" y2="264" class="solid"></line><line x1="368" y1="262" x2="376" y2="262" class="solid"></line><line x1="368" y1="266" x2="376" y2="266" class="solid"></line><line x1="376" y1="264" x2="384" y2="264" class="solid"></line><line x1="384" y1="262" x2="392" y2="262" class="solid"></line><line x1="384" y1="266" x2="392" y2="266" class="solid"></line><line x1="392" y1="264" x2="400" y2="264" class="solid"></line><line x1="400" y1="262" x2="408" y2="262" class="solid"></line><line x1="400" y1="266" x2="408" y2="266" class="solid"></line><line x1="408" y1="264" x2="416" y2="264" class="solid"></line><line x1="416" y1="262" x2="424" y2="262" class="solid"></line><line x1="416" y1="266" x2="424" y2="266" class="solid"></line><line x1="424" y1="264" x2="432" y2="264" class="solid"></line><line x1="432" y1="262" x2="440" y2="262" class="solid"></line><line x1="432" y1="266" x2="440" y2="266" class="solid"></line><line x1="440" y1="264" x2="448" y2="264" class="solid"></line><line x1="448" y1="262" x2="456" y2="262" class="solid"></line><line x1="448" y1="266" x2="456" y2="266" class="solid"></line><line x1="456" y1="264" x2="464" y2="264" class="solid"></line><line x1="464" y1="262" x2="472" y2="262" class="solid"></line><line x1="464" y1="266" x2="472" y2="266" class="solid"></line><line x1="472" y1="264" x2="480" y2="264" class="solid"></line><line x1="480" y1="262" x2="488" y2="262" class="solid"></line><line x1="480" y1="266" x2="488" y2="266" class="solid"></line><line x1="488" y1="264" x2="496" y2="264" class="solid"></line><line x1="496" y1="262" x2="504" y2="262" class="solid"></line><line x1="496" y1="266" x2="504" y2="266" class="solid"></line><line x1="504" y1="264" x2="512" y2="264" class="solid"></line><line x1="512" y1="262" x2="520" y2="262" class="solid"></line><line x1="512" y1="266" x2="520" y2="266" class="solid"></line><line x1="520" y1="264" x2="528" y2="264" class="solid"></line><line x1="528" y1="262" x2="536" y2="262" class="solid"></line><line x1="528" y1="266" x2="536" y2="266" class="solid"></line><line x1="536" y1="264" x2="544" y2="264" class="solid"></line><line x1="544" y1="262" x2="552" y2="262" class="solid"></line><line x1="544" y1="266" x2="552" y2="266" class="solid"></line><line x1="552" y1="264" x2="560" y2="264" class="solid"></line><line x1="560" y1="262" x2="568" y2="262" class="solid"></line><line x1="560" y1="266" x2="568" y2="266" class="solid"></line><line x1="568" y1="264" x2="576" y2="264" class="solid"></line><line x1="576" y1="262" x2="584" y2="262" class="solid"></line><line x1="576" y1="266" x2="584" y2="266" class="solid"></line><line x1="584" y1="264" x2="592" y2="264" class="solid"></line><line x1="592" y1="262" x2="600" y2="262" class="solid"></line><line x1="592" y1="266" x2="600" y2="266" class="solid"></line><line x1="600" y1="264" x2="608" y2="264" class="solid"></line><line x1="608" y1="262" x2="616" y2="262" class="solid"></line><line x1="608" y1="266" x2="616" y2="266" class="solid"></line><line x1="616" y1="264" x2="624" y2="264" class="solid"></line><line x1="624" y1="262" x2="632" y2="262" class="solid"></line><line x1="624" y1="266" x2="632" y2="266" class="solid"></line><line x1="632" y1="264" x2="640" y2="264" class="solid"></line><line x1="640" y1="262" x2="648" y2="262" class="solid"></line><line x1="640" y1="266" x2="648" y2="266" class="solid"></line><line x1="648" y1="264" x2="656" y2="264" class="solid"></line><line x1="656" y1="262" x2="664" y2="262" class="solid"></line><line x1="656" y1="266" x2="664" y2="266" class="solid"></line><line x1="664" y1="264" x2="672" y2="264" class="solid"></line><g><path d="M 152,72 A 8,8 0,0,0 146,76" class="nofill"></path><line x1="146" y1="76" x2="86" y2="196" class="solid"></line><line x1="152" y1="72" x2="176" y2="72" class="solid"></line><path d="M 176,72 A 8,8 0,0,1 182,76" class="nofill"></path><line x1="182" y1="76" x2="242" y2="196" class="solid"></line><path d="M 86,196 A 3,3 0,0,0 88,200" class="nofill"></path><line x1="88" y1="200" x2="112" y2="200" class="solid"></line><path d="M 136,168 A 8,8 0,0,0 130,172" class="nofill"></path><line x1="130" y1="172" x2="118" y2="196" class="solid"></line><line x1="136" y1="168" x2="192" y2="168" class="solid"></line><path d="M 192,168 A 8,8 0,0,1 198,172" class="nofill"></path><line x1="198" y1="172" x2="210" y2="196" class="solid"></line><path d="M 118,196 A 8,8 0,0,1 112,200" class="nofill"></path><path d="M 210,196 A 8,8 0,0,0 216,200" class="nofill"></path><line x1="216" y1="200" x2="240" y2="200" class="solid"></line><path d="M 242,196 A 3,3 0,0,1 240,200" class="nofill"></path></g><g><path d="M 384,72 A 4,4 0,0,0 380,76" class="nofill"></path><line x1="380" y1="76" x2="380" y2="100" class="solid"></line><line x1="384" y1="72" x2="392" y2="72" class="solid"></line><path d="M 392,72 A 4,4 0,0,1 396,76" class="nofill"></path><line x1="396" y1="76" x2="396" y2="100" class="solid"></line><path d="M 396,100 A 4,4 0,0,0 400,104" class="nofill"></path><line x1="400" y1="104" x2="416" y2="104" class="solid"></line><path d="M 416,104 A 4,4 0,0,1 420,108" class="nofill"></path><line x1="420" y1="108" x2="420" y2="116" class="solid"></line><path d="M 360,104 A 4,4 0,0,0 356,108" class="nofill"></path><line x1="356" y1="108" x2="356" y2="116" class="solid"></line><line x1="360" y1="104" x2="376" y2="104" class="solid"></line><path d="M 380,100 A 4,4 0,0,1 376,104" class="nofill"></path><path d="M 356,116 A 4,4 0,0,0 360,120" class="nofill"></path><line x1="360" y1="120" x2="376" y2="120" class="solid"></line><path d="M 376,120 A 4,4 0,0,1 380,124" class="nofill"></path><line x1="380" y1="124" x2="380" y2="176" class="solid"></line><path d="M 400,120 A 4,4 0,0,0 396,124" class="nofill"></path><line x1="396" y1="124" x2="396" y2="180" class="solid"></line><line x1="400" y1="120" x2="416" y2="120" class="solid"></line><path d="M 420,116 A 4,4 0,0,1 416,120" class="nofill"></path><path d="M 396,180 A 4,4 0,0,0 400,184" class="nofill"></path><line x1="400" y1="184" x2="408" y2="184" class="solid"></line><line x1="416" y1="176" x2="432" y2="176" class="solid"></line><line x1="416" y1="176" x2="408" y2="184" class="solid"></line><line x1="432" y1="176" x2="422" y2="196" class="solid"></line><line x1="376" y1="176" x2="386" y2="196" class="solid"></line><path d="M 386,196 A 8,8 0,0,0 392,200" class="nofill"></path><line x1="392" y1="200" x2="416" y2="200" class="solid"></line><path d="M 422,196 A 8,8 0,0,1 416,200" class="nofill"></path></g><g><line x1="160" y1="112" x2="168" y2="112" class="solid"></line><line x1="160" y1="112" x2="150" y2="132" class="solid"></line><line x1="168" y1="112" x2="178" y2="132" class="solid"></line><path d="M 150,132 A 3,3 0,0,0 152,136" class="nofill"></path><line x1="152" y1="136" x2="176" y2="136" class="solid"></line><path d="M 178,132 A 3,3 0,0,1 176,136" class="nofill"></path></g><g><path d="M 288,104 A 8,8 0,0,0 282,108" class="nofill"></path><line x1="282" y1="108" x2="264" y2="144" class="solid"></line><line x1="288" y1="104" x2="320" y2="104" class="solid"></line><path d="M 320,104 A 8,8 0,0,1 326,108" class="nofill"></path><line x1="326" y1="108" x2="336" y2="128" class="solid"></line><path d="M 264,144 A 16,16 0,0,0 264,160" class="nofill"></path><line x1="264" y1="160" x2="282" y2="196" class="solid"></line><path d="M 282,196 A 8,8 0,0,0 288,200" class="nofill"></path><line x1="288" y1="200" x2="320" y2="200" class="solid"></line><path d="M 296,120 A 8,8 0,0,0 290,124" class="nofill"></path><line x1="290" y1="124" x2="280" y2="144" class="solid"></line><line x1="296" y1="120" x2="312" y2="120" class="solid"></line><line x1="312" y1="120" x2="320" y2="128" class="solid"></line><line x1="320" y1="128" x2="336" y2="128" class="solid"></line><path d="M 280,144 A 16,16 0,0,0 280,160" class="nofill"></path><line x1="280" y1="160" x2="290" y2="180" class="solid"></line><path d="M 290,180 A 8,8 0,0,0 296,184" class="nofill"></path><line x1="296" y1="184" x2="312" y2="184" class="solid"></line><line x1="320" y1="176" x2="336" y2="176" class="solid"></line><line x1="320" y1="176" x2="312" y2="184" class="solid"></line><line x1="336" y1="176" x2="326" y2="196" class="solid"></line><path d="M 326,196 A 8,8 0,0,1 320,200" class="nofill"></path></g><g><path d="M 480,104 A 8,8 0,0,0 474,108" class="nofill"></path><line x1="474" y1="108" x2="456" y2="144" class="solid"></line><line x1="480" y1="104" x2="512" y2="104" class="solid"></line><path d="M 512,104 A 8,8 0,0,1 518,108" class="nofill"></path><line x1="518" y1="108" x2="536" y2="144" class="solid"></line><path d="M 456,144 A 16,16 0,0,0 456,160" class="nofill"></path><path d="M 536,144 A 16,16 0,0,1 536,160" class="nofill"></path><line x1="456" y1="160" x2="474" y2="196" class="solid"></line><line x1="536" y1="160" x2="518" y2="196" class="solid"></line><path d="M 474,196 A 8,8 0,0,0 480,200" class="nofill"></path><line x1="480" y1="200" x2="512" y2="200" class="solid"></line><path d="M 518,196 A 8,8 0,0,1 512,200" class="nofill"></path></g><g><path d="M 488,120 A 8,8 0,0,0 482,124" class="nofill"></path><line x1="482" y1="124" x2="472" y2="144" class="solid"></line><line x1="488" y1="120" x2="504" y2="120" class="solid"></line><path d="M 504,120 A 8,8 0,0,1 510,124" class="nofill"></path><line x1="510" y1="124" x2="520" y2="144" class="solid"></line><path d="M 472,144 A 16,16 0,0,0 472,160" class="nofill"></path><path d="M 520,144 A 16,16 0,0,1 520,160" class="nofill"></path><line x1="472" y1="160" x2="482" y2="180" class="solid"></line><line x1="520" y1="160" x2="510" y2="180" class="solid"></line><path d="M 482,180 A 8,8 0,0,0 488,184" class="nofill"></path><line x1="488" y1="184" x2="504" y2="184" class="solid"></line><path d="M 510,180 A 8,8 0,0,1 504,184" class="nofill"></path></g><g><path d="M 568,104 A 4,4 0,0,0 564,108" class="nofill"></path><line x1="564" y1="108" x2="564" y2="196" class="solid"></line><line x1="568" y1="104" x2="576" y2="104" class="solid"></line><path d="M 564,196 A 4,4 0,0,0 568,200" class="nofill"></path><line x1="568" y1="200" x2="576" y2="200" class="solid"></line><line x1="580" y1="160" x2="580" y2="196" class="solid"></line><path d="M 580,196 A 4,4 0,0,1 576,200" class="nofill"></path></g><g><path d="M 592,104 A 8,8 0,0,0 586,108" class="nofill"></path><line x1="586" y1="108" x2="576" y2="128" class="solid"></line><line x1="592" y1="104" x2="632" y2="104" class="solid"></line><path d="M 632,104 A 8,8 0,0,1 638,108" class="nofill"></path><line x1="638" y1="108" x2="644" y2="120" class="solid"></line><line x1="644" y1="120" x2="644" y2="196" class="solid"></line><path d="M 600,120 A 8,8 0,0,0 594,124" class="nofill"></path><line x1="594" y1="124" x2="584" y2="144" class="solid"></line><line x1="600" y1="120" x2="624" y2="120" class="solid"></line><path d="M 624,120 A 4,4 0,0,1 628,124" class="nofill"></path><line x1="628" y1="124" x2="628" y2="196" class="solid"></line><path d="M 628,196 A 4,4 0,0,0 632,200" class="nofill"></path><line x1="632" y1="200" x2="640" y2="200" class="solid"></line><path d="M 644,196 A 4,4 0,0,1 640,200" class="nofill"></path></g></svg></div>
+<p>Acton is a <strong>advanced</strong> general purpose programming language offering <strong>functional</strong> and <strong>object-oriented</strong> style of programming based on the <strong>actor</strong>-model and async I/O. <strong>Type safe</strong> and with <strong>capabilities based</strong> security, Acton is <strong>statically compiled</strong> for <strong>high performance</strong> and <strong>portability</strong>. In other words, pretty much <em>perfect</em> ;) We hope you enjoy it as much as we do. It's readily available to build anything from advanced "shell scripts" to low level databases.</p>
+<p>Unique among programming languages, Acton offers <strong>orthogonal persistence</strong>, which means you don't have to think about how to persist data, or rather the state of your program, for durability. Acton will do it for you, using its fault-tolerant distribute database. Pretty damn cool!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World</a></h1>
+<p>We follow tradition and introduce Acton with the following minimal example</p>
+<p>Source:</p>
+<pre><code class="language-python"># This is a comment, which is ignored by the compiler.
+
+# An actor named 'main' is automatically discovered and recognized as the root 
+# actor. Any .act file with a main actor will be compiled into a binary 
+# executable and the main actor becomes the starting point.
+actor main(env):
+    print("Hello World!")
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-console">acton hello.act
+./hello
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-console">Hello World!
+</code></pre>
+<h2 id="description"><a class="header" href="#description">Description</a></h2>
+<p>When an Acton program runs, it really consits of a collection of actors that interact with each other. In the above example, we have just a single actor, which has been given the name <code>main</code> and that acts as the <em>root actor</em> of our system. The <em>root actor</em> of a system takes a parameter <code>env</code>, which represents the execution environment. <code>env</code> has methods for accessing command line arguments and carries a reference to the capabilities of the surrounding world, <code>WorldCap</code>, for accessing the environment, e.g. reading from and writing to keyboard/screen and files, working with sockets etc.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<div class="mdbook-tabs-container">
+<nav class="mdbook-tabs">
+<button class="mdbook-tab active" data-tabname="Debian / Ubuntu">Debian / Ubuntu</button>
+<button class="mdbook-tab" data-tabname="MacOS">MacOS</button>
+</nav>
+<div class="mdbook-tab-content" data-tabname="Debian / Ubuntu">
+<p>For Debian derivative distributions that use .dpkg and the APT ecosystem. Add the Acton APT repo and install from there:</p>
+<pre><code class="language-console">wget -q -O - https://apt.acton-lang.io/acton.gpg | sudo apt-key add -
+echo "deb [arch=amd64] http://apt.acton-lang.io/ stable main" | sudo tee /etc/apt/sources.list.d/acton.list
+sudo apt-get update
+sudo apt-get install -qy acton
+</code></pre>
+</div>
+<div class="mdbook-tab-content hidden" data-tabname="MacOS">
+<pre><code class="language-console">brew install actonlang/acton/acton
+</code></pre>
+</div>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="shebang"><a class="header" href="#shebang">Shebang</a></h1>
+<p>While Acton is a compiled language and the <code>acton</code> compiler produces an executable binary, script style execution is also possible through the use of a shebang line.</p>
+<p>Source:</p>
+<pre><code class="language-python">#!/usr/bin/env runacton
+
+actor main(env):
+    print("Hello World!")
+    env.exit(0)
+</code></pre>
+<p>Ensure the executable bit is set and run your .act file directly:</p>
+<pre><code class="language-console">chmod a+x hello.act
+./hello.act
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-console">Hello World!
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="acton-projects"><a class="header" href="#acton-projects">Acton Projects</a></h1>
+<p>Besides compiling individual <code>.act</code> files, it is possible to organize Acton code into an <strong>Acton Project</strong>, which is suitable once you have more than one <code>.act</code> source code file.</p>
+<p>Use <code>acton</code> to create a new project called <code>foo</code>:</p>
+<pre><code class="language-console">acton new foo
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-console">Created project foo
+Enter your new project directory with:
+  cd foo
+Compile:
+  acton build
+Run:
+  ./out/bin/foo
+</code></pre>
+<h2 id="description-1"><a class="header" href="#description-1">Description</a></h2>
+<p>Use <code>acton build</code> to build a project. The current working directory must be the project directory or a sub-directory to the project directory. <code>acton</code> will discover all source files and compile them according to dependency order.</p>
+<p>Add a <code>main</code> actor to any source file directly under <code>src/</code> to produce an executable binary. For example, if <code>src/hello.act</code> contains a <code>main</code> actor, it will produce <code>out/bin/hello</code> using <code>main</code> as the root actor.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="running-tests"><a class="header" href="#running-tests">Running Tests</a></h1>
+<p>Writing tests is an integral part of writing software. In an Acton project, you can run all the tests by issuing <code>acton test</code>:</p>
+<pre><code class="language-console">foo@bar:~hello$ acton test
+
+Tests - module hello:
+  foo:                   OK:  278 runs in 50.238ms
+
+All 1 tests passed (23.491s)
+
+foo@bar:~hello$ 
+</code></pre>
+<p>See the <a href="hello//testing.html">Testing</a> section on how to write tests.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variable-data-types"><a class="header" href="#variable-data-types">Variable data types</a></h1>
+<p>Acton supports a plethora of primitive data types.</p>
+<ul>
+<li><code>int</code> integers, like <code>1</code>, <code>2</code>, <code>123512</code>, <code>-6542</code> or <code>1267650600228229401496703205376</code>
+<ul>
+<li><code>int</code> is arbitrary precision and can grow beyond machine word sizes</li>
+<li><code>i16</code> is a fixed size signed 16 bit integer</li>
+<li><code>i32</code> is a fixed size signed 32 bit integer</li>
+<li><code>i64</code> is a fixed size signed 64 bit integer</li>
+<li><code>u16</code> is a fixed size unsigned 16 bit integer</li>
+<li><code>u32</code> is a fixed size unsigned 32 bit integer</li>
+<li><code>u64</code> is a fixed size unsigned 64 bit integer</li>
+</ul>
+</li>
+<li><code>float</code> 64 bit float, like <code>1.3</code> or <code>-382.31</code></li>
+<li><code>bool</code> boolean, like <code>True</code> or <code>False</code></li>
+<li><code>str</code> strings, like <code>foo</code>
+<ul>
+<li>strings support Unicode characters</li>
+</ul>
+</li>
+<li><a href="primitives/lists.html">lists</a> like <code>[1, 2, 3]</code> or <code>["foo", "bar"]</code></li>
+<li><a href="primitives/dicts.html">dictionaries</a> like <code>{"foo": 1, "bar": 3}</code></li>
+<li><a href="primitives/tuples.html">tuples</a> like <code>(1, "foo")</code></li>
+<li><a href="primitives/sets.html">sets</a> like <code>{"foo", "bar"}</code></li>
+</ul>
+<p>In Acton, mutable state can only be held by actors. Global definitions in modules are constant. Assigning to the same name in an actor will shadow the global variable.</p>
+<p>Source:</p>
+<pre><code class="language-python">foo = 3    # this is a global constant and cannot be changed
+
+def printfoo():
+    print("global foo:", foo)  # this will print the global foo
+
+actor main(env):
+    # this sets a local variable with the name foo, shadowing the global constant foo
+    foo = 4
+    print("local foo, shadowing the global foo:", foo)
+    printfoo()
+
+    a = u16(1234)
+    print("u16:", a)
+
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">local foo, shadowing the global foo: 4
+global foo: 3
+u16: 1234
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variable-data-types-1"><a class="header" href="#variable-data-types-1">Variable data types</a></h1>
+<p>Acton supports a plethora of primitive data types.</p>
+<ul>
+<li><code>int</code> integers, like <code>1</code>, <code>2</code>, <code>123512</code>, <code>-6542</code> or <code>1267650600228229401496703205376</code>
+<ul>
+<li><code>int</code> is arbitrary precision and can grow beyond machine word sizes</li>
+<li><code>i16</code> is a fixed size signed 16 bit integer</li>
+<li><code>i32</code> is a fixed size signed 32 bit integer</li>
+<li><code>i64</code> is a fixed size signed 64 bit integer</li>
+<li><code>u16</code> is a fixed size unsigned 16 bit integer</li>
+<li><code>u32</code> is a fixed size unsigned 32 bit integer</li>
+<li><code>u64</code> is a fixed size unsigned 64 bit integer</li>
+</ul>
+</li>
+<li><code>float</code> 64 bit float, like <code>1.3</code> or <code>-382.31</code></li>
+<li><code>bool</code> boolean, like <code>True</code> or <code>False</code></li>
+<li><code>str</code> strings, like <code>foo</code>
+<ul>
+<li>strings support Unicode characters</li>
+</ul>
+</li>
+<li><a href="primitives/lists.html">lists</a> like <code>[1, 2, 3]</code> or <code>["foo", "bar"]</code></li>
+<li><a href="primitives/dicts.html">dictionaries</a> like <code>{"foo": 1, "bar": 3}</code></li>
+<li><a href="primitives/tuples.html">tuples</a> like <code>(1, "foo")</code></li>
+<li><a href="primitives/sets.html">sets</a> like <code>{"foo", "bar"}</code></li>
+</ul>
+<p>In Acton, mutable state can only be held by actors. Global definitions in modules are constant. Assigning to the same name in an actor will shadow the global variable.</p>
+<p>Source:</p>
+<pre><code class="language-python">foo = 3    # this is a global constant and cannot be changed
+
+def printfoo():
+    print("global foo:", foo)  # this will print the global foo
+
+actor main(env):
+    # this sets a local variable with the name foo, shadowing the global constant foo
+    foo = 4
+    print("local foo, shadowing the global foo:", foo)
+    printfoo()
+
+    a = u16(1234)
+    print("u16:", a)
+
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">local foo, shadowing the global foo: 4
+global foo: 3
+u16: 1234
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="scalars"><a class="header" href="#scalars">Scalars</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    i = 42       # an integer
+    f = 13.37    # a float
+    
+    print(i)
+    print(f)
+
+    s = "Hello"  # a string
+    print(s)
+    # a slice of a string
+    print(s[0:1])
+    
+    b = True     # a boolean
+    print(b)
+    
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc scalars.act
+./scalars
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">42
+13.37
+Hello
+H
+True
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="float"><a class="header" href="#float"><code>float</code></a></h1>
+<p>Source:</p>
+<pre><code class="language-python">from math import pi
+
+actor main(env):
+    # round to 2 decimals
+    a = round(pi, 2)
+
+    # print 4 digits of pi
+    print("%.4f" % pi)
+
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">3.1416
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lists"><a class="header" href="#lists">Lists</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    l = ["foo", "foo"]
+    l.append("bar")
+    l.insert(0, "Firsty")
+    l.append("banana")
+
+    # Indexing starts at 0
+    print("First item: " + l[0])
+    # Negative index counts from the end
+    print("Last item : " + l[-1])
+
+    # Note how we need to explicitly cast the list to str before printing
+    print("List items: " + str(l))
+    # We can take a slice of a list with [start:stop] where the start index is
+    # inclusive but the stop index is exclusive, just like in Python.
+    # A slice of a list is also a list, so cast to str.
+    print("A slice   : " + str(l[2:4]))
+    
+    print("Pop first item:", l.pop(0))
+    print("Pop last item:", l.pop(-1))
+    print("List items:", str(l))
+    
+    # Extend a list by adding another list to it
+    l.extend(["apple", "orange"])
+    print("List items:", str(l))
+    
+    unsorted_list = [9, 5, 123, 14, 1]
+    sl = sorted(unsorted_list)
+    print("Sorted list", str(sl))
+
+    # Reverse a list inplace
+    l.reverse()
+    print("Reversed:", l)
+    
+    # Get a shallow copy of the list
+    l2 = l.copy()
+    print("Copy:", l2)
+    
+    # Clear list
+    l.clear()
+    print("List after clear:", str(l))
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc lists.act
+./lists
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">First item: Firsty
+Last item : banana
+List items: ['Firsty', 'foo', 'foo', 'bar', 'banana']
+A slice   : ['foo', 'bar']
+Pop first item: Firsty
+Pop last item: banana
+List items: ['foo', 'foo', 'bar']
+List items: ['foo', 'foo', 'bar', 'apple', 'orange']
+Sorted list [1, 5, 9, 14, 123]
+Reversed: ['orange', 'apple', 'bar', 'foo', 'foo']
+Copy: ['orange', 'apple', 'bar', 'foo', 'foo']
+List after clear: []
+</code></pre>
+<ul>
+<li>All items in a list must be of the same type
+<ul>
+<li>It is not allowed to mix, like <code>["foo", 1]</code> leads to a compiler error</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dictionaries"><a class="header" href="#dictionaries">Dictionaries</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    d = {"foo": 1, "bar": 2}
+    d["cookie"] = 3
+
+    print("Dict: " + str(d))
+    print("len : " + str(len(d)))
+    print("item foo: " + str(d["foo"]))
+    print("item foo: " + str(d.get("foo", "default")))
+    print("get default value when key nonexistent: " + str(d.get("foobar", "DEF_val")))
+    
+    d["bar"] = 42
+    del d["foo"]
+    print("Dict: " + str(d))
+    
+    print("Dict keys: " + str(list(d.keys())))
+    print("Dict values: " + str(list(d.values())))
+
+    print("Dict items:")
+    for k, v in d.items():
+        print("  dict key " + k + "=" + str(v))
+
+    print("Pop last item:", d.popitem())
+    print("Dict after .popitem():", d)
+
+    # Get a shallow copy of a dict. Note the use of .items() to get keys and values
+    new_d = dict(d.items())
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc dicts.act
+./dicts
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Dict: {"foo":1, "bar":2, "cookie":3}
+len : 3
+item foo: 1
+item foo: 1
+get default value when key nonexistent: DEF_val
+Dict: {"bar":42, "cookie":3}
+Dict keys: ["bar", "cookie"]
+Dict values: [42, 3]
+Dict items:
+  dict key bar=42
+  dict key cookie=3
+Pop last item: ("cookie", 3)
+Dict after .popitem(): {"bar":42}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuples"><a class="header" href="#tuples">Tuples</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    # Items in a tuple can be of different types
+    t = ("foo", 42)
+    # Fields are accessed by their index and using field / attribute selection style:
+    print(t)
+    print(t.0)
+    print(t.1)
+    
+    # Tuples can use named fields
+    nt = (a="bar", b=1337)
+    print(nt)
+    print(nt.a)
+    print(nt.b)
+    
+    r = foo()
+    if r.b:
+        print(r.c)
+
+    env.exit(0)
+    
+def foo() -&gt; (a: str, b: bool, c: int):
+    """A function that returns a tuple with fields name a and b
+    """
+    return (a = "hello", b=True, c=123)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc sets.act
+./sets
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">('foo', 42)
+foo
+42
+('bar', 1337)
+bar
+1337
+123
+</code></pre>
+<ul>
+<li>fields in a tuple can be of different types</li>
+<li>tuples have a fixed fields</li>
+<li>tuples with named fields is like an anonymous data class, i.e. the data type itself has no name</li>
+<li>tuples with named fields can be used like a simple record type</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sets"><a class="header" href="#sets">Sets</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    # set syntax is similar to dicts using {} but without keys
+    s = {"foo", "bar"}
+
+    # Although for an empty set, {} cannot be used as it means an empty dict
+    # (and it is impossible to distinguish between the two from syntax alone).
+    # Use set() to create an empty set.
+    empty_set = set()
+
+    print("Set content:", s)
+    if "foo" in s:
+        print("'foo' is in the set")
+    if "a" not in s:
+        print("'a' is not in the set")
+
+    # Adding an item that is already in the set does nothing
+    s.add("foo")
+    print("Set without duplicate 'foo':", s)
+    s.add("a")
+    print("Set after adding 'a':", s)
+    if "a" in s:
+        print("'a' is in the set now")
+    print("Entries in set:", len(s))
+    s.discard("foo")
+    print("Set after discarding 'foo':", s)
+    
+    # Add all items from another set or some other iterable
+    s.update({"x", "y", "z"})
+    print(s)
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">acton sets.act
+./sets
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.032 s
+  Final compilation step
+   Finished final compilation step in   0.701 s
+Set content: {'bar', 'foo'}
+'foo' is in the set
+'a' is not in the set
+Set without duplicate 'foo': {'bar', 'foo'}
+Set after adding 'a': {'bar', 'a', 'foo'}
+'a' is in the set now
+Entries in set: 3
+Set after discarding 'foo': {'bar', 'a'}
+{'x', 'bar', 'a', 'y', 'z'}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>Functions are declared using the <code>def</code> keyword.</p>
+<p>Use <code>return foo</code> to return variable <code>foo</code>. If no <code>return</code> keyword is used or a lone <code>return</code> without argument is given, the function will return <code>None</code>.</p>
+<p>Source:</p>
+<pre><code class="language-python">def multiply(a, b):
+    print("Multiplying", a, "with", b)
+    return a*b
+    
+actor main(env):
+    result = multiply(3, 4)
+    print("Result:", result)
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Multiplying 3 with 4
+Result: 12
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actor-methods"><a class="header" href="#actor-methods">Actor methods</a></h1>
+<p>Actor methods are declared under an <code>actor</code> using the <code>def</code> keyword.</p>
+<p>An actor method runs in the context of the actor and can access its private state. As Actors are sequential processes, calling other methods on the local actor or any function is going to be run sequentially.</p>
+<p>Calling an actor method on the local actor can be done simply by calling it by its name, without any prefix such as <code>self.</code>.</p>
+<p>All actor methods are public. Call a method on another actor by calling <code>actor_name.method_name()</code>. Calling methods on other actors can be done <a href="functions//actors/sync_method_call.html">synchronously</a> or <a href="functions//actors/async_method_call.html">asynchronously</a>.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+def multiply(a, b):
+    print("Multiplying", a, "with", b)
+    return a*b
+    
+actor main(env):
+    var secret = 42
+
+    def compute(a):
+        print("Computing result based on our secret", secret)
+        res = multiply(a, secret)
+        return res
+
+    result = compute(3)
+    print("Result:", result)
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Computing result based on our secret 42
+Multiplying 3 with 42
+Result: 126
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="higher-order-functions"><a class="header" href="#higher-order-functions">Higher order functions</a></h1>
+<p>Acton supports higher order functions which means you can pass a function as an argument to another function.</p>
+<p>Source:</p>
+<pre><code class="language-python">def multiply_with_3(a):
+    print("Multiplying with 3")
+    return 3*a
+
+def multiply_with_42(a):
+    print("Multiplying with 42")
+    return 42*a
+
+def compute(a, fun):
+    """Compute value from a using function fun"""
+    return fun(a)
+    
+actor main(env):
+    print( compute(7, multiply_with_3) )
+    print( compute(7, multiply_with_42) )
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Multiplying with 3
+21
+Multiplying with 42
+294
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
+<p>Every value in Acton is of a certain <em>data type</em>, which tells Acton what kind of data is being specified so it knows how to work with the data. Acton is a statically typed language, which means the type of all values must be known when we compile the program. Unlike many traditional languges like Java or C++, where types must be explicitly stated everywhere, we can write most Acton programs without types. The Acton compiler features a powerful type inferencer which will infer the types used in the program.</p>
+<p>This program does not have any explicit types specified.</p>
+<p>Source:</p>
+<pre><code class="language-python">def foo(a, b):
+    if a &gt; 4:
+        print(len(b))
+
+actor main(env):
+    i1 = 1234      # inferred type: int
+    s1 = "hello"   # inferred type: str
+    foo(i1, s1)
+
+    env.exit(0)
+</code></pre>
+<p>To see the inferred types of an Acton program, use the <code>--sigs</code> option of the compiler. As the name suggests, this will print out the type signatures for functions, actors and their attributes and methods in the specified Acton module.</p>
+<p>Print type signatures with <code>--sigs</code>:</p>
+<pre><code class="language-sh">actonc types.act --sigs
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">#################################### sigs:
+
+foo : [A(Ord, Number)] =&gt; (A, Collection[B]) -&gt; None
+
+actor main (Env):
+    i1 : int
+    s1 : str
+</code></pre>
+<p>Acton implements the Hindley-Milner (HM) type system, which is common in languages with static types, like Haskell and Rust. Acton extends further from HM to support additional features.</p>
+<!-- TODO: what do we extend from HM? -->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="explicit-types"><a class="header" href="#explicit-types">Explicit types</a></h1>
+<p>It is possible to explicitly specify the types of variables or arguments in a function. The syntax is similar to type hints in Python.</p>
+<p>Source:</p>
+<pre><code class="language-python"># 'a: int' means the first argument `a` should be of type int
+# 'b: str means the second argument `b` should be of type str
+# The function returns nothing
+def foo(a: int, b: str) -&gt; None:
+    print(a, b)
+    
+# A functions type signature can also be written on a separate line
+bar : (int, str) -&gt; None
+def bar(a, b):
+    print(a, b)
+
+actor main(env):
+    # i1 is explicitly specified as an integer while s1 is a str
+    i1 : int = 1234
+    s1 : str = "hello"
+    foo(i1, s1)
+    bar(i1, s1)
+
+    # The literal value 1234 is an integer, so when we assign it to i2, the
+    # compiler can easily infer that the type of i2 is int. Similarly for s2
+    # since the literal value "hello" is clearly a string
+    i2 = 1234
+    s2 = "hello"
+    foo(i2, s2)
+    bar(i2, s2)
+    
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc types.act
+./types
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">1234 hello
+1234 hello
+1234 hello
+1234 hello
+</code></pre>
+<p>Try changing the type of <code>i1</code> or <code>s1</code> and you will find that the compiler complains that it cannot solve the type constraints of the program.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generic-types"><a class="header" href="#generic-types">Generic Types</a></h1>
+<p>Sometimes we want to be able to work with any type. We call such types <em>generic types</em>. For example, the builtin <em>list</em> type in Acton can store any other type, so we say it is a list of <code>A</code>, where <code>A</code> is a generic type (from the specification in Acton builtins):</p>
+<pre><code class="language-python">class list[A] (object):
+    ...
+
+    def pop(self, n :?int=-1) -&gt; A:
+        """Pop and return an item from the list"
+</code></pre>
+<p><code>[A]</code> says <code>A</code> is a generic type. And for example, the <code>pop()</code> function on list returns an element of type <code>A</code>.</p>
+<pre><code class="language-python">class list[A] (object):
+          ^^^ --- generic types are written here, between []
+                  A is a generic type used in `class list`
+
+    def pop(self, n :?int) -&gt; A:
+                              ^--- list.pop returns an item of type A
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="classes-and-objects"><a class="header" href="#classes-and-objects">Classes and Objects</a></h1>
+<p>Acton supports the object-oriented paradigm, which means that it provides features to create classes and objects, which are instances of classes. Classes are a fundamental concept in an object-oriented world and they allow programmers to create their own data types with their own attributes and methods.</p>
+<p>A class is defined using the <code>class</code> keyword followed by the name of the class. The convention is to use CamelCase for class names.</p>
+<pre><code class="language-python">class Circle(object):
+    radius: float
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def diameter(self):
+        return self.radius * 2
+</code></pre>
+<p><em>Attributes</em> are variables that hold data for an object of a particular class and <em>methods</em> are functions that operate on that data. In the above example, <code>radius</code> is an attribute of the <code>Circle</code> class and <code>diameter()</code> is a method that returns the diameter.</p>
+<p>Class methods must have <code>self</code> as the first argument, which refers to the object instance of the class that the method is called on.</p>
+<h2 id="creating-an-object"><a class="header" href="#creating-an-object">Creating an object</a></h2>
+<p>A Class is like a blueprint and an object is an instance of such a blueprint. To create an object, or "instantiate", we use the "blueprint" (class), like so:</p>
+<pre><code class="language-python">circle = Circle(3.14)
+</code></pre>
+<p>Here we create the object <code>circle</code> from the class <code>Circle</code>, passing the parameter <code>3.14</code> which will be used to set the <code>radius</code> attribute of the object.</p>
+<pre><code class="language-python">print(circle.diameter())
+</code></pre>
+<p>And here we print the diameter of the circle by calling the <code>.diameter()</code> method.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="class-inheritance"><a class="header" href="#class-inheritance">Class Inheritance</a></h1>
+<p>Inheritance is a way of creating a new class from an existing class. The new class is called the derived class and the existing class from which we inherit is called the base class. The derived class inherits all the attributes and methods of the base class. The derived class can extend the base class by adding more attributes or methods. It is also possible to override methods to create more specific functionality.</p>
+<p>We add the <code>area()</code> to <code>Circle</code> to get the area and realize that the unlike the diameter, area is common for all gemetric shapes. Thus we create a base class <code>Shape</code> that defines the <code>area()</code> method, but does not implement it since there is no generic way to compute the area for all shapes. Each concrete class, like <code>Circle</code> and <code>Square</code>, should implement <code>area()</code>.</p>
+<p>Source:</p>
+<pre><code class="language-python">class Shape(object):
+    def area(self) -&gt; float:
+        raise NotImplementedError("This method should be overridden by subclasses")
+
+
+class Circle(Shape):
+    radius: float
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def diameter(self):
+        return self.radius * 2
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+
+class Square(Shape):
+    def __init__(self, side: float):
+        self.side = side
+
+    def area(self) -&gt; float:
+        return self.side ** 2
+
+
+actor main(env):
+    circle = Circle(3.14)
+    square = Square(3.14)
+    print(circle.area() + square.area())
+    env.exit(0)
+</code></pre>
+<p>Inheritance is one of the primary methods, if not <em>the</em> primary method, of structuring programs in the object oriented paradigm.</p>
+<p><code>Shape</code> is an abstract class because it has no <code>__init__</code> method.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="protocols"><a class="header" href="#protocols">Protocols</a></h1>
+<p>Protocols defines functionality in an abstract way that can be implemented by many classes.</p>
+<p>Class and class inheritance is a good tool for structuring data and behavior. However, sometimes there is no clear parent / child relationship between classes, in which case using a protocol might be a more suitable choice.</p>
+<p>Perhaps the simplest example is the <code>Eq</code> protocol, that defines equality between two objects, from the Acton builtins. Classes do not need to have any common inheritance in order to support equality.</p>
+<pre><code class="language-python">protocol Eq:
+    @staticmethod
+    __eq__       : (Self,Self) -&gt; bool
+</code></pre>
+<p>The <code>__eq__</code> method takes two arguments, itself and the other object to compare with and returns <code>True</code> or <code>False</code>. Both arguments are of the same type <code>Self</code>, which means we can only compare two objects that are of the same type. It can be any type, as long as its the same type.</p>
+<pre><code class="language-python">extension Circle (Eq):
+    def __eq__(self, other):
+        return self.radius == other.radius
+</code></pre>
+<p>Protocols allows us to express the requirement for a (generic) type to implement some particular functionality.</p>
+<p>Let's say we have a function that compares two objects.</p>
+<pre><code class="language-python">def comparator(a, b):
+    print("Things:", a, b)
+    print("Are they equal?", a == b)
+</code></pre>
+<p>We know that <code>a</code> and <code>b</code> must implement the <code>Eq</code> protocol and they must be of the same type. Let's see what the compiler constraint solver says:</p>
+<pre><code class="language-console">acton --sigs generic.act
+
+
+== sigs: generic ================================
+
+comparator : [A(Eq)] =&gt; (a: A, b: A) -&gt; None
+=================================================
+</code></pre>
+<p>The type has been inferred to a generic type <code>A</code> that must implement the <code>Eq</code> protocol, which is written as <code>A(Eq)</code>. We can write this explicitly:</p>
+<pre><code class="language-python">def comparator[A(Eq)](a: A, b: A):
+    print("Things:", a, b)
+    print("Are they equal?", a == b)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="protocol-method-dispatch-and-method-resolution-order"><a class="header" href="#protocol-method-dispatch-and-method-resolution-order">Protocol Method Dispatch and Method Resolution Order</a></h1>
+<p>Method dispatch and Method Resolution Order (MRO) is about picking a particular implementation of a method when there are multiple to pick from. For class inheritance, it is pretty straight forward, the method used will always be that of the actual class. For protocols, it is not as simple. Dispatch of methods for protocols is based on the observed type, which can be somewhat surprising.</p>
+<p>Here are two classes, the base class <code>Point</code> and the dervied class <code>Point3D</code> (which inherits from <code>Point</code>). Each implement the <code>Eq</code> protocol.</p>
+<pre><code class="language-python">class Point(object):
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+
+extension Point (Eq):
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+class Point3D(Point):
+    def __init__(self, x: int, y: int, z: int):
+        self.x = x
+        self.y = y
+        self.z = z
+
+extension Point3D (Eq):
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y and self.z == other.z
+
+def comparator(a: Point, b: Point) -&gt; bool:
+    return a == b
+
+actor main(env):
+    # p1 and p2 are actually different in z. If seen as a 2D point, they appear
+    # equal since the x and y values of p1 and p2 are the same
+    p1 = Point3D(1, 2, 3)
+    p2 = Point3D(1, 2, 4)
+
+    # False, because we see p1 and p2 as Point3D objects and thus dispatch the Eq
+    # extension __eq__ method to Point3D which correctly compares x, y and z
+    print(p1 == p2)
+
+    # True, because comparator takes (Point, Point) and thus we see p1 and p2
+    # as Point objects and thus dispatch the Eq extension __eq__ method to Point
+    # which only compares x and y and thus returns True despite the z difference
+    print(comparator(p1, p2))
+
+    env.exit(0)
+</code></pre>
+<p>The <code>comparator</code> function takes arguments of the base class <code>Point</code> type, which means that when dispatching, they will use the <code>Eq</code> protocol of <code>Point</code> rather than that of <code>Point3D</code>. Naive use typically dispatches to the protocol implementation of the derived class, which is what we intuitively want. It's only when we have forced the type to be observed, as here, that we end up with the "wrong" protocol implementation. Note that there are also cases where this is the desired behavior.</p>
+<p>In this particular example, the natural and better solution is to write the comparator function as requiring the Eq type:</p>
+<pre><code class="language-python">def generic_comparator[A(Eq)](a: A, b: A):
+    return a == b
+</code></pre>
+<p>Another common scenario is when the type has been forced by storing items in a list or dict, which in turn is typed as storing a base class.</p>
+<pre><code class="language-python">actor main(env):
+    ref_point = Point3D(1, 2, 4)
+    p1 = Point3D(1, 2, 3)
+    p2 = Point3D(1, 2, 4)
+    my_points: list[Point] = [p1, p2]
+    for point in my_points:
+        if point == ref_point:
+            print("Found the reference (compared as Point)", point)
+        if isinstance(point, Point3D) and point == ref_point:
+            print("Found the reference (compared to Point3D)", point)
+</code></pre>
+<p>As shown in the above example, we can force the comparison to use the <code>Eq</code> protocol implemention of <code>Point3D</code> by using <code>isinstance</code> to check and thus coerce the observed type of <code>point</code> to be <code>Point3D</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actors"><a class="header" href="#actors">Actors</a></h1>
+<p><strong>Actors</strong> is a key concept in Acton. Each actor is a small sequential process with its own private state. Actors communicate with each other through messages, in practice by calling methods on other actors or reading their attributes.</p>
+<p>Source:</p>
+<pre><code class="language-python"># An actor definition
+actor Act(name):
+
+    # Top level code in an actor runs when initializing an actor instance, like
+    # __init__() in Python.
+    print("Starting up actor " + name)
+    
+    def hello():
+        # We can directly access actor arguments, like `name`
+        print("Hello world from " + name)
+
+actor main(env):
+    # Create an actor instance a of Act
+    a = Act("FOO")
+    # Call the actor method hello
+    await async a.hello()
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc actors.act
+./actors
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">No dependencies found, building project
+Building project in /tmp/tmp_nwgl0ik/example
+  Compiling example.act for release
+   Finished compilation in   0.015 s
+  Final compilation step
+   Finished final compilation step in   0.437 s
+Starting up actor FOO
+Hello world from FOO
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="root-actor"><a class="header" href="#root-actor">Root Actor</a></h1>
+<p>Like C has a main() function, Acton has a root actor. To compile a binary executable, there must be a root actor. Per default, if a source (<code>.act</code>) file contains an actor named <code>main</code>, it will be used as the root actor but it can also be specified using the <code>--root</code> argument. While the convention is to call the root actor <code>main</code>, you are free to name it anything.</p>
+<p>Given this Acton program:</p>
+<pre><code class="language-python">actor main(env):
+    print("Hello World!")
+    env.exit(0)
+</code></pre>
+<p>The following actonc commands will all produce the same output.</p>
+<pre><code class="language-sh">actonc hello.act
+actonc hello.act --root main
+actonc hello.act --root hello.main
+</code></pre>
+<p>The first invocation relies on the default rule of using an actor called <code>main</code>. The second invocation explicitly specifies that we want to use <code>main</code> as the root actor while the third uses a qualified name which includes both the actor name (<code>main</code>) as well as the module name (<code>hello</code>). Using qualified names can be particularly useful when building executable binaries in projects.</p>
+<p>A normal Acton program consists of many actors that are structured in a hierarchical tree. The root actor is at the root of the tree and is responsible for starting all other actors directly or indirectly. The Acton Run Time System (RTS) will bootstrap the root actor.</p>
+<div style='width:100%; height:272px;'><style type="text/css">svg { width: 100% !important; }</style><svg xmlns="http://www.w3.org/2000/svg" width="320" height="272"><style>line, path, circle, rect, polygon{stroke:var(--fg);stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:arial;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}<!--separator--></style><defs><marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,0 0,4 4,2 0,0"></polygon></marker><marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,2 2,0 4,2 2,4 0,2"></polygon></marker><marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="filled"></circle></marker><marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="bg_filled"></circle></marker><marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="3" class="bg_filled"></circle></marker></defs><rect class="backdrop" x="0" y="0" width="320" height="272"></rect><text x="122" y="28" >root</text><text x="82" y="124" >A</text><text x="186" y="124" >B</text><text x="42" y="220" >1</text><text x="114" y="220" >2</text><text x="178" y="236" >3</text><text x="234" y="236" >4</text><text x="290" y="236" >5</text><g><path d="M 120,8 A 8,8 0,0,0 114,12" class="nofill"></path><line x1="114" y1="12" x2="112" y2="16" class="solid"></line><line x1="120" y1="8" x2="152" y2="8" class="solid"></line><path d="M 152,8 A 8,8 0,0,1 158,12" class="nofill"></path><line x1="158" y1="12" x2="160" y2="16" class="solid"></line><path d="M 112,16 A 16,16 0,0,0 112,32" class="nofill"></path><path d="M 160,16 A 16,16 0,0,1 160,32" class="nofill"></path><line x1="112" y1="32" x2="114" y2="36" class="solid"></line><path d="M 114,36 A 8,8 0,0,0 120,40" class="nofill"></path><line x1="120" y1="40" x2="152" y2="40" class="solid"></line><line x1="160" y1="32" x2="158" y2="36" class="solid"></line><path d="M 158,36 A 8,8 0,0,1 152,40" class="nofill"></path></g><g><line x1="112" y1="48" x2="94" y2="84" class="solid"></line><polygon points="97,84 90,92 90,81" class="filled"></polygon></g><g><line x1="160" y1="48" x2="178" y2="84" class="solid"></line><polygon points="175,84 182,92 182,81" class="filled"></polygon></g><g><path d="M 80,104 A 8,8 0,0,0 74,108" class="nofill"></path><line x1="74" y1="108" x2="72" y2="112" class="solid"></line><line x1="80" y1="104" x2="88" y2="104" class="solid"></line><path d="M 88,104 A 8,8 0,0,1 94,108" class="nofill"></path><line x1="94" y1="108" x2="96" y2="112" class="solid"></line><path d="M 72,112 A 16,16 0,0,0 72,128" class="nofill"></path><path d="M 96,112 A 16,16 0,0,1 96,128" class="nofill"></path><line x1="72" y1="128" x2="74" y2="132" class="solid"></line><path d="M 74,132 A 8,8 0,0,0 80,136" class="nofill"></path><line x1="80" y1="136" x2="88" y2="136" class="solid"></line><line x1="96" y1="128" x2="94" y2="132" class="solid"></line><path d="M 94,132 A 8,8 0,0,1 88,136" class="nofill"></path></g><g><path d="M 184,104 A 8,8 0,0,0 178,108" class="nofill"></path><line x1="178" y1="108" x2="176" y2="112" class="solid"></line><line x1="184" y1="104" x2="192" y2="104" class="solid"></line><path d="M 192,104 A 8,8 0,0,1 198,108" class="nofill"></path><line x1="198" y1="108" x2="200" y2="112" class="solid"></line><path d="M 176,112 A 16,16 0,0,0 176,128" class="nofill"></path><path d="M 200,112 A 16,16 0,0,1 200,128" class="nofill"></path><line x1="176" y1="128" x2="178" y2="132" class="solid"></line><path d="M 178,132 A 8,8 0,0,0 184,136" class="nofill"></path><line x1="184" y1="136" x2="192" y2="136" class="solid"></line><line x1="200" y1="128" x2="198" y2="132" class="solid"></line><path d="M 198,132 A 8,8 0,0,1 192,136" class="nofill"></path></g><g><line x1="208" y1="120" x2="236" y2="120" class="solid"></line><line x1="236" y1="120" x2="274" y2="196" class="solid"></line><polygon points="271,196 278,204 278,193" class="filled"></polygon></g><g><line x1="72" y1="144" x2="54" y2="180" class="solid"></line><polygon points="57,180 50,188 50,177" class="filled"></polygon></g><g><line x1="88" y1="144" x2="106" y2="180" class="solid"></line><polygon points="103,180 110,188 110,177" class="filled"></polygon></g><g><line x1="180" y1="144" x2="180" y2="196" class="solid"></line><polygon points="176,196 184,196 180,208" class="filled"></polygon></g><g><line x1="200" y1="144" x2="226" y2="196" class="solid"></line><polygon points="223,196 230,204 230,193" class="filled"></polygon></g><g><path d="M 40,200 A 8,8 0,0,0 34,204" class="nofill"></path><line x1="34" y1="204" x2="32" y2="208" class="solid"></line><line x1="40" y1="200" x2="48" y2="200" class="solid"></line><path d="M 48,200 A 8,8 0,0,1 54,204" class="nofill"></path><line x1="54" y1="204" x2="56" y2="208" class="solid"></line><path d="M 32,208 A 16,16 0,0,0 32,224" class="nofill"></path><path d="M 56,208 A 16,16 0,0,1 56,224" class="nofill"></path><line x1="32" y1="224" x2="34" y2="228" class="solid"></line><path d="M 34,228 A 8,8 0,0,0 40,232" class="nofill"></path><line x1="40" y1="232" x2="48" y2="232" class="solid"></line><line x1="56" y1="224" x2="54" y2="228" class="solid"></line><path d="M 54,228 A 8,8 0,0,1 48,232" class="nofill"></path></g><g><path d="M 112,200 A 8,8 0,0,0 106,204" class="nofill"></path><line x1="106" y1="204" x2="104" y2="208" class="solid"></line><line x1="112" y1="200" x2="120" y2="200" class="solid"></line><path d="M 120,200 A 8,8 0,0,1 126,204" class="nofill"></path><line x1="126" y1="204" x2="128" y2="208" class="solid"></line><path d="M 104,208 A 16,16 0,0,0 104,224" class="nofill"></path><path d="M 128,208 A 16,16 0,0,1 128,224" class="nofill"></path><line x1="104" y1="224" x2="106" y2="228" class="solid"></line><path d="M 106,228 A 8,8 0,0,0 112,232" class="nofill"></path><line x1="112" y1="232" x2="120" y2="232" class="solid"></line><line x1="128" y1="224" x2="126" y2="228" class="solid"></line><path d="M 126,228 A 8,8 0,0,1 120,232" class="nofill"></path></g><g><path d="M 176,216 A 8,8 0,0,0 170,220" class="nofill"></path><line x1="170" y1="220" x2="168" y2="224" class="solid"></line><line x1="176" y1="216" x2="184" y2="216" class="solid"></line><path d="M 184,216 A 8,8 0,0,1 190,220" class="nofill"></path><line x1="190" y1="220" x2="192" y2="224" class="solid"></line><path d="M 168,224 A 16,16 0,0,0 168,240" class="nofill"></path><path d="M 192,224 A 16,16 0,0,1 192,240" class="nofill"></path><line x1="168" y1="240" x2="170" y2="244" class="solid"></line><path d="M 170,244 A 8,8 0,0,0 176,248" class="nofill"></path><line x1="176" y1="248" x2="184" y2="248" class="solid"></line><line x1="192" y1="240" x2="190" y2="244" class="solid"></line><path d="M 190,244 A 8,8 0,0,1 184,248" class="nofill"></path></g><g><path d="M 232,216 A 8,8 0,0,0 226,220" class="nofill"></path><line x1="226" y1="220" x2="224" y2="224" class="solid"></line><line x1="232" y1="216" x2="240" y2="216" class="solid"></line><path d="M 240,216 A 8,8 0,0,1 246,220" class="nofill"></path><line x1="246" y1="220" x2="248" y2="224" class="solid"></line><path d="M 224,224 A 16,16 0,0,0 224,240" class="nofill"></path><path d="M 248,224 A 16,16 0,0,1 248,240" class="nofill"></path><line x1="224" y1="240" x2="226" y2="244" class="solid"></line><path d="M 226,244 A 8,8 0,0,0 232,248" class="nofill"></path><line x1="232" y1="248" x2="240" y2="248" class="solid"></line><line x1="248" y1="240" x2="246" y2="244" class="solid"></line><path d="M 246,244 A 8,8 0,0,1 240,248" class="nofill"></path></g><g><path d="M 288,216 A 8,8 0,0,0 282,220" class="nofill"></path><line x1="282" y1="220" x2="280" y2="224" class="solid"></line><line x1="288" y1="216" x2="296" y2="216" class="solid"></line><path d="M 296,216 A 8,8 0,0,1 302,220" class="nofill"></path><line x1="302" y1="220" x2="304" y2="224" class="solid"></line><path d="M 280,224 A 16,16 0,0,0 280,240" class="nofill"></path><path d="M 304,224 A 16,16 0,0,1 304,240" class="nofill"></path><line x1="280" y1="240" x2="282" y2="244" class="solid"></line><path d="M 282,244 A 8,8 0,0,0 288,248" class="nofill"></path><line x1="288" y1="248" x2="296" y2="248" class="solid"></line><line x1="304" y1="240" x2="302" y2="244" class="solid"></line><path d="M 302,244 A 8,8 0,0,1 296,248" class="nofill"></path></g></svg></div>
+<p>Any executable Acton program must have a root actor defined. Acton libraries (that are included in an another Acton program), do not need a root actor.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lifetime"><a class="header" href="#lifetime">Lifetime</a></h1>
+<p>The main function in most imperative and functional programming languages start at the top and when they reach the end of the function, the whole program exits. Actors exist as long as another actor has a reference to it and will idle, passively waiting for the next method call. Actors without references will be garbage collected. The root actor of a program will always exist even without other references.</p>
+<p>This means that a simple program like this modified helloworld (the <code>env.exit()</code> call has been removed) will run indefinitely. You need to deliberately tell the run time system to stop the actor world and exit, via <code>env.exit()</code>, in order to exit the program.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    print("Hello world!")
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc noexit.act
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">$ ./noexit
+&lt;you will never get your prompt back&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actor-attributes--constants"><a class="header" href="#actor-attributes--constants">Actor Attributes &amp; Constants</a></h1>
+<p>Actors typically contain some private state. We define variable attributes at the top level in the actor using the <code>var</code> keyword and can then access them from any method within the local actor. Note how <code>self.</code> is not needed. Private variables are not visible from other actors.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor Act():
+    var something = 40  # private actor variable attribute
+    fixed = 1234        # public constant
+    
+    def hello():
+        # We can access local actor variable attributes directly, no need for 
+        # self.something or similar
+        something += 2
+        print("Hello, I'm Act &amp; value of 'something' is: " + str(something))
+
+actor main(env):
+    actor1 = Act()
+    await async actor1.hello()
+    print("Externally visible constant: ", actor1.fixed)
+    # This would give an error, try uncommenting it
+    # print(actor1.something)
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc attrs.act
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Hello, I'm Act &amp; value of 'something' is: 42
+Externally visible constant:  1234
+</code></pre>
+<p>Without the <code>var</code> keyword, an actor attribute is a constant. As constants are not mutable, it is safe to make it visible to other actors and it can be accessed like an attribute on an object.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actor-concurrency"><a class="header" href="#actor-concurrency">Actor concurrency</a></h1>
+<p>Multiple actors run concurrently. In this example we can see how the two actors Foo and Bar run concurrently. The main actor is also running concurrently, although it doesn't do anything beyond creating the Foo and Bar actors and exiting after some time.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor Counter(name):
+    var counter = 0
+
+    def periodic():
+        print("I am " + name + " and I have counted to " + str(counter))
+        counter += 1
+
+        # 'after 1' tells the run time system to schedule the specified
+        # function, in this case periodic(), i.e. ourselves, after 1 second
+        after 1: periodic()
+
+    # First invocation of periodic()
+    periodic()
+
+
+actor main(env):
+    # Create two instances of the Counter actor, each with a unique name
+    foo = Counter("Foo")
+    bar = Counter("Bar")
+    
+    def exit():
+        env.exit(0)
+
+    # exit the whole program after 10 seconds
+    after 10: exit()
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc concurrency.act
+./concurrency
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">I am Foo and I have counted to 0
+I am Bar and I have counted to 0
+I am Foo and I have counted to 1
+I am Bar and I have counted to 1
+I am Foo and I have counted to 2
+I am Bar and I have counted to 2
+I am Foo and I have counted to 3
+I am Bar and I have counted to 3
+I am Foo and I have counted to 4
+I am Bar and I have counted to 4
+I am Bar and I have counted to 5
+I am Foo and I have counted to 5
+I am Bar and I have counted to 6
+I am Foo and I have counted to 6
+I am Bar and I have counted to 7
+I am Foo and I have counted to 7
+I am Foo and I have counted to 8
+I am Bar and I have counted to 8
+I am Foo and I have counted to 9
+I am Bar and I have counted to 9
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sync-method-calls"><a class="header" href="#sync-method-calls">Sync Method calls</a></h1>
+<p>While async is good for performance it makes it somewhat convoluted, forcing use of callbacks, to just return a value. Acton makes it possible to call other actors in a synchronous fashion for ease of use.</p>
+<p>A method is called <strong>synchronously</strong> when the return value is used.</p>
+<p>Source:</p>
+<pre><code class="language-python">import acton.rts
+
+actor DeepT():
+    def compute():
+        # some heavy computation going on
+        acton.rts.sleep(1)
+        return 42
+
+actor main(env):
+    d1 = DeepT()
+
+    answer = d1.compute()
+    print("The answer is", answer)
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc sync.act
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">The answer is 42
+</code></pre>
+<p>The call flow can be illustrated like this. We can see how the execution of <code>main</code> is suspended while it is waiting for the return value from actor <code>d1</code>.</p>
+<div style='width:100%; height:80px;'><style type="text/css">svg { width: 100% !important; }</style><svg xmlns="http://www.w3.org/2000/svg" width="336" height="80"><style>line, path, circle, rect, polygon{stroke:var(--fg);stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:arial;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}<!--separator--></style><defs><marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,0 0,4 4,2 0,0"></polygon></marker><marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,2 2,0 4,2 2,4 0,2"></polygon></marker><marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="filled"></circle></marker><marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="bg_filled"></circle></marker><marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="3" class="bg_filled"></circle></marker></defs><rect class="backdrop" x="0" y="0" width="336" height="80"></rect><text x="26" y="12" >main</text><circle cx="92" cy="8" r="3" class="filled"></circle><line x1="96" y1="8" x2="152" y2="8" class="solid"></line><circle cx="156" cy="8" r="3" class="filled"></circle><circle cx="260" cy="8" r="3" class="filled"></circle><line x1="264" y1="8" x2="320" y2="8" class="solid"></line><circle cx="324" cy="8" r="3" class="filled"></circle><circle cx="180" cy="56" r="3" class="filled"></circle><text x="26" y="60" >d1</text><g><line x1="158" y1="12" x2="170" y2="36" class="solid"></line><polygon points="167,36 174,44 174,33" class="filled"></polygon></g><g><polygon points="247,28 254,20 254,31" class="filled"></polygon><line x1="250" y1="28" x2="238" y2="52" class="solid"></line><line x1="184" y1="56" x2="232" y2="56" class="solid"></line><path d="M 238,52 A 8,8 0,0,1 232,56" class="nofill"></path></g></svg></div>
+<p>While synchronous is <em>bad</em> because we block waiting for someone else, we are only ever going to wait for another actor to run its method. There is never any wait for I/O or other indefinite waiting, only blocking wait for computation within the Acton system. This is achieved by the lack of blocking calls for I/O, thus even if there is a chain of actors waiting for each other</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="async-method-calls"><a class="header" href="#async-method-calls">Async Method calls</a></h1>
+<p>As actors are sequential programs and can only do one thing at a time, it is important not to spend time waiting in a blocking fashion. Acton leverages asynchronous style programming to allow actors to react and run only when necessary. Async is at the core of Acton!</p>
+<p>A method is called asynchronously when the return value is not used.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+def nsieve(n: int):
+    """Sieve of Erathostenes to find primes up to n
+    """
+    count = 0
+    flags = [True] * n
+    for i in range(2, n, 1):
+        if flags[i]:
+            count += 1
+            for j in range(i, n, i):
+                flags[j] = False
+    return count
+
+actor Simon(idx):
+    def say(msg, n):
+        # Simon likes to compute primes and will tell you how many there are under a given number
+        count = nsieve(n)
+        print("Simon%d says: %s.... oh and there are %d primes under %d" % (idx, msg, count, n))
+
+actor main(env):
+    s1 = Simon(1)
+    s2 = Simon(2)
+
+    s1.say("foo", 1000000)
+    s2.say("bar", 5)
+
+    def exit():
+        env.exit(0)
+    after 0.2: exit()
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc async.act
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Simon2 says: bar.... oh and there are 2 primes under 5
+Simon1 says: foo.... oh and there are 78498 primes under 1000000
+</code></pre>
+<p>A method call like <code>s1.say("foo", 100000)</code> does not use the return value of and is thus called asynchronously. We ask <code>s1</code> to compute primes under 1000000 while <code>s2</code> only gets to compute primes up to <code>5</code> which will invariably run faster. Thus, <code>s2</code> despite being called after <code>s1</code>, will print out its result before <code>s1</code>. The <code>s1</code> and <code>s2</code> actors are called asynchronously and are executed concurrently and in parallel.</p>
+<p>The call flow can be illustrated like this. We can see how <code>main</code> asynchronously calls <code>s1</code> and <code>s2</code> that will be scheduled to run concurrently. The run time system (RTS) will run <code>s1.say()</code> and <code>s2.say()</code> in parallel if there are 2 worker threads available. Per default, there are as many worker threads as available CPU threads.</p>
+<div style='width:100%; height:144px;'><style type="text/css">svg { width: 100% !important; }</style><svg xmlns="http://www.w3.org/2000/svg" width="440" height="144"><style>line, path, circle, rect, polygon{stroke:var(--fg);stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:arial;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}<!--separator--></style><defs><marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,0 0,4 4,2 0,0"></polygon></marker><marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,2 2,0 4,2 2,4 0,2"></polygon></marker><marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="filled"></circle></marker><marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="bg_filled"></circle></marker><marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="3" class="bg_filled"></circle></marker></defs><rect class="backdrop" x="0" y="0" width="440" height="144"></rect><text x="26" y="12" >main</text><circle cx="92" cy="8" r="3" class="filled"></circle><line x1="96" y1="8" x2="152" y2="8" class="solid"></line><circle cx="156" cy="8" r="3" class="filled"></circle><line x1="160" y1="8" x2="184" y2="8" class="solid"></line><circle cx="188" cy="8" r="3" class="filled"></circle><circle cx="212" cy="56" r="3" class="filled"></circle><line x1="216" y1="56" x2="232" y2="56" class="solid"></line><circle cx="236" cy="56" r="3" class="filled"></circle><circle cx="196" cy="88" r="3" class="filled"></circle><line x1="200" y1="88" x2="264" y2="88" class="solid"></line><circle cx="268" cy="88" r="3" class="filled"></circle><circle cx="372" cy="8" r="3" class="filled"></circle><line x1="370" y1="12" x2="318" y2="116" class="solid"></line><line x1="376" y1="8" x2="424" y2="8" class="solid"></line><circle cx="428" cy="8" r="3" class="filled"></circle><circle cx="316" cy="120" r="3" class="filled"></circle><text x="26" y="60" >s2</text><text x="26" y="92" >s1</text><text x="26" y="124" >after</text><text x="74" y="124" >2</text><g><line x1="158" y1="12" x2="186" y2="68" class="solid"></line><polygon points="183,68 190,76 190,65" class="filled"></polygon></g><g><line x1="190" y1="12" x2="202" y2="36" class="solid"></line><polygon points="199,36 206,44 206,33" class="filled"></polygon></g></svg></div>
+<p>In addition we see how the call to <code>after 2</code> schedules the <code>main</code> actor to run again after 2 seconds, specifically it will run the <code>main.exit()</code> method, which in turn exists the whole program.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cleanup--finalization"><a class="header" href="#cleanup--finalization">Cleanup / Finalization</a></h1>
+<p>It is possible to run special code when an actor is about to be garbage collected. This should not be performed by normal actors, this is really only for I/O actors that interact with the environment and might need to also clean up in the environment when the actor is being garbage collected.</p>
+<p>Define an actor action called <code>__cleanup__</code> and the run time system will automatically install it to be run at garbage collection time. There is no hard guarantee when the <code>__cleanup__</code> function will be called and it typically takes a couple of collection rounds to run all finalizers.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor Foo():
+    action def __cleanup__():
+        print("Cleaning up after myself...")
+
+actor main(env):
+    # create a bunch of actors and do not assign reference, so they should be collected
+    for i in range(20):
+        Foo()
+
+    # perform some busy work to eventually trigger the GC and thus finalization
+    # &amp; schedule __cleanup__
+    a = 1
+    for i in range(99999):
+        a += i
+
+    # Delay exit a little bit to let RTS workers pick up the asynchronously
+    # scheduled __cleanup__ actions to run for the unreachable instances of the
+    # Foo actor
+    def _stop():
+        env.exit(0)
+    after 0.1: _stop()
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+Cleaning up after myself...
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control flow</a></h1>
+<p>A crucial part in any imperative program is to control the flow of execution. Acton supports a number of different constructs for this:</p>
+<ul>
+<li><a href="control_flow/actors.html"><code>actors</code></a></li>
+<li><a href="control_flow/if_else.html"><code>if</code> / <code>else</code></a></li>
+<li><a href="control_flow/for.html"><code>for</code></a></li>
+<li><a href="control_flow/while.html"><code>while</code></a></li>
+<li><a href="control_flow/after_sleep.html"><code>after</code> / <code>sleep</code></a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow-in-an-async-actor-world"><a class="header" href="#control-flow-in-an-async-actor-world">Control flow in an async actor world</a></h1>
+<p>The basic control flow of most programming languages involve a starting point, like a main function, which is run from top to bottom, after which the program implicitly terminates. The basic objective is to feed instructions to the CPU and this goal remains through increasing levels of abstractions. Acton is different. Once created, an actor will simply remain indefinitely, waiting for incoming messages in the form of actor method calls. See <a href="control_flow//actors/lifetime.html">Actor Lifetime</a>.</p>
+<h2 id="a-mental-model-of-actors"><a class="header" href="#a-mental-model-of-actors">A mental model of actors</a></h2>
+<p>Actors in an Acton program form a vast web of interconnected actors. Some actors are on the edge of the Acton realm, bordering to the external world where they may be doing I/O with external entities, through files, sockets or other means. All I/O is callback based and thus event driven and reactive. When there is an event, an actors reacts, perhaps initiating calls to other actors. A ripple runs across the web of actors, each reacting to incoming messages and acting accordingly.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if--elif--else"><a class="header" href="#if--elif--else">if / elif / else</a></h1>
+<p>Acton supports the <code>if</code> / <code>elif</code> / <code>else</code> construct - the corner stone of programming control flow.</p>
+<p>The conditionals evaluated by <code>if</code> / <code>elif</code> / <code>else</code> are expressions.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+def whatnum(n):
+
+    if n &lt; 0:
+        print(n, "is negative")
+    elif n &gt; 0:
+        print(n, "is positive")
+    else:
+        print(n, "is zero")
+
+
+def inrange(n):
+    if n &lt; 10 and n &gt; 5:
+        print(n, "is between 5 and 10")
+    else:
+        print(n, "is outside of the range 5-10")
+
+actor main(env):
+
+    whatnum(5)
+    whatnum(1337)
+    whatnum(-7)
+    whatnum(0)
+    
+    inrange(3)
+    inrange(-7)
+    inrange(7)
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc if_else.act
+</code></pre>
+<p>Note that the output is random and you could get a different result.</p>
+<p>Output:</p>
+<pre><code class="language-sh">5 is positive
+1337 is positive
+-7 is negative
+0 is zero
+3 is outside of the range 5-10
+-7 is outside of the range 5-10
+7 is between 5 and 10
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="for"><a class="header" href="#for">for</a></h1>
+<p>Iteration is a core concept in programming and for loops are perhaps the most well known.</p>
+<p>Acton supports the <code>for in</code> construct to iterate through an <code>Iterator</code>.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+actor main(env):
+
+    for n in range(1, 100, 1):
+        if n % 15 == 0:
+            print("fizzbuzz")
+        elif n % 3 == 0:
+            print("fizz")
+        elif n % 5 == 0:
+            print("buzz")
+        else:
+            print(n)
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc while.act
+</code></pre>
+<p>Note that the output is random and you could get a different result.</p>
+<p>Output:</p>
+<pre><code class="language-sh">1
+2
+fizz
+4
+buzz
+fizz
+7
+8
+fizz
+buzz
+11
+fizz
+13
+14
+fizzbuzz
+16
+17
+fizz
+19
+buzz
+fizz
+22
+23
+fizz
+buzz
+26
+fizz
+28
+29
+fizzbuzz
+31
+32
+fizz
+34
+buzz
+fizz
+37
+38
+fizz
+buzz
+41
+fizz
+43
+44
+fizzbuzz
+46
+47
+fizz
+49
+buzz
+fizz
+52
+53
+fizz
+buzz
+56
+fizz
+58
+59
+fizzbuzz
+61
+62
+fizz
+64
+buzz
+fizz
+67
+68
+fizz
+buzz
+71
+fizz
+73
+74
+fizzbuzz
+76
+77
+fizz
+79
+buzz
+fizz
+82
+83
+fizz
+buzz
+86
+fizz
+88
+89
+fizzbuzz
+91
+92
+fizz
+94
+buzz
+fizz
+97
+98
+fizz
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="while"><a class="header" href="#while">while</a></h1>
+<p>The <code>while</code> construct can be used to run a loop <strong>while</strong> a condition is true.</p>
+<p>Source:</p>
+<pre><code class="language-python">import random
+
+def throw_dice():
+    number = random.randint(1,6)
+    print("Dice:", number)
+    return number
+
+actor main(env):
+    var luck = True
+
+    while luck:
+        if throw_dice() == 4:
+            # ran out of luck, nobody likes a 4
+            luck = False
+
+    env.exit(0)
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc while.act
+</code></pre>
+<p>Note that the output is random and you could get a different result.</p>
+<p>Output:</p>
+<pre><code class="language-sh">Dice: 3
+Dice: 1
+Dice: 5
+Dice: 2
+Dice: 4
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="after-and-sleep"><a class="header" href="#after-and-sleep"><code>after</code> and sleep</a></h1>
+<p>In many languages, it is fairly common to use <code>sleep()</code> for things like timeouts, pacing and similar. In Acton, and more generally in async actor based languages, sleeping is frowned upon and often not even available.</p>
+<p>The idiomatic control pattern in Acton is using <code>after</code>, like <code>after 42.1337: foo()</code>. This tells the run time system (RTS) to schedule the execution of the <code>foo()</code> function after <code>42.1337</code> seconds. Meanwhile, other methods on the actor can be invoked.</p>
+<p>Source:</p>
+<pre><code class="language-python">import time
+
+"""Pace the sending of messages to once a second
+"""
+
+actor Receiver():
+    def recv(msg):
+        print("At " + str(time.now()) + ", I received a message:", msg)
+
+actor main(env):
+    var i = 0
+    r = Receiver()
+
+    def send_msg():
+        # Send a message, increment i
+        r.recv("Hello " + str(i))
+        i += 1
+
+        # ... and reschedule execution of ourselves in 1 second
+        after 1: send_msg()
+        
+        # Exit after awhile
+        if i &gt; 4:
+            env.exit(0)
+        
+    # Kick off the whole thing
+    send_msg()
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc after_pace.md
+</code></pre>
+<p>Since the output includes time, you will naturally get a slightly different result if you run this.</p>
+<p>Output:</p>
+<pre><code class="language-sh">At 2023-05-16T10:08:59.135806428+02, I received a message: Hello 0
+At 2023-05-16T10:09:00.136484032+02, I received a message: Hello 1
+At 2023-05-16T10:09:01.135585727+02, I received a message: Hello 2
+At 2023-05-16T10:09:02.135695030+02, I received a message: Hello 3
+At 2023-05-16T10:09:03.135811176+02, I received a message: Hello 4
+</code></pre>
+<p>There is in fact a <code>sleep</code> function in Acton, hidden away in the <code>acton.rts</code> module. Do <strong>NOT</strong> use it! It is intended only for debugging of the RTS itself and will probably disappear from the standard library before 1.0. Despite it, we consider the language to not have a sleep.</p>
+<p>Actors should either be actively processing or at rest. Conceptually, a sleep is an active wait, in the sense that the RTS will just sit there waiting for the sleep to finish, it is <strong>blocked</strong>, while it really could process something else in between, like run a different actor method continuation. Similarly, the actor itself could have had other methods on it invoked instead of being actively blocked on a sleep. Being blocked is very bad, which is why all I/O is asynchronous in Acton and why there is no <code>sleep</code>.</p>
+<p><code>sleep</code> is evil, use <code>after</code>!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="security"><a class="header" href="#security">Security</a></h1>
+<p>Security is an important part of application development and is best considered throughout the entire design and development time of an application rather than as an bolted-on after-thought.</p>
+<p>In Acton, the separation of actors offers the primary means of security. Access to actors (like being able to call their methods) requires a reference to the relevant actor. Anyone with a reference can access the actor in question. It is not possible to forge a reference.</p>
+<p>This is similar to the <a href="https://en.wikipedia.org/wiki/Object-capability_model">object capability (OCAP) model</a>.</p>
+<p>Since there are no global variables, the only reachable state is local to an actor or reachable via a reference to another actor. This means you cannot reach something out of thin air. You have to be explicitly passed a reference to anything you need to access.</p>
+<p>The security model based on capability references extends for <a href="security/capabilities.html">accessing the world outside</a> of the Acton system.</p>
+<pre><code class="language-python">actor Foo():
+    def foo():
+        print("foofoo")
+    
+actor Bar():
+    # Without a reference to f we cannot call its foo() function
+    
+actor main(env):
+    f = Foo()
+    f.foo()
+    b = Bar()
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capabilities-to-access-outside-world"><a class="header" href="#capabilities-to-access-outside-world">Capabilities to access outside world</a></h1>
+<p>Any interesting program will need to interact with the outside world, like accessing the network or reading files. In C and many other languages, it is possible for any function at any time to simply make calls and access the external world, like read a file (maybe your private SSH key and send it over the network). Acton makes all such access to the outside world explicit through <em>capability references</em>.</p>
+<p>In an Acton program, having a reference to an actor gives you the ability to do something with that actor. Without a reference, it is impossible to access an actor and it is not possible to forge a reference. This provides a simple and effective security model that also extends to accessing things outside of the Acton system, like files or remote hosts over the network.</p>
+<p>Things outside of the actor world are represented by actors and to access such actors, a <em>capability reference</em> is required. For example, we can use <code>TCPConnection</code> to connect to a remote host over the network using TCP. The first argument is of the type <code>TCPConnectCap</code>, which is the <em>capability</em> of using a TCP socket to connect to a remote host. This is enforced by the Acton type system. Not having the correct capability reference will lead to a compilation error.</p>
+<p><code>TCPConnectCap</code> is part of a capability hierarchy, starting with the generic <code>WorldCap</code> and becoming further and further restricted:</p>
+<blockquote>
+<p>WorldCap &gt;&gt; NetCap &gt;&gt; TCPCap &gt;&gt; TCPConnectCap</p>
+</blockquote>
+<p>The root actor (typically <code>main()</code>) takes as its first argument a reference to <code>Env</code>, the environment actor. <code>env.cap</code> is <code>WorldCap</code>, the root capability for accessing the outside world.</p>
+<pre><code class="language-python">import net
+
+actor main(env):
+
+    def on_connect(c):
+        c.close()
+
+    def on_receive(c, data):
+        pass
+
+    def on_error(c, msg):
+        print("Client ERR", msg)
+
+    connect_cap = net.TCPConnectCap(net.TCPCap(net.NetCap(env.cap)))
+    client = net.TCPConnection(connect_cap, env.argv[1], int(env.argv[2]), on_connect, on_receive, on_error)
+</code></pre>
+<p>Capability based privilege restriction prevent some deeply nested part of a program, perhaps in a dependency to a dependency, to perform operations unknown to the application author. Access to capabilities must be explicitly handed out and a program can only perform operations based on the capabilities it has access to.</p>
+<h2 id="restrict-and-delegate"><a class="header" href="#restrict-and-delegate">Restrict and delegate</a></h2>
+<p>Functions and methods taking a Cap argument normally takes the most restricted or refined capability. In the example with setting up a TCP connection, it is the <code>TCPConnectCap</code> capability we need, which is the most restricted.</p>
+<p>Rather than handing over <code>WorldCap</code> to a function, consider what capabilities that function actually needs and only provide those. If a library asks for wider capabilities than it needs, do not use it.</p>
+<h2 id="capability-friendly-interfaces"><a class="header" href="#capability-friendly-interfaces">Capability friendly interfaces</a></h2>
+<p>As a library author, you should only require precisely the capabilities that the library requires. Do not be lazy and require <code>WorldCap</code>. If the library offers multiple functionalities, for example logging to files or to a remote host, strive to make parts optional such that it the application developer and choose to only use a subset and only provide the capability required for that subset.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="environment"><a class="header" href="#environment">Environment</a></h1>
+<p>The environment of an Acton application is the outside world. Any useful application typically needs to interact with the environment in some way, like reading arguments or taking input from stdin and printing output.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="environment-variables"><a class="header" href="#environment-variables">Environment variables</a></h1>
+<p>It is possible to read, set and unset environment variables. The standard functions <code>env.getenv</code>, <code>env.setenv</code> and <code>env.unsetenv</code> all assume <code>str</code> input and output, which is a convenience based on the assumption that all data is encoded using UTF-8. POSIX systems really use binary encoding for both environment names and variables. To access the environment as bytes and handle decoding explicitly, use <code>env.getenvb</code>, <code>env.setenvb</code> and <code>env.unsetenvb</code>.</p>
+<p>Source:</p>
+<pre><code class="language-python">actor main(env):
+    env_user = env.getenv("USER")
+    if env_user is not None:
+        print("User:", env_user)
+    env.setenv("FOO", "bar")
+    env.unsetenv("LANG")
+    foo_env = env.getenv("FOO")
+    if foo_env is not None:
+        print("FOO:", foo_env)
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">User: myuser
+FOO: bar
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reading-stdin-input"><a class="header" href="#reading-stdin-input">Reading stdin input</a></h1>
+<p>Read input from stdin by installing a handler for stdin data. The returned data is <code>str</code></p>
+<pre><code class="language-python">actor main(env):
+    def interact(input):
+        print("Got some input:", input)
+        
+    env.stdin_install(interact)
+</code></pre>
+<p>It is possible to specify the encoding and an on_error() callback which is invoked if there are problem with decoding the data. When encoding is not specified (default <code>None</code>), an attempt is made to discover the encoding by reading the <code>LANG</code> environment variable. If no encoding is discovered, the default is to use <code>utf-8</code>.</p>
+<pre><code class="language-python">actor main(env):
+    def interact(input):
+        print("Got some input:", input)
+        
+    def on_stdin_error(err, data):
+        print("Some error with decoding the input data:", err)
+        print("Raw bytes data:", data)
+        
+    env.stdin_install(on_stdin=interact, encoding="utf-8", on_error=on_stdin_error)
+</code></pre>
+<p>You can read the raw data in <code>bytes</code> form by installing a bytes handler instead:</p>
+<pre><code class="language-python">actor main(env):
+    def interact(bytes_input):
+        # Note how the input might contain parts (some bytes) of a multi-byte
+        # Unicode character in which case decoding will fail
+        print("Got some input:", bytes_input.decode())
+        
+    env.stdin_install(on_stdin_bytes=interact)
+</code></pre>
+<p>This allows reading binary data and more explicit control over how to decode the data.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interactive-stdin"><a class="header" href="#interactive-stdin">Interactive stdin</a></h1>
+<p>For interactive programs, like a text editor, input is not fed into the program
+line by line, rather the program can react on individual key strokes.</p>
+<p>The default stdin mode is the <em>canonical</em> mode, which implies line buffering and
+that there are typically line editing capabilities offered that are implemented
+external to the Acton program. By setting stdin in non-canonical mode we can
+instead get the raw key strokes directly fed to us.</p>
+<pre><code class="language-python">actor main(env):
+    def interact(input):
+        print("Got some input:", input)
+
+    # Set non-canonical mode, so we get each key stroke directly
+    env.set_stdin(canonical=False)
+    # Turn off terminal echo
+    env.set_stdin(echo=False)
+    env.stdin_install(interact)
+</code></pre>
+<p>We can also disable the echo mode with the echo option.</p>
+<p>The Acton run time system will copy the stdin terminal settings on startup and
+restore them on exit, so you do not need to manually restore terminal echo for
+example.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="modules"><a class="header" href="#modules">Modules</a></h1>
+<p>Acton modules can be used to hierarchically structure programs by splitting code into smaller logical units (modules).</p>
+<p>Import modules by using the <code>import</code> keyword. The module will be available with its fully qualified name.</p>
+<p>Use <code>from</code> .. <code>import</code> to import a single function from a module.</p>
+<p>Functions and modules can be aliased using the <code>as</code> keyword.</p>
+<pre><code class="language-python">import time
+import time as timmy
+from time import now
+from time import now as rightnow
+
+actor main(env):
+    time.now()         # using the fully qualified name
+    timmy.now()        # using aliased module name
+    now()              # using the directly imported function
+    rightnow()         # using function alias
+
+    env.exit(0)
+</code></pre>
+<p>Remember, all state in an Acton program must be held by actors. There can be no mutable variables in an Acton module, only constants! Similarly, there can be no global instantiation code in a module.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="standard-library"><a class="header" href="#standard-library">Standard library</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="regular-expressions"><a class="header" href="#regular-expressions">Regular expressions</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">import re
+
+actor main(env):
+    m = re.match(r"(foo[a-z]+)", "bla bla foobar abc123")
+    if m is not None:
+        print("Got a match:", m.group[1])
+
+    env.exit(0)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Got a match: foobar
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>Testing your code is a really good idea! While Acton's type system allows interfaces to be precisely defined, it is imperative that the behavior of a function or actor is tested!</p>
+<p>Test functions are automatically discovered by the compiler. Run tests with <code>acton test</code>. Import the testing module and name your test functions starting with <code>_test</code>. The type signature should match the test intended test category. Use the assertion functions available in the testing module. Here is a simple unit test:</p>
+<p>Source:</p>
+<pre><code class="language-python src/ut.act">import testing
+
+def _test_simple():
+    testing.assertEqual(1, 1)
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.016 s
+  Final compilation step
+   Finished final compilation step in   0.437 s
+
+Tests - module example:
+  simple:                OK: 1523 runs in 50.001ms
+
+All 1 tests passed (0.604s)
+
+</code></pre>
+<p>There are 4 kinds of tests</p>
+<ul>
+<li><strong>unit tests</strong>
+<ul>
+<li>small simple tests of pure functions</li>
+</ul>
+</li>
+<li><strong>synchronous actor tests</strong>
+<ul>
+<li>involving one or more actors, returning results synchronously</li>
+</ul>
+</li>
+<li><strong>asynchronous actor tests</strong>
+<ul>
+<li>involving actors but use asynchronous callbacks for return values</li>
+</ul>
+</li>
+<li><strong>environment tests</strong>
+<ul>
+<li>similar to async actor test in that a callback is used for the return value</li>
+<li>these tests have access to the full environment via the <code>env</code> argument and can thus communicate with the outside world
+<ul>
+<li>this is a source of non-determinism so be mindful of this and try to avoid non-deterministic functions to the largest degree possible</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>When possible, strive to use unit tests rather than actor based tests and strive to avoid env tests.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unit-tests"><a class="header" href="#unit-tests">Unit tests</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">import testing
+
+def _test_simple():
+    foo = 3+4
+    testing.assertEqual(7, foo)
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.016 s
+  Final compilation step
+   Finished final compilation step in   0.442 s
+
+Tests - module example:
+  simple:                OK: 1565 runs in 50.079ms
+
+All 1 tests passed (0.600s)
+
+</code></pre>
+<p>Unit tests are a good starting point for testing small units of your program. Pure functions are deterministic and are thus preferable for tests over non-deterministic tests using actors. You are limited in what you can do though, since all called functions must be pure.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sync-actor-tests"><a class="header" href="#sync-actor-tests">Sync actor tests</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">import logging
+import testing
+
+actor MathTester():
+    def add(a, b):
+        return a + b
+
+actor SyncTester(log_handler):
+    def test():
+        m = MathTester()
+        testing.assertEqual(m.add(1, 2), 3, "1 + 2 = 3")
+
+def _test_syncact(log_handler: logging.Handler) -&gt; None:
+    """A test using actors and synchronous control flow"""
+    # We make use of an actor as the central point for running our test logic.
+    # This _test_syncact function is just a wrapper picked up by the acton
+    # test framework runner
+    s = SyncTester(log_handler)
+    return s.test()
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.027 s
+  Final compilation step
+   Finished final compilation step in   0.526 s
+
+Tests - module example:
+  syncact:               OK: 1175 runs in 50.005ms
+
+All 1 tests passed (0.655s)
+
+</code></pre>
+<p>Since the Acton RTS is multi-threaded and actors are scheduled concurrently on worker threads, using actors imply a degree of non-determinism and so unlike unit tests, which are deterministic, actors tests are fundamentally non-deterministic. You can still write deterministic tests as long as you pay attention to how you construct your test results.</p>
+<p>For example, actor A might be scheduled before or after actor B so if the test relies on ordering of the output, it could fail or succeed intermittently. Interacting with the surrounding environment by reading files or communicating over the network introduces even more sources of non-determinism. Avoid it if you can.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="async-actor-tests"><a class="header" href="#async-actor-tests">Async actor tests</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">import logging
+import testing
+
+actor MathTester():
+    def add(a, b):
+        return a + b
+
+actor AsyncTester(report_result, log_handler):
+    log = logging.Logger(log_handler)
+    def test():
+        log.info("AsyncTester.test()", None)
+        report_result(True, None)
+
+def _test_asyncact1(report_result: action(?bool, ?Exception) -&gt; None, log_handler: logging.Handler) -&gt; None:
+    """A test using actors and asynchronous control flow"""
+    # We make use of an actor as the central point for running our test logic.
+    # This _test_asyncact function is just a wrapper picked up by the acton
+    # test framework runner
+    s = AsyncTester(report_result, log_handler)
+    s.test()
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.028 s
+  Final compilation step
+   Finished final compilation step in   0.516 s
+
+Tests - module example:
+  asyncact1:             OK: 1171 runs in 56.181ms
+
+All 1 tests passed (0.695s)
+
+</code></pre>
+<p>If a particular module is written to be called asynchronously, you will need to use asynchronous tests to test it.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="env-tests"><a class="header" href="#env-tests">Env tests</a></h1>
+<p>When you need to test functionality that accesses the environment, you need an env test. Do beware of errors related to test setup though, since you now depend on the external environment. TCP ports that you try to listen to might be already taken. Files that you assume exist might not be there.</p>
+<p>Source:</p>
+<pre><code class="language-python">import logging
+import testing
+
+actor EnvTester(report_result, env, log_handler):
+    log = logging.Logger(log_handler)
+    def test():
+        log.info("EnvTester.test()", None)
+        report_result(True, None)
+
+def _test_envtest1(report_result: action(?bool, ?Exception) -&gt; None, env: Env, log_handler: logging.Handler) -&gt; None:
+    """A test interacting with the environment"""
+    # We make use of an actor as the central point for running our test logic.
+    # This _test_envtest1 function is just a wrapper picked up by the acton
+    # test framework runner
+    s = EnvTester(report_result, env, log_handler)
+    s.test()
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.023 s
+  Final compilation step
+   Finished final compilation step in   0.484 s
+
+Tests - module example:
+  envtest1:              OK: 1213 runs in 50.135ms
+
+All 1 tests passed (0.689s)
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="failures-vs-errors"><a class="header" href="#failures-vs-errors">Failures vs errors</a></h1>
+<p>Tests can have tree different outcomes; success, failure and error.</p>
+<p><strong>Success</strong> and <strong>failure</strong> are the two common cases where success is when the test meets the expected assertions and a failure is when it fails to meet a test assertiong like <code>testing.assertEqual(1, 2)</code>. We also distinguish a third case for test <strong>errors</strong> which is when a test does not run as expected, hitting an unexpected exception. This could indicate a design issue or that the test environment is not as expected.</p>
+<p>All test assertions raise exceptions inheriting from <code>AssertionError</code> which are considered test failures. Any other exception will be considered a test error.</p>
+<p>For example, if a test attempts to retrieve <code>https://dummyjson.com/products/1</code> and check that the returned JSON looks a certain way, it would be a test failure if the returned JSON does not mach the expected value and it would be a test error if we don't have an Internet connection and are thus unable to retrieve the JSON. It's probably a bad idea to try to connect to something on the Internet in a test, so avoid that and other sources of non-determinism when possible.</p>
+<h1 id="unit-tests-1"><a class="header" href="#unit-tests-1">Unit tests</a></h1>
+<p>Source:</p>
+<pre><code class="language-python">import random
+import testing
+
+def _test_failure():
+    testing.assertEqual(1, 2)
+
+def _test_flaky():
+    i = random.randint(0, 2)
+    if i == 0:
+        return
+    elif i == 1:
+        testing.assertEqual(1, 2)
+    else:
+        raise ValueError("Random failure")
+
+def _test_error() -&gt; None:
+    # Now we could never use a unit test to fetch things from the Internet
+    # anyway, but it's just to show what the results look like
+    raise ValueError()
+
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.020 s
+  Final compilation step
+   Finished final compilation step in   0.482 s
+
+Tests - module example:
+  error:                 ERR: 454 errors out of  454 runs in 52.733ms
+    ValueError: 
+  flaky:                 FLAKY FAIL: 231 failures out of  471 runs in 52.819ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: 1 B: 2
+  failure:               FAIL: 408 failures out of  408 runs in 52.837ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: 1 B: 2
+
+1 error and 2 failure out of 3 tests (0.691s)
+
+</code></pre>
+<p>Unit tests are a good starting point for testing small units of your program. Pure functions are deterministic and are thus preferable for tests over non-deterministic tests using actors. You are limited in what you can do though, since all called functions must be pure.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="flaky-tests"><a class="header" href="#flaky-tests">Flaky tests</a></h1>
+<p>Flaky tests are those that have different outcomes during different runs, i.e. they are not deterministic. To combat these, <code>acton test</code> will per default attempt to run tests multiple times to ensure that the result is the same. It runs as many test iterations as possible for at least 50ms. If a test is flaky, this will be displayed in the test output.</p>
+<p>Source:</p>
+<pre><code class="language-python">import random
+import testing
+
+def _test_flaky():
+    i = random.randint(0, 2)
+    if i == 0:
+        return
+    elif i == 1:
+        testing.assertEqual(1, 2)
+    else:
+        raise ValueError("Random failure")
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.017 s
+  Final compilation step
+   Finished final compilation step in   0.453 s
+
+Tests - module example:
+  flaky:                 FLAKY FAIL: 565 failures out of 1140 runs in 50.043ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: 1 B: 2
+
+1 out of 1 tests failed (0.625s)
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="performance-testing"><a class="header" href="#performance-testing">Performance testing</a></h1>
+<p>It is also possible to run tests in a <em>performance mode</em>, which uses the same basic test definitions (so you can run your tests both as logic test and for performance purposes) but alters the way in which the tests are run. In performance mode, only a single test will be run at a time unlike the normal mode in which many tests are typically run concurrently.</p>
+<p>To get good numbers in performance mode, it's good if test functions run for at least a couple of milliseconds. With very short tess, very small differences lead to very large percentage difference.</p>
+<p>Source:</p>
+<pre><code class="language-python">import testing
+
+def _test_simple():
+    a = 0
+    for i in range(99999):
+        a += i
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test perf
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.016 s
+  Final compilation step
+   Finished final compilation step in   0.451 s
+
+Tests - module example:
+  simple:                OK:  3.21ms            Avg:  4.20ms             5.11ms             106 runs in 1005.261ms
+
+All 1 tests passed (1.571s)
+
+</code></pre>
+<p>(note that the output is rather wide, scroll horizontally to see the full output)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="performance-comparisons"><a class="header" href="#performance-comparisons">Performance comparisons</a></h1>
+<p>When running in <code>performance mode</code> you can record a snapshot of performance using <code>acton test perf --record</code>. A <code>perf_data</code> file is written to disk with the stored performance data. Subsequent test runs will read this file and show a comparison. The difference is displayed as a percentage increase or decrease in time.</p>
+<p>Source:</p>
+<pre><code class="language-python">import testing
+
+def _test_simple():
+    a = 0
+    for i in range(99999):
+        a += i
+</code></pre>
+<p>Run:</p>
+<pre><code class="language-sh">acton test perf --record
+acton test perf
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Building project in /home/user/foo
+  Compiling example.act for release
+   Finished compilation in   0.017 s
+  Final compilation step
+   Finished final compilation step in   0.452 s
+
+Tests - module example:
+  simple:                OK:  3.25ms            Avg:  4.16ms             7.38ms             122 runs in 1006.002ms
+
+All 1 tests passed (1.565s)
+
+Building project in /home/user/foo
+  Compiling example.act for release
+   Already up to date, in    0.000 s
+  Final compilation step
+   Finished final compilation step in   0.116 s
+
+Tests - module example:
+  simple:                OK:  3.23ms -0.50%     Avg:  4.17ms +0.19%      6.35ms -13.91%     119 runs in 1001.375ms
+
+All 1 tests passed (1.215s)
+
+</code></pre>
+<p>(note that the output is rather wide, scroll horizontally to see the full output)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="compilation"><a class="header" href="#compilation">Compilation</a></h1>
+<p>Acton is a compiled language and as such, outputs binary executables. It is possible to influence the compilation process in various ways.</p>
+<h2 id="optimized-for-native-cpu-features"><a class="header" href="#optimized-for-native-cpu-features">Optimized for native CPU features</a></h2>
+<p>The default target is somewhat conservative to ensure a reasonable amount of compatibility. On Linux, the default target is GNU Libc version 2.27 which makes it possible to run Acton programs on Ubuntu 18.04 and similar old operating systems. Similarly, a generic x86_64 CPU is assumed which means that newer extra CPU instruction sets are not used.</p>
+<p>To compile an executable optimized for the local computer, use <code>--target native</code>. In many cases it can lead to a significant faster program, often running 30% to 100% faster.</p>
+<h2 id="statically-linked-executables-using-musl-for-portability"><a class="header" href="#statically-linked-executables-using-musl-for-portability">Statically linked executables using musl for portability</a></h2>
+<p>On Linux, executable programs can be statically linked using the Musl C library, which maximizes portability as there are no runtime dependencies at all.</p>
+<p>To compile an executable optimized for portability using musl on x86_64, use <code>--target x86_64-linux-musl</code>.</p>
+<p>A default compiled program is dynamically linked with GNU libc &amp; friends</p>
+<pre><code>$ actonc helloworld.act
+Building file helloworld.act
+  Compiling helloworld.act for release
+   Finished compilation in   0.013 s
+  Final compilation step
+   Finished final compilation step in   0.224 s
+$ ldd helloworld
+        linux-vdso.so.1 (0x00007fff2975b000)
+        libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f11f472a000)
+        libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f11f4725000)
+        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f11f4544000)
+        libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f11f453f000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f11f4827000)
+$
+</code></pre>
+<p>A program linked statically towards Musl has no run time dependencies:</p>
+<pre><code>$ actonc helloworld.act --target x86_64-linux-musl
+Building file helloworld.act
+  Compiling helloworld.act for release
+   Finished compilation in   0.013 s
+  Final compilation step
+   Finished final compilation step in   0.224 s
+$ ldd helloworld
+        not a dynamic executable
+$
+</code></pre>
+<p>Although untested, static linking with musl should work on other CPU architectures.</p>
+<p>MacOS does not support static compilation.</p>
+<h2 id="cross-compilation"><a class="header" href="#cross-compilation">Cross-compilation</a></h2>
+<p>Acton supports cross-compilation, which means that it is possible to run develop on one computer, say a Linux computer with an x86-64 CPU but build an executable binary that can run on a MacOS computer.</p>
+<p>Here's such an example. We can see how per default, the output is an ELF binary for x86-64. By setting the <code>--target</code> argument, <code>actonc</code> will instead produce an executable for a Mac.</p>
+<pre><code>$ actonc --quiet helloworld.act
+$ file helloworld
+helloworld: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.0.0, with debug_info, not stripped
+$ actonc --quiet helloworld.act --target x86_64-macos-none
+$ file helloworld
+helloworld: Mach-O 64-bit x86_64 executable, flags:&lt;NOUNDEFS|DYLDLINK|TWOLEVEL|PIE&gt;
+</code></pre>
+<p>It is not only possible to compile for other operating systems, but also for other CPU architectures. For example, use <code>--target aarch64-macos-any</code> to produce a binary executable for an Apple M1/M2 CPU.</p>
+<h2 id="prebuilt-libraries"><a class="header" href="#prebuilt-libraries">Prebuilt libraries</a></h2>
+<p>Acton ships with prebuilt libraries for the local platforms default target, i.e. if you install Acton on a x86-64 Linux machine, it will have libraries prebuilt for x86_64-linux-gnu.2.27. The default target uses these prebuilt libraries which results in a fast build:</p>
+<pre><code>$ actonc helloworld.act
+Building file helloworld.act
+  Compiling helloworld.act for release
+   Finished compilation in   0.013 s
+  Final compilation step
+   Finished final compilation step in   0.224 s
+$
+</code></pre>
+<p>When targeting something that is not the default target, the entire Acton system, including builtins, the run time system, the standard library and external library dependencies is built from source and can take a significant amount of time. The build process is highly parallelized and cached. For example, on an AMD 5950X with 16 cores / 32 threads, it takes around 7 seconds to do a complete rebuild for a small Acton program as can be seen here:</p>
+<pre><code>$ actonc helloworld.act --target aarch64-macos-none
+Building file helloworld.act
+  Compiling helloworld.act for release
+   Finished compilation in   0.012 s
+  Final compilation step
+   Finished final compilation step in   6.847 s
+$
+</code></pre>
+<h2 id="build-cache"><a class="header" href="#build-cache">Build cache</a></h2>
+<p>In an Acton project, there is a build cache, is is stored in a directory called <code>build-cache</code> in the project directory. The cache is always used for the project local files. If a non-default <code>--target</code> is being used, the built output of the Acton system is also stored in the cache, which means that it is only the first time around that it is slow. Any subsequent build is going to use the cache and run very fast. Like in this example, where the first invocation takes 6.120 seconds and the second one runs in 0.068 seconds.</p>
+<pre><code>$ actonc new hello
+Created project hello
+Enter your new project directory with:
+  cd hello
+Compile:
+  actonc build
+Run:
+  ./out/bin/hello
+
+Initialized empty Git repository in /home/kll/hello/.git/
+$ cd hello/
+$ actonc build --target native
+Building project in /home/kll/hello
+  Compiling hello.act for release
+   Finished compilation in   0.012 s
+  Final compilation step
+   Finished final compilation step in   6.120 s
+$ actonc build --target native
+Building project in /home/kll/hello
+  Compiling hello.act for release
+   Already up to date, in    0.000 s
+  Final compilation step
+   Finished final compilation step in   0.068 s
+$
+</code></pre>
+<p>When compiling standalone .act files, there is no project and thus no persistent cache, so using a custom <code>--target</code> will always incur a penalty.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="package-management"><a class="header" href="#package-management">Package Management</a></h1>
+<p><code>acton</code> offers integrated package management to declare dependencies on other Acton packages and automatically download them from their sources on the Internet.</p>
+<p>The guiding principle behind Actons package management is to strive for determinism, robustness and safety. This is primarily achieved by only resolving dependencies at design time. That is, it is the developer of a particular Acton package that determines its exact dependencies and not whomever might be downloading and building said package. The very identity of a package at a particular point in time, which can be thought of as the version of a package, is the hash of its content. This is the foundation of Actons package management. Each dependency has a hash of its content. A URL is just one place from which this particular version of a package can be downloaded. The hash of packages is determined and recorded at design time. Anyone pulling down and building dependencies will have the hash verified to ensure a deterministic build.</p>
+<p>There is no central package repository, instead dependencies are defined as URLs from which the dependency package can be downloaded. This is typically a tar.gz file from GitHub, GitLab or similar source hosting site. Again, the very identity of a version of a package is the conten hash. The URL is only from where to get it.</p>
+<p>Acton is statically compiled, all dependencies are fetched and included at compile time. There are no run time dependencies.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="add-dependency"><a class="header" href="#add-dependency">Add Dependency</a></h1>
+<p>Add a dependency to your project by using <code>acton pkg add</code> and providing the URL to the project and a local reference name.</p>
+<p>In this case we add the example <code>foo</code> package as a dependency.</p>
+<pre><code class="language-console">acton pkg add https://github.com/actonlang/foo/archive/refs/heads/main.zip foo
+</code></pre>
+<p>This will fetch the dependency and add it to the <code>build.act.json</code> file of your local project, resulting in something like:</p>
+<pre><code class="language-json">{
+    "dependencies": {
+        "foo": {
+            "url": "https://github.com/actonlang/foo/archive/refs/heads/main.zip",
+            "hash": "1220cd47344f8a1e7fe86741c7b0257a63567b4c17ad583bddf690eedd672032abdd"
+        }
+    },
+    "zig_dependencies": {}
+}
+</code></pre>
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="pkg/add_dependency.html#admonition-note"></a>
+</div>
+<div>
+<p>It is possible to edit <code>build.act.json</code> by hand, but adding dependencies, which requires filling in the 'hash' field requires computing the hash which is somewhat tricky.</p>
+</div>
+</div>
+<p>The <code>foo</code> package provides a single <code>foo</code> module with a <code>foo</code> function (that appropriately returns <code>foo</code>). We can now access it from our main actor:</p>
+<pre><code class="language-python">import foo
+
+actor main(env):
+    print(foo.foo())
+    env.exit(0)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="local-dependencies"><a class="header" href="#local-dependencies">Local Dependencies</a></h1>
+<p>It is possible to use dependencies available via a local file system path by setting the <code>path</code> attribute. Edit <code>build.act.json</code> and add or modify an existing dependency. Set the <code>path</code> attribute to a relative path on the local file system, e.g.:</p>
+<pre><code class="language-json">{
+    "dependencies": {
+        "foo": {
+            "url": "https://github.com/actonlang/foo/archive/refs/heads/main.zip",
+            "hash": "1220cd47344f8a1e7fe86741c7b0257a63567b4c17ad583bddf690eedd672032abdd",
+            "path": "../foo"
+        },
+        "local_lib": {
+            "path": "deps/local_lib"
+        }
+    },
+    "zig_dependencies": {}
+}
+</code></pre>
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="pkg/local_dependencies.html#admonition-note"></a>
+</div>
+<div>
+<p>Setting a local <code>path</code> will take priority over a remote <code>url</code>. This can be useful to fork a library and make local modifications to it before submitting them back upstream.</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="remove-dependency"><a class="header" href="#remove-dependency">Remove Dependency</a></h1>
+<p>You can remove a dependency from your project with <code>acton pkg remove</code>:</p>
+<pre><code class="language-console">acton pkg remove foo
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fetch-dependencies--enable-airplane-mode"><a class="header" href="#fetch-dependencies--enable-airplane-mode">Fetch Dependencies / Enable Airplane Mode</a></h1>
+<p>You can fetch all the dependencies of a project by using <code>acton fetch</code>. It will download the dependencies specified in <code>build.act.json</code> to the cache.</p>
+<p><code>acton fetch</code> enables you to work offline (a.k.a <strong>airplane mode</strong>).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c--c--zig-dependencies"><a class="header" href="#c--c--zig-dependencies">C / C++ / Zig dependencies</a></h1>
+<p>Much like dependencies on other Acton packages, an Acton project can depend on a Zig package which could be a C / C++ or Zig library, as long as it has a <code>build.zig</code> file.</p>
+<ul>
+<li><code>acton zig-pkg add URL NAME --artifact X --artifact Y</code>
+<ul>
+<li>list the libraries you want to link with as artifacts</li>
+</ul>
+</li>
+<li><code>acton zig-pkg remove NAME</code></li>
+</ul>
+<div id="admonition-example" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-title">
+<div class="admonition-title">
+<div id="admonition-example-title">
+<p>Example</p>
+</div>
+<a class="admonition-anchor-link" href="zig_dependencies.html#admonition-example"></a>
+</div>
+<div>
+<pre><code>acton zig-pkg add https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz zlib --artifacts z
+</code></pre>
+<pre><code class="language-json">{
+    "dependencies": {},
+    "zig_dependencies": {
+        "zlib": {
+            "url": "https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz",
+            "hash": "122034ab2a12adf8016ffa76e48b4be3245ffd305193edba4d83058adbcfa749c107",
+            "artifacts": [
+                "z"
+            ]
+        }
+    }
+}
+</code></pre>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="security-and-trust-or-the-lack-thereof"><a class="header" href="#security-and-trust-or-the-lack-thereof">Security and Trust (or the lack thereof)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="working-with-zig--c--c"><a class="header" href="#working-with-zig--c--c">Working with Zig / C / C++</a></h1>
+<p>Acton has C ABI compatibility which makes it trivial to call C functions and fairly simply to call Zig and C++ using C wrapping functions. If you want to integrate a library written in one of these languages, this page is for you.</p>
+<p>Regardless of the foreign language used, we need to consider a few things:</p>
+<ul>
+<li>memory allocation, it must play well with the Acton GC
+<ul>
+<li>You can allocate memory via classic <code>malloc</code> or via Acton GC malloc
+<ul>
+<li><code>acton_malloc</code> - normal malloc</li>
+<li><code>acton_malloc_atomic</code> for allocations that are guaranteed to not contain pointers</li>
+</ul>
+</li>
+<li>Better safe than sorry, use the GC-malloc when in doubt</li>
+<li>Always use Acton GC malloc for actor and class attributes and similar
+<ul>
+<li>object and actor instances are garbage collected by the GC and there is no destructor function, so if you would have used class <code>malloc</code> there is no good place for the <code>free</code></li>
+</ul>
+</li>
+<li>Within pure functions, you can use class <code>malloc</code> - be sure to <code>free</code> the allocations before return of the function, even for error paths</li>
+</ul>
+</li>
+<li>thread safety, the Acton RTS is threaded and actors are concurrently executed by different threads
+<ul>
+<li>in general, we strive to only keep data per actor and since an actor executes sequentially, we do not need thread safety measures like locks - just make sure you don't try to share data between actors "under the hood"</li>
+<li>libraries must not use global variables though</li>
+</ul>
+</li>
+<li>asynchronous I/O, the Acton RTS performs asynchronous I/O and any other library that performs I/O need to conform to this model</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="integrating-a-c-library-zlib"><a class="header" href="#integrating-a-c-library-zlib">Integrating a C library (zlib)</a></h1>
+<p>This is a guide to integrating C libraries in Acton code. We will use the zlib compression library, written in C, to build an Acton module that supports zlib compression and decompression.</p>
+<p>We will only focus on the <code>inflate</code> and <code>deflate</code> functions in zlib. They are pure functions (meaning they only take some input and return some output, they do not have any side effects like writing to some shared state), that makes them easier to integrate than anything that does I/O. While zlib does expose functions to interact with files, we don't want to reimplement file related functionality since we already have this supported by the Acton stdlib.</p>
+<h2 id="create-new-project"><a class="header" href="#create-new-project">Create new project</a></h2>
+<p>Let's start by making a new Acton project, let's call it <code>acton-zlib</code>. New projects are created with an example "Hello world" app. Let's remove it and start from scratch.</p>
+<pre><code class="language-console">acton new acton-zlib
+cd acton-zlib
+rm src/*
+</code></pre>
+<h2 id="actons-low-level-build-system---the-zig-build-system"><a class="header" href="#actons-low-level-build-system---the-zig-build-system">Acton's low level build system - the Zig build system</a></h2>
+<p>The Acton compiler parses .act source code, runs through all its compilation passes with type checking, CPS conversion, lambda lifting etc and finally produces C code. Internally, Acton then uses the Zig build system to compile the generated C code to libraries and finally binary executables.</p>
+<p>To add a C library dependency, it first needs to be buildable using the Zig build system, which means that it needs a <code>build.zig</code> file, the config file for the Zig build, somewhat similar to the CMakeLists.txt of CMake. Some projects have already adopted a <code>build.zig</code> in the upstream repo, like PCRE2 and the Boehm-Demers-Weiser GC (both of which are used by Acton). In some cases, there are forks of projects with <code>build.zig</code> added. Otherwise you will need to write one for yourself, which is usually simpler than it might first seem.</p>
+<h2 id="add-the-zlib-c-library-as-a-zig-dependency"><a class="header" href="#add-the-zlib-c-library-as-a-zig-dependency">Add the zlib C library as a Zig dependency</a></h2>
+<p>In the case of zlib, there is already <a href="https://github.com/allyourcodebase/zlib/">a repo available with a build.zig for zlib</a>. Navigate to the Tags page, find <code>1.3.1</code> and the link to the source files, i.e. <code>https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz</code>.</p>
+<p>Add it to our <code>acton-zlib</code> project:</p>
+<pre><code class="language-console">acton zig-pkg add https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz zlib --artifact z
+</code></pre>
+<p>Note the <code>--artifact z</code> which is provided to instruct which library to link with. Headers from the zlib library, like <code>zlib.h</code>, will now become visible to C files in our project and the <code>z</code> library will be linked in with our executables. The easiest way to discover what the artifacts are called is by inspecting the <code>build.zig</code> file of the package. This particular zlib <code>build.zig</code> starts like this:</p>
+<pre><code class="language-zig">const std = @import("std");
+
+pub fn build(b: *std.Build) void {
+    const upstream = b.dependency("zlib", .{});
+    const lib = b.addStaticLibrary(.{
+        .name = "z",
+        .target = b.standardTargetOptions(.{}),
+        .optimize = b.standardOptimizeOption(.{}),
+    });
+    lib.linkLibC();
+    lib.addCSourceFiles(.{
+        .root = upstream.path(""),
+        .files = &amp;.{
+            "adler32.c",
+            "crc32.c",
+...
+</code></pre>
+<p>It is the <code>.name</code> argument to <code>addStaticLibrary</code> that tells us the name of the artifact. Zig packages might expose multiple such artifacts, as is the case for <a href="https://github.com/actonlang/mbedtls/blob/zig-build/build.zig">mbedtls</a>.</p>
+<p><code>acton zig-pkg add</code> will fetch the package from the provided URL and save the hash sum to <code>build.act.json</code>, resulting in:</p>
+<pre><code class="language-json">{
+    "dependencies": {},
+    "zig_dependencies": {
+        "zlib": {
+            "url": "https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz",
+            "hash": "122034ab2a12adf8016ffa76e48b4be3245ffd305193edba4d83058adbcfa749c107",
+            "artifacts": [
+                "z"
+            ]
+        }
+    }
+}
+</code></pre>
+<h2 id="create-zlibact-acton-module"><a class="header" href="#create-zlibact-acton-module">Create zlib.act Acton module</a></h2>
+<p>Next up we need to create the Acton <code>zlib</code> module. Open <code>src/zlib.act</code> and add a compress and decompress function:</p>
+<pre><code class="language-python">pure def compress(data: bytes) -&gt; bytes:
+    NotImplemented
+
+pure def decompress(data: bytes) -&gt; bytes:
+    NotImplemented
+</code></pre>
+<p>The <code>NotImplemented</code> statement tells the compiler that the implementation is not written in Acton but rather external. When there is a <code>.ext.c</code> file, the compiler expects it to contain the implementations for the <code>NotImplemented</code> functions. Also note the explicit types. Normally the Acton compiler can infer types, but since there is no Acton code here, only C code, there is nothing to infer from.</p>
+<p>Now create <code>src/zlib.ext.c</code> which is where we will do the actual implementation of these functions. We need to add a <code>__ext_init__</code> function, which runs on module load by the Acton RTS, which must always exist. There is nothing to do in particular for zlib so let's just create an empty function, like so:</p>
+<pre><code class="language-c">void zlibQ___ext_init__() {}
+</code></pre>
+<p>Next, we need to fill in the C functions that map to the Acton functions <code>compress</code> and <code>decompress</code>. By invoking <code>acton build</code> we can get the compiler to generate a skeleton for these. We will also get a large error message, since there is no actual implementation:</p>
+<pre><code class="language-console">user@host$ acton build
+... some large error message
+</code></pre>
+<p>Ignore the error and instead check the content of <code>out/types/zlib.c</code> and we will find the C functions we need, commented out:</p>
+<pre><code>#include "rts/common.h"
+#include "out/types/zlib.h"
+#include "src/zlib.ext.c"
+B_bytes zlibQ_compress (B_bytes data);
+/*
+B_bytes zlibQ_compress (B_bytes data) {
+    // NotImplemented
+}
+*/
+B_bytes zlibQ_decompress (B_bytes data);
+/*
+B_bytes zlibQ_decompress (B_bytes data) {
+    // NotImplemented
+}
+*/
+int zlibQ_done$ = 0;
+void zlibQ___init__ () {
+    if (zlibQ_done$) return;
+    zlibQ_done$ = 1;
+    zlibQ___ext_init__ ();
+}
+</code></pre>
+<p>Copy the commented-out skeleton into our own <code>src/zlib.ext.c</code>. Just in order to get something that compiles, let's just quickly let the functions return the input data. Since both input and output are <code>bytes</code>, this should now compile (and work at run time).</p>
+<pre><code class="language-c">B_bytes zlibQ_compress (B_bytes data) {
+    return data;
+}
+B_bytes zlibQ_decompress (B_bytes data) {
+    return data;
+}
+</code></pre>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton build
+Building project in /Users/user/acton-zlib
+  Compiling zlib.act for release
+   Finished compilation in   0.005 s
+  Compiling test_zlib.act for release
+   Finished compilation in   0.019 s
+  Final compilation step
+user@host:~/acton-zlib$
+</code></pre>
+<h2 id="add-a-test-module"><a class="header" href="#add-a-test-module">Add a test module</a></h2>
+<p>Before we implement the body of the compress and decompress functions, we can write a small test module which will tell us when we've succeeded. We use some pre-known test data (which we could get from another language implementation):</p>
+<pre><code class="language-python">import testing
+import zlib
+
+def _test_roundtrip():
+    for x in range(100):
+        i = "hello".encode()
+        c = zlib.compress(i)
+        d = zlib.decompress(c)
+        testing.assertEqual(i, d)
+
+def _test_compress():
+    for x in range(100):
+        i = "hello".encode()
+        c = zlib.compress(i)
+        testing.assertEqual(c, b'x\x9c\xcbH\xcd\xc9\xc9\x07')
+
+def _test_decompress():
+    for x in range(1000):
+        c = b'x\x9c\xcbH\xcd\xc9\xc9\x07'
+        d = zlib.decompress(c)
+        testing.assertEqual(d, b'hello')
+</code></pre>
+<p>Note how we run a few test iterations to get slightly better timing measurements for performance testing. Run the test with <code>acton test</code>:</p>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton test
+
+Tests - module test_zlib:
+  decompress:            FAIL:  195 runs in 50.728ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'x\x9c\xcbH\xcd\xc9\xc9\x07' B: b'hello'
+  compress:              FAIL:  197 runs in 50.886ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'hello' B: b'x\x9c\xcbH\xcd\xc9\xc9\x07'
+  roundtrip:             OK:  226 runs in 50.890ms
+
+2 out of 3 tests failed (26.354s)
+
+user@host:~/acton-zlib$ 
+</code></pre>
+<p>As expected, the roundtrip test goes through, since we just return the input data while the compress and decompress tests fail.</p>
+<h2 id="implement-the-compress-function"><a class="header" href="#implement-the-compress-function">Implement the compress function</a></h2>
+<p>Now let's fill in the rest of the owl. Below is the body of the <code>zlibQ_compress</code> function. The bulk of this code is not particularly interesting to this guide as it has more to do with standard C usage of zlib, but a few things are worth noting.</p>
+<pre><code class="language-c">B_bytes zlibQ_compress(B_bytes data) {
+    if (data-&gt;nbytes == 0) {
+        return data;
+    }
+
+    // Prepare the zlib stream
+    int ret;
+    z_stream stream;
+    memset(&amp;stream, 0, sizeof(stream));
+    ret = deflateInit(&amp;stream, Z_DEFAULT_COMPRESSION);
+    if (ret != Z_OK) {
+        $RAISE((B_BaseException)$NEW(B_ValueError, to$str("Unable to compress data, init error: %d", ret)));
+    }
+
+    // Set the input data
+    stream.avail_in = data-&gt;nbytes;
+    stream.next_in = (Bytef*)data-&gt;str;
+
+    // Allocate the output buffer using Acton's malloc
+    size_t output_size = deflateBound(&amp;stream, data-&gt;nbytes);
+    Bytef* output_buffer = (Bytef*)acton_malloc_atomic(output_size);
+    stream.avail_out = output_size;
+    stream.next_out = output_buffer;
+
+    // Perform the deflate operation
+    ret = deflate(&amp;stream, Z_FINISH);
+    if (ret != Z_STREAM_END) {
+        $RAISE((B_BaseException)$NEW(B_ValueError, $FORMAT("Unable to compress data, error: %d", ret)));
+    }
+
+    // Clean up
+    deflateEnd(&amp;stream);
+
+    return actBytesFromCStringNoCopy(output_buffer);
+}
+</code></pre>
+<p>Memory management is always top of mind when writing C, as it the case here. We can allocate memory via the Acton GC-heap malloc or just plain <code>malloc()</code> (the non-GC heap, to be explicit). Since <code>zlibQ_compress</code> is pure, we have no state leaking out of the function other than via its return value. All return values must be allocated on the Acton GC heap, so we know we must use <code>acton_malloc</code> for any value that we return. Any other local variables within the function can use classic malloc, as long as we make sure to explicitly free it up. For class or actor methods, any allocation for class or actor attributes must be performed using the Acton GC malloc, since there is no destructor or similar where a free can be inserted, so using classic malloc would be bound to leak. Also note that in this particular case, we know that the returned bytes value itself is not going to contain any pointers, so by using <code>acton_malloc_atomic</code> we can get a chunk of memory that will not be internally scanned by the GC, which saves a bit of time and thus improves GC performance. If we allocate structs that do carry pointers, they must use the normal <code>acton_malloc()</code>.</p>
+<p><code>actBytesFromCStringNoCopy(output_buffer)</code> takes the <code>buffer</code> (already allocated via <code>acton_malloc_atomic()</code>) and wraps it up as a boxed value of the type <code>B_bytes</code> that we return.</p>
+<p>Also note how we convert Zlib errors to Acton exceptions where necessary.</p>
+<p>Running the test, the <code>compress</code> test now passes while roundtrip has stopped working (since decompress is not implemented yet):</p>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton test
+Tests - module test_zlib:
+  decompress:            FAIL:  158 runs in 50.175ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'x\x9c\xcbH\xcd\xc9\xc9\x07' B: b'hello'
+  compress:              OK:  167 runs in 50.225ms
+  roundtrip:             FAIL:  147 runs in 50.266ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'hello' B: b'x\x9c\xcbH\xcd\xc9\xc9\x07'
+
+2 out of 3 tests failed (0.941s)
+
+user@host:~/acton-zlib$ 
+</code></pre>
+<h2 id="implement-the-decompress-function"><a class="header" href="#implement-the-decompress-function">Implement the decompress function</a></h2>
+<p>Much like the compress function, the decompress function mostly relates to how zlib itself and its interface works. We use the same wrappers and transform errors to exceptions.</p>
+<pre><code class="language-c">B_bytes zlibQ_decompress(B_bytes data) {
+    if (data-&gt;nbytes == 0) {
+        return data;
+    }
+
+    // Prepare the zlib stream
+    int ret;
+    z_stream stream;
+    memset(&amp;stream, 0, sizeof(stream));
+
+    ret = inflateInit(&amp;stream);
+    if (ret != Z_OK) {
+        $RAISE((B_BaseException)$NEW(B_ValueError, $FORMAT("Unable to decompress data, init error: %d", ret)));
+    }
+
+    // Set the input data
+    stream.avail_in = data-&gt;nbytes;
+    stream.next_in = (Bytef*)data-&gt;str;
+
+    // Allocate the output buffer using Acton's malloc
+    size_t output_size = 2 * data-&gt;nbytes; // Initial output buffer size
+    Bytef* output_buffer = (Bytef*)acton_malloc_atomic(output_size);
+    memset(output_buffer, 0, output_size);
+    stream.avail_out = output_size;
+    stream.next_out = output_buffer;
+
+    // Perform the inflate operation, increasing the output buffer size if needed
+    do {
+        ret = inflate(&amp;stream, Z_NO_FLUSH);
+        if (ret == Z_BUF_ERROR) {
+            // Increase the output buffer size and continue decompressing
+            size_t new_output_size = output_size * 2;
+            output_buffer = (Bytef*)acton_realloc(output_buffer, new_output_size);
+            stream.avail_out = new_output_size - stream.total_out;
+            stream.next_out = output_buffer + stream.total_out;
+        } else if (ret != Z_OK) {
+            $RAISE((B_BaseException)$NEW(B_ValueError, $FORMAT("Unable to decompress data, error: %d", ret)));
+        }
+    } while (ret == Z_BUF_ERROR);
+
+    // Clean up
+    inflateEnd(&amp;stream);
+
+    return actBytesFromCStringNoCopy(output_buffer);
+}
+</code></pre>
+<h2 id="final-test"><a class="header" href="#final-test">Final test</a></h2>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton test
+
+Tests - module test_zlib:
+  decompress:            OK:   42 runs in 51.065ms
+  compress:              OK:   25 runs in 50.032ms
+  roundtrip:             OK:   24 runs in 50.053ms
+
+All 3 tests passed (0.738s)
+
+user@host:~/acton-zlib$ 
+</code></pre>
+<p>And with that, we're done! A simple wrapper around zlib, which is also available <a href="https://github.com/actonlang/acton-zlib">on GitHub</a> if you want to study it further.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="run-time-system"><a class="header" href="#run-time-system">Run Time System</a></h1>
+<p>The Acton Run Time System is what sets up the environment in which an Acton program runs. It performs bootstrapping of the root actor. The worker threads that carry out actual execution of actor continuations are part of the RTS. It is the RTS that handles scheduling of actors and the timer queue. All I/O is handled between modules in the standard library in conjunction with the RTS.</p>
+<h1 id="arguments"><a class="header" href="#arguments">Arguments</a></h1>
+<p>It is possible to configure the RTS through a number of arguments. All arguments to the RTS start with <code>--rts-</code>. Use <code>--rts-help</code> to see a list of all arguments:</p>
+<pre><code class="language-sh">$ actonc examples/helloworld.act
+Building file examples/helloworld.act
+  Compiling helloworld.act for release
+   Finished compilation in   0.012 s
+  Final compilation step
+   Finished final compilation step in   0.198 s
+$ examples/helloworld --rts-help
+The Acton RTS reads and consumes the following options and arguments. All
+other parameters are passed verbatim to the Acton application. Option
+arguments can be passed either with --rts-option=ARG or --rts-option ARG
+
+  --rts-debug                       RTS debug, requires program to be compiled with --dev
+  --rts-ddb-host=HOST               DDB hostname
+  --rts-ddb-port=PORT               DDB port [32000]
+  --rts-ddb-replication=FACTOR      DDB replication factor [3]
+  --rts-node-id=ID                  RTS node ID
+  --rts-rack-id=RACK                RTS rack ID
+  --rts-dc-id=DATACENTER            RTS datacenter ID
+  --rts-host=RTSHOST                RTS hostname
+  --rts-help                        Show this help
+  --rts-mon-log-path=PATH           Path to RTS mon stats log
+  --rts-mon-log-period=PERIOD       Periodicity of writing RTS mon stats log entry
+  --rts-mon-on-exit                 Print RTS mon stats to stdout on exit
+  --rts-mon-socket-path=PATH        Path to unix socket to expose RTS mon stats
+  --rts-no-bt                       Disable automatic backtrace
+  --rts-log-path=PATH               Path to RTS log
+  --rts-log-stderr                  Log to stderr in addition to log file
+  --rts-verbose                     Enable verbose RTS output
+  --rts-wthreads=COUNT              Number of worker threads [#CPU cores]
+
+$
+</code></pre>
+<h1 id="worker-threads"><a class="header" href="#worker-threads">Worker threads</a></h1>
+<p>Per default, the RTS starts as many worker threads as there are CPU threads available, although at least 4. This is optimized for server style workloads where it is presumed that the Acton program is the sole program consuming considerable resources. When there are 4 and more CPU threads available, the worker threads are pinned to each respective CPU thread.</p>
+<p>It is possible to specify the number of worker threads with <code>--rts-wthreads=COUNT</code>.</p>
+<p>Actor method continuations run to completion, which is why it is wise not to set this value too low. Per default a minimum of 4 threads are started even when there are fewer CPU threads available, which means the operating system will switch between the threads inducing context switching overhead.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="theme/tabs.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

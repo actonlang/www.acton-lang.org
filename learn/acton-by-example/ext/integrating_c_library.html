@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Integrating a C library (zlib)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../svgbob.css">
+        <link rel="stylesheet" href="../theme/tabs.css">
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../hello.html"><strong aria-hidden="true">1.1.</strong> Hello World</a></li><li class="chapter-item "><a href="../installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item "><a href="../hello/shebang.html"><strong aria-hidden="true">1.3.</strong> Acton scripts</a></li><li class="chapter-item "><a href="../projects.html"><strong aria-hidden="true">1.4.</strong> Acton Projects</a></li><li class="chapter-item "><a href="../hello/running_tests.html"><strong aria-hidden="true">1.5.</strong> Running Tests</a></li></ol></li><li class="chapter-item "><a href="../primitives.html"><strong aria-hidden="true">2.</strong> Language</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../primitives.html"><strong aria-hidden="true">2.1.</strong> Variable data types</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../primitives/scalars.html"><strong aria-hidden="true">2.1.1.</strong> Scalars</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../primitives/float.html"><strong aria-hidden="true">2.1.1.1.</strong> float</a></li></ol></li><li class="chapter-item "><a href="../primitives/lists.html"><strong aria-hidden="true">2.1.2.</strong> Lists</a></li><li class="chapter-item "><a href="../primitives/dicts.html"><strong aria-hidden="true">2.1.3.</strong> Dictionaries</a></li><li class="chapter-item "><a href="../primitives/tuples.html"><strong aria-hidden="true">2.1.4.</strong> Tuples</a></li><li class="chapter-item "><a href="../primitives/sets.html"><strong aria-hidden="true">2.1.5.</strong> Sets</a></li></ol></li><li class="chapter-item "><a href="../functions.html"><strong aria-hidden="true">2.2.</strong> Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../functions/actor_methods.html"><strong aria-hidden="true">2.2.1.</strong> Actor methods</a></li><li class="chapter-item "><a href="../functions/higher_order.html"><strong aria-hidden="true">2.2.2.</strong> Higher order functions</a></li></ol></li><li class="chapter-item "><a href="../types/intro.html"><strong aria-hidden="true">2.3.</strong> Types</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/explicit.html"><strong aria-hidden="true">2.3.1.</strong> Explicit types</a></li><li class="chapter-item "><a href="../types/generics.html"><strong aria-hidden="true">2.3.2.</strong> Generics</a></li></ol></li><li class="chapter-item "><a href="../classes/intro.html"><strong aria-hidden="true">2.4.</strong> Classes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../classes/inheritance.html"><strong aria-hidden="true">2.4.1.</strong> Inheritance</a></li></ol></li><li class="chapter-item "><a href="../protocols/intro.html"><strong aria-hidden="true">2.5.</strong> Protocols</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../protocols/dispatch.html"><strong aria-hidden="true">2.5.1.</strong> Method Dispatch</a></li></ol></li><li class="chapter-item "><a href="../actors.html"><strong aria-hidden="true">2.6.</strong> Actors</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../actors/root.html"><strong aria-hidden="true">2.6.1.</strong> Root Actor</a></li><li class="chapter-item "><a href="../actors/lifetime.html"><strong aria-hidden="true">2.6.2.</strong> Lifetime</a></li><li class="chapter-item "><a href="../actors/attributes.html"><strong aria-hidden="true">2.6.3.</strong> Attributes</a></li><li class="chapter-item "><a href="../actors/concurrency.html"><strong aria-hidden="true">2.6.4.</strong> Concurrency</a></li><li class="chapter-item "><a href="../actors/sync_method_call.html"><strong aria-hidden="true">2.6.5.</strong> Sync Method calls</a></li><li class="chapter-item "><a href="../actors/async_method_call.html"><strong aria-hidden="true">2.6.6.</strong> Async Method calls</a></li><li class="chapter-item "><a href="../actors/cleanup.html"><strong aria-hidden="true">2.6.7.</strong> Cleanup</a></li></ol></li><li class="chapter-item "><a href="../control_flow.html"><strong aria-hidden="true">2.7.</strong> Control flow</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../control_flow/actors.html"><strong aria-hidden="true">2.7.1.</strong> actors</a></li><li class="chapter-item "><a href="../control_flow/if_else.html"><strong aria-hidden="true">2.7.2.</strong> if / elif / else</a></li><li class="chapter-item "><a href="../control_flow/for.html"><strong aria-hidden="true">2.7.3.</strong> for</a></li><li class="chapter-item "><a href="../control_flow/while.html"><strong aria-hidden="true">2.7.4.</strong> while</a></li><li class="chapter-item "><a href="../control_flow/after_sleep.html"><strong aria-hidden="true">2.7.5.</strong> after / sleep</a></li></ol></li><li class="chapter-item "><a href="../security.html"><strong aria-hidden="true">2.8.</strong> Security</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../security/capabilities.html"><strong aria-hidden="true">2.8.1.</strong> Capabilities</a></li></ol></li><li class="chapter-item "><a href="../environment.html"><strong aria-hidden="true">2.9.</strong> Environment</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../environment/variables.html"><strong aria-hidden="true">2.9.1.</strong> Environment variables</a></li><li class="chapter-item "><a href="../environment/stdin.html"><strong aria-hidden="true">2.9.2.</strong> Reading stdin input</a></li><li class="chapter-item "><a href="../environment/interactive_stdin.html"><strong aria-hidden="true">2.9.3.</strong> Interactive stdin input</a></li></ol></li><li class="chapter-item "><a href="../modules.html"><strong aria-hidden="true">2.10.</strong> Modules</a></li></ol></li><li class="chapter-item "><a href="../stdlib.html"><strong aria-hidden="true">3.</strong> Standard library</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../stdlib/re.html"><strong aria-hidden="true">3.1.</strong> Regular Expression</a></li></ol></li><li class="chapter-item "><a href="../testing.html"><strong aria-hidden="true">4.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../testing/unit_test.html"><strong aria-hidden="true">4.1.</strong> Unit tests</a></li><li class="chapter-item "><a href="../testing/sync_actor_test.html"><strong aria-hidden="true">4.2.</strong> Sync actor tests</a></li><li class="chapter-item "><a href="../testing/async_actor_test.html"><strong aria-hidden="true">4.3.</strong> Async actor tests</a></li><li class="chapter-item "><a href="../testing/env_test.html"><strong aria-hidden="true">4.4.</strong> Env tests</a></li><li class="chapter-item "><a href="../testing/failures_errors.html"><strong aria-hidden="true">4.5.</strong> Failures vs errors</a></li><li class="chapter-item "><a href="../testing/flaky.html"><strong aria-hidden="true">4.6.</strong> Flaky tests</a></li><li class="chapter-item "><a href="../testing/performance.html"><strong aria-hidden="true">4.7.</strong> Performance testing</a></li><li class="chapter-item "><a href="../testing/perf_record.html"><strong aria-hidden="true">4.8.</strong> Perf comparison</a></li></ol></li><li class="chapter-item "><a href="../compilation.html"><strong aria-hidden="true">5.</strong> Build System</a></li><li class="chapter-item "><a href="../package_management.html"><strong aria-hidden="true">6.</strong> Package Management</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../pkg/add_dependency.html"><strong aria-hidden="true">6.1.</strong> Add Dependency</a></li><li class="chapter-item "><a href="../pkg/local_dependencies.html"><strong aria-hidden="true">6.2.</strong> Local Dependencies</a></li><li class="chapter-item "><a href="../pkg/remove_dependency.html"><strong aria-hidden="true">6.3.</strong> Remove Dependency</a></li><li class="chapter-item "><a href="../pkg/fetch_dependencies.html"><strong aria-hidden="true">6.4.</strong> Fetch Deps (Airplane mode)</a></li><li class="chapter-item "><a href="../zig_dependencies.html"><strong aria-hidden="true">6.5.</strong> Zig / C / C++ dependencies</a></li></ol></li><li class="chapter-item "><a href="../security/intro.html"><strong aria-hidden="true">7.</strong> Security and Trust</a></li><li class="chapter-item expanded "><a href="../working_with_zig.html"><strong aria-hidden="true">8.</strong> Working with Zig / C / C++</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ext/integrating_c_library.html" class="active"><strong aria-hidden="true">8.1.</strong> Integrating a C library (zlib)</a></li></ol></li><li class="chapter-item "><a href="../rts.html"><strong aria-hidden="true">9.</strong> Run Time System</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="integrating-a-c-library-zlib"><a class="header" href="#integrating-a-c-library-zlib">Integrating a C library (zlib)</a></h1>
+<p>This is a guide to integrating C libraries in Acton code. We will use the zlib compression library, written in C, to build an Acton module that supports zlib compression and decompression.</p>
+<p>We will only focus on the <code>inflate</code> and <code>deflate</code> functions in zlib. They are pure functions (meaning they only take some input and return some output, they do not have any side effects like writing to some shared state), that makes them easier to integrate than anything that does I/O. While zlib does expose functions to interact with files, we don't want to reimplement file related functionality since we already have this supported by the Acton stdlib.</p>
+<h2 id="create-new-project"><a class="header" href="#create-new-project">Create new project</a></h2>
+<p>Let's start by making a new Acton project, let's call it <code>acton-zlib</code>. New projects are created with an example "Hello world" app. Let's remove it and start from scratch.</p>
+<pre><code class="language-console">acton new acton-zlib
+cd acton-zlib
+rm src/*
+</code></pre>
+<h2 id="actons-low-level-build-system---the-zig-build-system"><a class="header" href="#actons-low-level-build-system---the-zig-build-system">Acton's low level build system - the Zig build system</a></h2>
+<p>The Acton compiler parses .act source code, runs through all its compilation passes with type checking, CPS conversion, lambda lifting etc and finally produces C code. Internally, Acton then uses the Zig build system to compile the generated C code to libraries and finally binary executables.</p>
+<p>To add a C library dependency, it first needs to be buildable using the Zig build system, which means that it needs a <code>build.zig</code> file, the config file for the Zig build, somewhat similar to the CMakeLists.txt of CMake. Some projects have already adopted a <code>build.zig</code> in the upstream repo, like PCRE2 and the Boehm-Demers-Weiser GC (both of which are used by Acton). In some cases, there are forks of projects with <code>build.zig</code> added. Otherwise you will need to write one for yourself, which is usually simpler than it might first seem.</p>
+<h2 id="add-the-zlib-c-library-as-a-zig-dependency"><a class="header" href="#add-the-zlib-c-library-as-a-zig-dependency">Add the zlib C library as a Zig dependency</a></h2>
+<p>In the case of zlib, there is already <a href="https://github.com/allyourcodebase/zlib/">a repo available with a build.zig for zlib</a>. Navigate to the Tags page, find <code>1.3.1</code> and the link to the source files, i.e. <code>https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz</code>.</p>
+<p>Add it to our <code>acton-zlib</code> project:</p>
+<pre><code class="language-console">acton zig-pkg add https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz zlib --artifact z
+</code></pre>
+<p>Note the <code>--artifact z</code> which is provided to instruct which library to link with. Headers from the zlib library, like <code>zlib.h</code>, will now become visible to C files in our project and the <code>z</code> library will be linked in with our executables. The easiest way to discover what the artifacts are called is by inspecting the <code>build.zig</code> file of the package. This particular zlib <code>build.zig</code> starts like this:</p>
+<pre><code class="language-zig">const std = @import("std");
+
+pub fn build(b: *std.Build) void {
+    const upstream = b.dependency("zlib", .{});
+    const lib = b.addStaticLibrary(.{
+        .name = "z",
+        .target = b.standardTargetOptions(.{}),
+        .optimize = b.standardOptimizeOption(.{}),
+    });
+    lib.linkLibC();
+    lib.addCSourceFiles(.{
+        .root = upstream.path(""),
+        .files = &amp;.{
+            "adler32.c",
+            "crc32.c",
+...
+</code></pre>
+<p>It is the <code>.name</code> argument to <code>addStaticLibrary</code> that tells us the name of the artifact. Zig packages might expose multiple such artifacts, as is the case for <a href="https://github.com/actonlang/mbedtls/blob/zig-build/build.zig">mbedtls</a>.</p>
+<p><code>acton zig-pkg add</code> will fetch the package from the provided URL and save the hash sum to <code>build.act.json</code>, resulting in:</p>
+<pre><code class="language-json">{
+    "dependencies": {},
+    "zig_dependencies": {
+        "zlib": {
+            "url": "https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz",
+            "hash": "122034ab2a12adf8016ffa76e48b4be3245ffd305193edba4d83058adbcfa749c107",
+            "artifacts": [
+                "z"
+            ]
+        }
+    }
+}
+</code></pre>
+<h2 id="create-zlibact-acton-module"><a class="header" href="#create-zlibact-acton-module">Create zlib.act Acton module</a></h2>
+<p>Next up we need to create the Acton <code>zlib</code> module. Open <code>src/zlib.act</code> and add a compress and decompress function:</p>
+<pre><code class="language-python">pure def compress(data: bytes) -&gt; bytes:
+    NotImplemented
+
+pure def decompress(data: bytes) -&gt; bytes:
+    NotImplemented
+</code></pre>
+<p>The <code>NotImplemented</code> statement tells the compiler that the implementation is not written in Acton but rather external. When there is a <code>.ext.c</code> file, the compiler expects it to contain the implementations for the <code>NotImplemented</code> functions. Also note the explicit types. Normally the Acton compiler can infer types, but since there is no Acton code here, only C code, there is nothing to infer from.</p>
+<p>Now create <code>src/zlib.ext.c</code> which is where we will do the actual implementation of these functions. We need to add a <code>__ext_init__</code> function, which runs on module load by the Acton RTS, which must always exist. There is nothing to do in particular for zlib so let's just create an empty function, like so:</p>
+<pre><code class="language-c">void zlibQ___ext_init__() {}
+</code></pre>
+<p>Next, we need to fill in the C functions that map to the Acton functions <code>compress</code> and <code>decompress</code>. By invoking <code>acton build</code> we can get the compiler to generate a skeleton for these. We will also get a large error message, since there is no actual implementation:</p>
+<pre><code class="language-console">user@host$ acton build
+... some large error message
+</code></pre>
+<p>Ignore the error and instead check the content of <code>out/types/zlib.c</code> and we will find the C functions we need, commented out:</p>
+<pre><code>#include "rts/common.h"
+#include "out/types/zlib.h"
+#include "src/zlib.ext.c"
+B_bytes zlibQ_compress (B_bytes data);
+/*
+B_bytes zlibQ_compress (B_bytes data) {
+    // NotImplemented
+}
+*/
+B_bytes zlibQ_decompress (B_bytes data);
+/*
+B_bytes zlibQ_decompress (B_bytes data) {
+    // NotImplemented
+}
+*/
+int zlibQ_done$ = 0;
+void zlibQ___init__ () {
+    if (zlibQ_done$) return;
+    zlibQ_done$ = 1;
+    zlibQ___ext_init__ ();
+}
+</code></pre>
+<p>Copy the commented-out skeleton into our own <code>src/zlib.ext.c</code>. Just in order to get something that compiles, let's just quickly let the functions return the input data. Since both input and output are <code>bytes</code>, this should now compile (and work at run time).</p>
+<pre><code class="language-c">B_bytes zlibQ_compress (B_bytes data) {
+    return data;
+}
+B_bytes zlibQ_decompress (B_bytes data) {
+    return data;
+}
+</code></pre>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton build
+Building project in /Users/user/acton-zlib
+  Compiling zlib.act for release
+   Finished compilation in   0.005 s
+  Compiling test_zlib.act for release
+   Finished compilation in   0.019 s
+  Final compilation step
+user@host:~/acton-zlib$
+</code></pre>
+<h2 id="add-a-test-module"><a class="header" href="#add-a-test-module">Add a test module</a></h2>
+<p>Before we implement the body of the compress and decompress functions, we can write a small test module which will tell us when we've succeeded. We use some pre-known test data (which we could get from another language implementation):</p>
+<pre><code class="language-python">import testing
+import zlib
+
+def _test_roundtrip():
+    for x in range(100):
+        i = "hello".encode()
+        c = zlib.compress(i)
+        d = zlib.decompress(c)
+        testing.assertEqual(i, d)
+
+def _test_compress():
+    for x in range(100):
+        i = "hello".encode()
+        c = zlib.compress(i)
+        testing.assertEqual(c, b'x\x9c\xcbH\xcd\xc9\xc9\x07')
+
+def _test_decompress():
+    for x in range(1000):
+        c = b'x\x9c\xcbH\xcd\xc9\xc9\x07'
+        d = zlib.decompress(c)
+        testing.assertEqual(d, b'hello')
+</code></pre>
+<p>Note how we run a few test iterations to get slightly better timing measurements for performance testing. Run the test with <code>acton test</code>:</p>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton test
+
+Tests - module test_zlib:
+  decompress:            FAIL:  195 runs in 50.728ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'x\x9c\xcbH\xcd\xc9\xc9\x07' B: b'hello'
+  compress:              FAIL:  197 runs in 50.886ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'hello' B: b'x\x9c\xcbH\xcd\xc9\xc9\x07'
+  roundtrip:             OK:  226 runs in 50.890ms
+
+2 out of 3 tests failed (26.354s)
+
+user@host:~/acton-zlib$ 
+</code></pre>
+<p>As expected, the roundtrip test goes through, since we just return the input data while the compress and decompress tests fail.</p>
+<h2 id="implement-the-compress-function"><a class="header" href="#implement-the-compress-function">Implement the compress function</a></h2>
+<p>Now let's fill in the rest of the owl. Below is the body of the <code>zlibQ_compress</code> function. The bulk of this code is not particularly interesting to this guide as it has more to do with standard C usage of zlib, but a few things are worth noting.</p>
+<pre><code class="language-c">B_bytes zlibQ_compress(B_bytes data) {
+    if (data-&gt;nbytes == 0) {
+        return data;
+    }
+
+    // Prepare the zlib stream
+    int ret;
+    z_stream stream;
+    memset(&amp;stream, 0, sizeof(stream));
+    ret = deflateInit(&amp;stream, Z_DEFAULT_COMPRESSION);
+    if (ret != Z_OK) {
+        $RAISE((B_BaseException)$NEW(B_ValueError, to$str("Unable to compress data, init error: %d", ret)));
+    }
+
+    // Set the input data
+    stream.avail_in = data-&gt;nbytes;
+    stream.next_in = (Bytef*)data-&gt;str;
+
+    // Allocate the output buffer using Acton's malloc
+    size_t output_size = deflateBound(&amp;stream, data-&gt;nbytes);
+    Bytef* output_buffer = (Bytef*)acton_malloc_atomic(output_size);
+    stream.avail_out = output_size;
+    stream.next_out = output_buffer;
+
+    // Perform the deflate operation
+    ret = deflate(&amp;stream, Z_FINISH);
+    if (ret != Z_STREAM_END) {
+        $RAISE((B_BaseException)$NEW(B_ValueError, $FORMAT("Unable to compress data, error: %d", ret)));
+    }
+
+    // Clean up
+    deflateEnd(&amp;stream);
+
+    return actBytesFromCStringNoCopy(output_buffer);
+}
+</code></pre>
+<p>Memory management is always top of mind when writing C, as it the case here. We can allocate memory via the Acton GC-heap malloc or just plain <code>malloc()</code> (the non-GC heap, to be explicit). Since <code>zlibQ_compress</code> is pure, we have no state leaking out of the function other than via its return value. All return values must be allocated on the Acton GC heap, so we know we must use <code>acton_malloc</code> for any value that we return. Any other local variables within the function can use classic malloc, as long as we make sure to explicitly free it up. For class or actor methods, any allocation for class or actor attributes must be performed using the Acton GC malloc, since there is no destructor or similar where a free can be inserted, so using classic malloc would be bound to leak. Also note that in this particular case, we know that the returned bytes value itself is not going to contain any pointers, so by using <code>acton_malloc_atomic</code> we can get a chunk of memory that will not be internally scanned by the GC, which saves a bit of time and thus improves GC performance. If we allocate structs that do carry pointers, they must use the normal <code>acton_malloc()</code>.</p>
+<p><code>actBytesFromCStringNoCopy(output_buffer)</code> takes the <code>buffer</code> (already allocated via <code>acton_malloc_atomic()</code>) and wraps it up as a boxed value of the type <code>B_bytes</code> that we return.</p>
+<p>Also note how we convert Zlib errors to Acton exceptions where necessary.</p>
+<p>Running the test, the <code>compress</code> test now passes while roundtrip has stopped working (since decompress is not implemented yet):</p>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton test
+Tests - module test_zlib:
+  decompress:            FAIL:  158 runs in 50.175ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'x\x9c\xcbH\xcd\xc9\xc9\x07' B: b'hello'
+  compress:              OK:  167 runs in 50.225ms
+  roundtrip:             FAIL:  147 runs in 50.266ms
+    testing.NotEqualError: Expected equal values but they are non-equal. A: b'hello' B: b'x\x9c\xcbH\xcd\xc9\xc9\x07'
+
+2 out of 3 tests failed (0.941s)
+
+user@host:~/acton-zlib$ 
+</code></pre>
+<h2 id="implement-the-decompress-function"><a class="header" href="#implement-the-decompress-function">Implement the decompress function</a></h2>
+<p>Much like the compress function, the decompress function mostly relates to how zlib itself and its interface works. We use the same wrappers and transform errors to exceptions.</p>
+<pre><code class="language-c">B_bytes zlibQ_decompress(B_bytes data) {
+    if (data-&gt;nbytes == 0) {
+        return data;
+    }
+
+    // Prepare the zlib stream
+    int ret;
+    z_stream stream;
+    memset(&amp;stream, 0, sizeof(stream));
+
+    ret = inflateInit(&amp;stream);
+    if (ret != Z_OK) {
+        $RAISE((B_BaseException)$NEW(B_ValueError, $FORMAT("Unable to decompress data, init error: %d", ret)));
+    }
+
+    // Set the input data
+    stream.avail_in = data-&gt;nbytes;
+    stream.next_in = (Bytef*)data-&gt;str;
+
+    // Allocate the output buffer using Acton's malloc
+    size_t output_size = 2 * data-&gt;nbytes; // Initial output buffer size
+    Bytef* output_buffer = (Bytef*)acton_malloc_atomic(output_size);
+    memset(output_buffer, 0, output_size);
+    stream.avail_out = output_size;
+    stream.next_out = output_buffer;
+
+    // Perform the inflate operation, increasing the output buffer size if needed
+    do {
+        ret = inflate(&amp;stream, Z_NO_FLUSH);
+        if (ret == Z_BUF_ERROR) {
+            // Increase the output buffer size and continue decompressing
+            size_t new_output_size = output_size * 2;
+            output_buffer = (Bytef*)acton_realloc(output_buffer, new_output_size);
+            stream.avail_out = new_output_size - stream.total_out;
+            stream.next_out = output_buffer + stream.total_out;
+        } else if (ret != Z_OK) {
+            $RAISE((B_BaseException)$NEW(B_ValueError, $FORMAT("Unable to decompress data, error: %d", ret)));
+        }
+    } while (ret == Z_BUF_ERROR);
+
+    // Clean up
+    inflateEnd(&amp;stream);
+
+    return actBytesFromCStringNoCopy(output_buffer);
+}
+</code></pre>
+<h2 id="final-test"><a class="header" href="#final-test">Final test</a></h2>
+<pre><code class="language-console">user@host:~/acton-zlib$ acton test
+
+Tests - module test_zlib:
+  decompress:            OK:   42 runs in 51.065ms
+  compress:              OK:   25 runs in 50.032ms
+  roundtrip:             OK:   24 runs in 50.053ms
+
+All 3 tests passed (0.738s)
+
+user@host:~/acton-zlib$ 
+</code></pre>
+<p>And with that, we're done! A simple wrapper around zlib, which is also available <a href="https://github.com/actonlang/acton-zlib">on GitHub</a> if you want to study it further.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../working_with_zig.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../rts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../working_with_zig.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../rts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/tabs.js"></script>
+
+
+    </div>
+    </body>
+</html>

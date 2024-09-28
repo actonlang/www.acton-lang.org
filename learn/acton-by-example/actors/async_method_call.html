@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Async Method calls</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../svgbob.css">
+        <link rel="stylesheet" href="../theme/tabs.css">
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../hello.html"><strong aria-hidden="true">1.1.</strong> Hello World</a></li><li class="chapter-item "><a href="../installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item "><a href="../hello/shebang.html"><strong aria-hidden="true">1.3.</strong> Acton scripts</a></li><li class="chapter-item "><a href="../projects.html"><strong aria-hidden="true">1.4.</strong> Acton Projects</a></li><li class="chapter-item "><a href="../hello/running_tests.html"><strong aria-hidden="true">1.5.</strong> Running Tests</a></li></ol></li><li class="chapter-item expanded "><a href="../primitives.html"><strong aria-hidden="true">2.</strong> Language</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../primitives.html"><strong aria-hidden="true">2.1.</strong> Variable data types</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../primitives/scalars.html"><strong aria-hidden="true">2.1.1.</strong> Scalars</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../primitives/float.html"><strong aria-hidden="true">2.1.1.1.</strong> float</a></li></ol></li><li class="chapter-item "><a href="../primitives/lists.html"><strong aria-hidden="true">2.1.2.</strong> Lists</a></li><li class="chapter-item "><a href="../primitives/dicts.html"><strong aria-hidden="true">2.1.3.</strong> Dictionaries</a></li><li class="chapter-item "><a href="../primitives/tuples.html"><strong aria-hidden="true">2.1.4.</strong> Tuples</a></li><li class="chapter-item "><a href="../primitives/sets.html"><strong aria-hidden="true">2.1.5.</strong> Sets</a></li></ol></li><li class="chapter-item "><a href="../functions.html"><strong aria-hidden="true">2.2.</strong> Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../functions/actor_methods.html"><strong aria-hidden="true">2.2.1.</strong> Actor methods</a></li><li class="chapter-item "><a href="../functions/higher_order.html"><strong aria-hidden="true">2.2.2.</strong> Higher order functions</a></li></ol></li><li class="chapter-item "><a href="../types/intro.html"><strong aria-hidden="true">2.3.</strong> Types</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/explicit.html"><strong aria-hidden="true">2.3.1.</strong> Explicit types</a></li><li class="chapter-item "><a href="../types/generics.html"><strong aria-hidden="true">2.3.2.</strong> Generics</a></li></ol></li><li class="chapter-item "><a href="../classes/intro.html"><strong aria-hidden="true">2.4.</strong> Classes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../classes/inheritance.html"><strong aria-hidden="true">2.4.1.</strong> Inheritance</a></li></ol></li><li class="chapter-item "><a href="../protocols/intro.html"><strong aria-hidden="true">2.5.</strong> Protocols</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../protocols/dispatch.html"><strong aria-hidden="true">2.5.1.</strong> Method Dispatch</a></li></ol></li><li class="chapter-item expanded "><a href="../actors.html"><strong aria-hidden="true">2.6.</strong> Actors</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../actors/root.html"><strong aria-hidden="true">2.6.1.</strong> Root Actor</a></li><li class="chapter-item "><a href="../actors/lifetime.html"><strong aria-hidden="true">2.6.2.</strong> Lifetime</a></li><li class="chapter-item "><a href="../actors/attributes.html"><strong aria-hidden="true">2.6.3.</strong> Attributes</a></li><li class="chapter-item "><a href="../actors/concurrency.html"><strong aria-hidden="true">2.6.4.</strong> Concurrency</a></li><li class="chapter-item "><a href="../actors/sync_method_call.html"><strong aria-hidden="true">2.6.5.</strong> Sync Method calls</a></li><li class="chapter-item expanded "><a href="../actors/async_method_call.html" class="active"><strong aria-hidden="true">2.6.6.</strong> Async Method calls</a></li><li class="chapter-item "><a href="../actors/cleanup.html"><strong aria-hidden="true">2.6.7.</strong> Cleanup</a></li></ol></li><li class="chapter-item "><a href="../control_flow.html"><strong aria-hidden="true">2.7.</strong> Control flow</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../control_flow/actors.html"><strong aria-hidden="true">2.7.1.</strong> actors</a></li><li class="chapter-item "><a href="../control_flow/if_else.html"><strong aria-hidden="true">2.7.2.</strong> if / elif / else</a></li><li class="chapter-item "><a href="../control_flow/for.html"><strong aria-hidden="true">2.7.3.</strong> for</a></li><li class="chapter-item "><a href="../control_flow/while.html"><strong aria-hidden="true">2.7.4.</strong> while</a></li><li class="chapter-item "><a href="../control_flow/after_sleep.html"><strong aria-hidden="true">2.7.5.</strong> after / sleep</a></li></ol></li><li class="chapter-item "><a href="../security.html"><strong aria-hidden="true">2.8.</strong> Security</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../security/capabilities.html"><strong aria-hidden="true">2.8.1.</strong> Capabilities</a></li></ol></li><li class="chapter-item "><a href="../environment.html"><strong aria-hidden="true">2.9.</strong> Environment</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../environment/variables.html"><strong aria-hidden="true">2.9.1.</strong> Environment variables</a></li><li class="chapter-item "><a href="../environment/stdin.html"><strong aria-hidden="true">2.9.2.</strong> Reading stdin input</a></li><li class="chapter-item "><a href="../environment/interactive_stdin.html"><strong aria-hidden="true">2.9.3.</strong> Interactive stdin input</a></li></ol></li><li class="chapter-item "><a href="../modules.html"><strong aria-hidden="true">2.10.</strong> Modules</a></li></ol></li><li class="chapter-item "><a href="../stdlib.html"><strong aria-hidden="true">3.</strong> Standard library</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../stdlib/re.html"><strong aria-hidden="true">3.1.</strong> Regular Expression</a></li></ol></li><li class="chapter-item "><a href="../testing.html"><strong aria-hidden="true">4.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../testing/unit_test.html"><strong aria-hidden="true">4.1.</strong> Unit tests</a></li><li class="chapter-item "><a href="../testing/sync_actor_test.html"><strong aria-hidden="true">4.2.</strong> Sync actor tests</a></li><li class="chapter-item "><a href="../testing/async_actor_test.html"><strong aria-hidden="true">4.3.</strong> Async actor tests</a></li><li class="chapter-item "><a href="../testing/env_test.html"><strong aria-hidden="true">4.4.</strong> Env tests</a></li><li class="chapter-item "><a href="../testing/failures_errors.html"><strong aria-hidden="true">4.5.</strong> Failures vs errors</a></li><li class="chapter-item "><a href="../testing/flaky.html"><strong aria-hidden="true">4.6.</strong> Flaky tests</a></li><li class="chapter-item "><a href="../testing/performance.html"><strong aria-hidden="true">4.7.</strong> Performance testing</a></li><li class="chapter-item "><a href="../testing/perf_record.html"><strong aria-hidden="true">4.8.</strong> Perf comparison</a></li></ol></li><li class="chapter-item "><a href="../compilation.html"><strong aria-hidden="true">5.</strong> Build System</a></li><li class="chapter-item "><a href="../package_management.html"><strong aria-hidden="true">6.</strong> Package Management</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../pkg/add_dependency.html"><strong aria-hidden="true">6.1.</strong> Add Dependency</a></li><li class="chapter-item "><a href="../pkg/local_dependencies.html"><strong aria-hidden="true">6.2.</strong> Local Dependencies</a></li><li class="chapter-item "><a href="../pkg/remove_dependency.html"><strong aria-hidden="true">6.3.</strong> Remove Dependency</a></li><li class="chapter-item "><a href="../pkg/fetch_dependencies.html"><strong aria-hidden="true">6.4.</strong> Fetch Deps (Airplane mode)</a></li><li class="chapter-item "><a href="../zig_dependencies.html"><strong aria-hidden="true">6.5.</strong> Zig / C / C++ dependencies</a></li></ol></li><li class="chapter-item "><a href="../security/intro.html"><strong aria-hidden="true">7.</strong> Security and Trust</a></li><li class="chapter-item "><a href="../working_with_zig.html"><strong aria-hidden="true">8.</strong> Working with Zig / C / C++</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ext/integrating_c_library.html"><strong aria-hidden="true">8.1.</strong> Integrating a C library (zlib)</a></li></ol></li><li class="chapter-item "><a href="../rts.html"><strong aria-hidden="true">9.</strong> Run Time System</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="async-method-calls"><a class="header" href="#async-method-calls">Async Method calls</a></h1>
+<p>As actors are sequential programs and can only do one thing at a time, it is important not to spend time waiting in a blocking fashion. Acton leverages asynchronous style programming to allow actors to react and run only when necessary. Async is at the core of Acton!</p>
+<p>A method is called asynchronously when the return value is not used.</p>
+<p>Source:</p>
+<pre><code class="language-python">
+def nsieve(n: int):
+    """Sieve of Erathostenes to find primes up to n
+    """
+    count = 0
+    flags = [True] * n
+    for i in range(2, n, 1):
+        if flags[i]:
+            count += 1
+            for j in range(i, n, i):
+                flags[j] = False
+    return count
+
+actor Simon(idx):
+    def say(msg, n):
+        # Simon likes to compute primes and will tell you how many there are under a given number
+        count = nsieve(n)
+        print("Simon%d says: %s.... oh and there are %d primes under %d" % (idx, msg, count, n))
+
+actor main(env):
+    s1 = Simon(1)
+    s2 = Simon(2)
+
+    s1.say("foo", 1000000)
+    s2.say("bar", 5)
+
+    def exit():
+        env.exit(0)
+    after 0.2: exit()
+</code></pre>
+<p>Compile and run:</p>
+<pre><code class="language-sh">actonc async.act
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-sh">Simon2 says: bar.... oh and there are 2 primes under 5
+Simon1 says: foo.... oh and there are 78498 primes under 1000000
+</code></pre>
+<p>A method call like <code>s1.say("foo", 100000)</code> does not use the return value of and is thus called asynchronously. We ask <code>s1</code> to compute primes under 1000000 while <code>s2</code> only gets to compute primes up to <code>5</code> which will invariably run faster. Thus, <code>s2</code> despite being called after <code>s1</code>, will print out its result before <code>s1</code>. The <code>s1</code> and <code>s2</code> actors are called asynchronously and are executed concurrently and in parallel.</p>
+<p>The call flow can be illustrated like this. We can see how <code>main</code> asynchronously calls <code>s1</code> and <code>s2</code> that will be scheduled to run concurrently. The run time system (RTS) will run <code>s1.say()</code> and <code>s2.say()</code> in parallel if there are 2 worker threads available. Per default, there are as many worker threads as available CPU threads.</p>
+<div style='width:100%; height:144px;'><style type="text/css">svg { width: 100% !important; }</style><svg xmlns="http://www.w3.org/2000/svg" width="440" height="144"><style>line, path, circle, rect, polygon{stroke:var(--fg);stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:arial;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}<!--separator--></style><defs><marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,0 0,4 4,2 0,0"></polygon></marker><marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,2 2,0 4,2 2,4 0,2"></polygon></marker><marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="filled"></circle></marker><marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="2" class="bg_filled"></circle></marker><marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><circle cx="4" cy="4" r="3" class="bg_filled"></circle></marker></defs><rect class="backdrop" x="0" y="0" width="440" height="144"></rect><text x="26" y="12" >main</text><circle cx="92" cy="8" r="3" class="filled"></circle><line x1="96" y1="8" x2="152" y2="8" class="solid"></line><circle cx="156" cy="8" r="3" class="filled"></circle><line x1="160" y1="8" x2="184" y2="8" class="solid"></line><circle cx="188" cy="8" r="3" class="filled"></circle><circle cx="212" cy="56" r="3" class="filled"></circle><line x1="216" y1="56" x2="232" y2="56" class="solid"></line><circle cx="236" cy="56" r="3" class="filled"></circle><circle cx="196" cy="88" r="3" class="filled"></circle><line x1="200" y1="88" x2="264" y2="88" class="solid"></line><circle cx="268" cy="88" r="3" class="filled"></circle><circle cx="372" cy="8" r="3" class="filled"></circle><line x1="370" y1="12" x2="318" y2="116" class="solid"></line><line x1="376" y1="8" x2="424" y2="8" class="solid"></line><circle cx="428" cy="8" r="3" class="filled"></circle><circle cx="316" cy="120" r="3" class="filled"></circle><text x="26" y="60" >s2</text><text x="26" y="92" >s1</text><text x="26" y="124" >after</text><text x="74" y="124" >2</text><g><line x1="158" y1="12" x2="186" y2="68" class="solid"></line><polygon points="183,68 190,76 190,65" class="filled"></polygon></g><g><line x1="190" y1="12" x2="202" y2="36" class="solid"></line><polygon points="199,36 206,44 206,33" class="filled"></polygon></g></svg></div>
+<p>In addition we see how the call to <code>after 2</code> schedules the <code>main</code> actor to run again after 2 seconds, specifically it will run the <code>main.exit()</code> method, which in turn exists the whole program.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../actors/sync_method_call.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../actors/cleanup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../actors/sync_method_call.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../actors/cleanup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/tabs.js"></script>
+
+
+    </div>
+    </body>
+</html>
