@@ -93,7 +93,7 @@ If we remove Acton's boxed version, we can zoom in on the unboxed and Python ver
 **Unboxed (green) vs Python (yellow)**
 [![](/blog/unboxed-vs-python.png)](/blog/unboxed-vs-python.png)
 
-Many computationally intensive applications are written in C and receive a thin wrapper in Python or some other high level language. Now you can write the entire application in Acton and still get the performance of C!
+Many computationally intensive applications are written in C and receive a thin wrapper in Python or some other high level language. Acton now offers an appealing alternative; writing normal Acton code is as fast as C code but remains Pythonic and simple to read and develop, while it is still possible for more specialized cases to write C code and integrate in an Acton module.
 
 ## Future work
 
