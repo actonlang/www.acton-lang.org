@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color: #FED43F;
+        --primary-color-touch: #FED43F;
+        /* Primary theme text color */
+        --primary-text-color: #543631;
+        --nav-text-color: #543631;
+        /* Primary theme link color */
+        --primary-link-color: #F9BB2D;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-color-accent: #FEFEF0;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #d46e13;
+        --tertiary-color: #479693;
+    }
+
+    @media (prefers-color-scheme: dark){
+        :root {
+            /* Primary theme color */
+            --primary-color: #B5972B;
+            /* --primary-color: #806700; */
+            /* --primary-color: #423710; */
+            /* --primary-color: #303030; */
+            --primary-color-touch: #FED43F;
+            /* --primary-color: #7a661d; */
+            /* Primary theme text color */
+            /* --primary-text-color: #5c3b35; */
+            /* --primary-text-color: #B19992; */
+            --primary-text-color: #999;
+            --primary-hero-text-color: #FED43F;
+            --nav-text-color: #CCC;
+            /* --primary-hero-text-color: #202020; */
+            /* Primary theme link color */
+            --primary-link-color: #F9BB2D;
+            /* Secondary color: the background body color */
+            --secondary-color: #202020;
+            --secondary-color-accent: #303030;
+            --secondary-text-color: #9c9a96;
+            /* Highlight text color of table of content */
+            --toc-highlight-text-color: #FED43F;
+            --tertiary-color: #194643;
+        }
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://www.acton-lang.org/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;">
+    <div class="logo">
+        <img src="https://www.acton-lang.org/logo.svg" alt="logo">
+        acton
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;install&#x2F;">Install</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;learn&#x2F;">Learn</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;about&#x2F;">About</a>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="&#x2F;blog">Blog</a>
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;actonlang&#x2F;acton">Github</a>
+        
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#install">Install</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#debian-ubuntu">Debian &#x2F; Ubuntu</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#supported-versions"><small>- Supported versions</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#install-via-apt-repository"><small>- Install via apt repository:</small></a>
+                </div>
+                
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#mac-os-x">Mac OS X</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#supported-versions-1"><small>- Supported versions</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#install-via-homebrew"><small>- Install via Homebrew</small></a>
+                </div>
+                
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#binary-release-tar-ball">Binary release tar ball</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/install/#building-from-source">Building from source</a>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<h1 id="install">Install</h1>
+<p>Acton is available for Linux and Mac OS X.</p>
+<p>The platforms listed here are for developing with Acton. The final binary executable produced from compiling an <code>.act</code> can run on other platforms, for example Ubuntu 18.04 and can be made to run on even older systems through static linking, see <a href="https://acton.guide/compilation.html">Acton by Example: compilation</a></p>
+<h1 id="debian-ubuntu">Debian / Ubuntu</h1>
+<h2 id="supported-versions">Supported versions</h2>
+<ul>
+<li>Debian 11 / x86_64</li>
+<li>Debian 12 / x86_64</li>
+<li>Ubuntu 20.04 / x86_64</li>
+<li>Ubuntu 22.04 / x86_64</li>
+<li>Ubuntu 23.04 / x86_64</li>
+</ul>
+<h2 id="install-via-apt-repository">Install via apt repository:</h2>
+<p>The APT configuration is for <code>bullseye</code> but the Acton package is forward compatible and works just fine on bookworm as well as similarly modern Ubuntu releases.</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">wget -q -O</span><span> - https://apt.acton-lang.io/acton.gpg | </span><span style="color:#bf616a;">sudo</span><span> apt-key add -
+</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">deb [arch=amd64] http://apt.acton-lang.io/ bullseye main</span><span>&quot; | </span><span style="color:#bf616a;">sudo</span><span> tee /etc/apt/sources.list.d/acton.list
+</span><span style="color:#bf616a;">sudo</span><span> apt-get update
+</span><span style="color:#bf616a;">sudo</span><span> apt-get install</span><span style="color:#bf616a;"> -qy</span><span> acton
+</span></code></pre>
+<h1 id="mac-os-x">Mac OS X</h1>
+<h2 id="supported-versions-1">Supported versions</h2>
+<ul>
+<li>MacOS 10.5 / x86_64</li>
+<li>MacOS 11 / x86_64</li>
+<li>MacOS 12 / x86_64</li>
+<li>MacOS 12 / aarch64 (M1)
+<ul>
+<li>no pre-built binary package ("bottle" in Homebrew lingo) available so it will build from source</li>
+</ul>
+</li>
+<li>MacOS 13 / x86_64</li>
+<li>MacOS 13 / aarch64 (M1)
+<ul>
+<li>no pre-built binary package ("bottle" in Homebrew lingo) available so it will build from source</li>
+</ul>
+</li>
+</ul>
+<h2 id="install-via-homebrew">Install via Homebrew</h2>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">brew</span><span> install actonlang/acton/acton
+</span></code></pre>
+<h1 id="binary-release-tar-ball">Binary release tar ball</h1>
+<p>There are pre-built binary release tar balls available for download for Linux
+and Mac OS X in case the above package formats are not suitable. See the guide,
+<a href="https://www.acton-lang.org/install/from-tar-ball">installing Acton from a release tar ball</a>.</p>
+<h1 id="building-from-source">Building from source</h1>
+<p>See <a href="https://www.acton-lang.org/install/from-source">building from source</a>.</p>
+
+
+        </div>
+
+        
+        
+    </main>
+
+    
+    <footer>
+        <small class="subtext">
+            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2021
+        </small>
+    </footer>
+    
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
