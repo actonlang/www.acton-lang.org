@@ -15,23 +15,8 @@ jobs:
         run: |
           echo "PAGES_BRANCH=gh-pages" >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
-      - name: 'Install cargo'
-        run: sudo apt-get install -qy cargo
-      - name: "Cache cargo"
-        uses: actions/cache@v3
-        with:
-          path: ~/.cargo
-          key: cargo
-      - name: 'Install mdbook'
-        run: cargo install --locked mdbook mdbook-admonish mdbook-tabs mdbook-svgbob
       - name: 'Checkout'
         uses: actions/checkout@master
-      - name: 'Checkout acton repo'
-        uses: actions/checkout@master
-        with:
-          repository: 'actonlang/acton'
-          path: 'acton'
-          token: ${{ secrets.ACTBOT_PAT }}
       - name: 'Build and deploy'
         uses: shalzz/zola-deploy-action@master
         env:
