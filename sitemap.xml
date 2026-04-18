@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://www.acton-lang.org/</loc>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/about/</loc>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/about/future/</loc>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/blog/</loc>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/blog/2024-05-unboxing/</loc>
+        <lastmod>2024-05-05</lastmod>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/install/</loc>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/install/from-source/</loc>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/install/from-tar-ball/</loc>
+    </url>
+    <url>
+        <loc>https://www.acton-lang.org/learn/</loc>
+    </url>
+</urlset>

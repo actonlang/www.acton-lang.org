@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Acton Programming Language</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color: #FED43F;
+        --primary-color-touch: #FED43F;
+        /* Primary theme text color */
+        --primary-text-color: #543631;
+        --nav-text-color: #543631;
+        /* Primary theme link color */
+        --primary-link-color: #F9BB2D;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-color-accent: #FEFEF0;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #d46e13;
+        --tertiary-color: #479693;
+    }
+
+    @media (prefers-color-scheme: dark){
+        :root {
+            /* Primary theme color */
+            --primary-color: #B5972B;
+            /* --primary-color: #806700; */
+            /* --primary-color: #423710; */
+            /* --primary-color: #303030; */
+            --primary-color-touch: #FED43F;
+            /* --primary-color: #7a661d; */
+            /* Primary theme text color */
+            /* --primary-text-color: #5c3b35; */
+            /* --primary-text-color: #B19992; */
+            --primary-text-color: #999;
+            --primary-hero-text-color: #FED43F;
+            --nav-text-color: #CCC;
+            /* --primary-hero-text-color: #202020; */
+            /* Primary theme link color */
+            --primary-link-color: #F9BB2D;
+            /* Secondary color: the background body color */
+            --secondary-color: #202020;
+            --secondary-color-accent: #303030;
+            --secondary-text-color: #9c9a96;
+            /* Highlight text color of table of content */
+            --toc-highlight-text-color: #FED43F;
+            --tertiary-color: #194643;
+        }
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/juice.css">
+    
+    
+</head>
+
+<body>
+    
+
+    <header class="pos-absolute" style="background-color: transparent">
+        
+
+<a href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;">
+    <div class="logo">
+        <img src="https://www.acton-lang.org/logo.svg" alt="logo">
+        acton
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;install&#x2F;">Install</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;learn&#x2F;">Learn</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;www.acton-lang.org&#x2F;about&#x2F;">About</a>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="&#x2F;blog">Blog</a>
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;actonlang&#x2F;acton">Github</a>
+        
+    
+</nav>
+
+    </header>
+
+    <div class="hero" style="overflow: hidden;">
+        
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <section class="text-center" style="margin-top: 4em">
+            <h1 class="heading-text" style="font-size: 50px; border-left: none;">
+                Distributed cloud systems made easy
+            </h1>
+            <h3 class="title-text" style="border-left: none;">
+                <b>Acton</b> is a fault tolerant distributed programming platform for building mission critical systems. The easy way.
+            </h3>
+            <!--
+            <div>
+                <a class="github-button" href="https://github.com/actonlang/acton" data-size="large" data-show-count="true"
+                   aria-label="Star actonlang/acton on GitHub">Star</a>
+                <a class="github-button" href="https://github.com/actonlang/acton/fork" data-size="large"
+                   data-show-count="true" aria-label="Fork actonlang/acton on GitHub">Fork</a>
+            </div>
+            -->
+        </section>
+        <img class="hero-image" style="width: 50%; margin-right: 10em; max-height: 80%;" src="https://www.acton-lang.org/logo.svg">
+
+        <div class="explore-more text"
+            onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+            Explore More ⇩
+        </div>
+        <style>
+            .hero section {
+                padding: 0 5rem;
+            }
+            @media screen and (max-width: 768px) {
+                .hero section {
+                    padding: 0 2rem;
+                }
+
+                .hero-image {
+                    display: none
+                }
+            }
+        </style>
+        
+    </div>
+
+    
+
+    <main style="flex-direction: column;">
+        <section class="section section-sm justify-content-center" style="display: flex;">
+            <div class="content text">
+                <h1 style="font-size: 80px; line-height: 1em;">
+                    Why Acton?
+                </h1>
+                
+                <div class="row justify-content-center" style="margin-bottom: 100px;">
+                    
+                    <div class="col-lg-3">
+                    <h2 class="h4">Distributed Computing built in</h2>
+                    <p>Write programs that seamlessly run as a distributed system over an entire data center or region. All without a single line of RPC code.</p>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                    <h2 class="h4">Durable State</h2>
+                    <p>Acton automatically persists the state of your application (orthogonal persistence) to a built-in distributed backend. No need to use a database or message broker ever again. 0 lines of persistence code.</p>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                    <h2 class="h4">Fault Tolerant</h2>
+                    <p>Built-in redundancy; Acton's transactional, high performance distributed RTS can seamlessly resume application state after hardware failures</p>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                    <h2 class="h4">Non-stop</h2>
+                    <p>Never stop for an upgrade; Live upgrade your running application through compiler-supported code and data migration</p>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                    <h2 class="h4">Any scale</h2>
+                    <p>Acton programs, and the actor model, work well from simple script style applications on a single machine up to large distributed systems across a Data Center. Run at your scale.</p>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                    <h2 class="h4">Safe &amp; Fast</h2>
+                    <p>Static and strongly typed, Acton is safe yet simple to use with low overhead thanks to powerful type inferencing. Being a compiled language, backed by a high performance distributed run time system, Acton is fast.</p>
+                    </div>
+                    
+                </div>
+                
+                
+                <h1 id="overview">Overview</h1>
+<p>Acton is a general purpose programming language, designed to be useful for a wide range of applications, from desktop applications to embedded and distributed systems. In a first approximation Acton can be described as a seamless addition of a powerful new construct to an existing language: Acton adds actors to Python. Our take on the actor model allows developers to write highly scalable and fault tolerant code, without needing to worry about explicit state checkpointing, synchronization primitives or giving up consistency.</p>
+<p>Acton is a compiled language, offering the speed of C but with a considerably simpler programming model. There is no explicit memory management, instead relying on garbage collection.</p>
+<p>Acton is statically typed with an expressive type language and type inference. Type inferrence means you don't have to explicitly declare types of every variable but that the compiler will infer the type and performs its checks accordingly. We can have the benefits of type safety without the extra overhead involved in declaring types.</p>
+<p>The Acton Run Time System (RTS) offers a distributed mode of operation allowing multiple computers to participate in running one logical Acton system. Actors can migrate between compute nodes and load balance the application workload. The RTS offers exactly once message delivery guarantees and strong serial state consistency without sacrificing performance. By automatically checkpointing actor states and inter-actor messages to a integrated distributed database and messaging queues, failure of individual actors or compute nodes can be transparently recovered from by the runtime system. There is no need for explicit state checkpointing or use of synchronization primitives between actors. Your system can run forever!</p>
+<h1 id="state-of-acton">State of Acton</h1>
+<p>Acton is a work in progress and still has some way to go to fully deliver on the vision. We want to sell you on the ideas and concepts that we set out to deliver, so that you may be as excited about Acton as we are :)</p>
+<p><a href="https://www.acton-lang.org/about">Read more</a> about the motivation behind Acton and why we thought a new language was the best avenue to achieve our goals, also covering some of the early history and <a href="https://www.acton-lang.org/about/future">learn about</a> where we are currently at and what the future might hold.</p>
+<h1 id="getting-started">Getting started</h1>
+<h2 id="install">Install</h2>
+<p>Check out the <a href="https://www.acton-lang.org/install">installation section</a> for how to get Acton!</p>
+<h2 id="learn">Learn</h2>
+<p>Read an introduction to using Acton in the <a href="https://www.acton-lang.org/learn">learn Acton</a> section.</p>
+
+                
+            </div>
+        </section>
+    </main>
+
+    <main style="background-color: var(--tertiary-color);">
+        <section class="section section-sm justify-content-center" style="display: flex;">
+            <div class="content text">
+                <h1 style="font-size: 80px; line-height: 1em;">
+                    Get involved
+                </h1>
+                <h2 class="h2" style="font-size: 30px;">Contribute code</h2>
+                <p>One of the best ways of helping Acton development is to start using Acton for writing your programs and reporting on any bugs found or the overall experience.</p>
+                <p>You are of course more than welcome to make direct contributions too, e.g. writing documentation, designing this web page, hacking on the actonc compiler or expanding the standard library.</p>
+                <p>Come help us make Acton better!</p>
+            </div>
+        </section>
+    </main>
+
+
+    
+    <footer>
+        <small class="subtext">
+            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2021
+        </small>
+    </footer>
+    
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
