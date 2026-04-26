@@ -1,20 +1,16 @@
 {% macro render_header() %}
-{% set section = get_section(path="_index.md") %}
-<a href="{{ section.permalink }}">
-    <div class="logo">
-        <img src="{{ get_url(path=config.extra.juice_logo_path) }}" alt="logo">
-        {{ config.extra.juice_logo_name }}
-    </div>
+<a class="site-logo" href="{{ get_url(path="/") }}">
+    <span class="brand-mark" aria-hidden="true">
+        <img src="{{ get_url(path="acton-mark.svg") }}" alt="">
+    </span>
+    <span>Acton</span>
 </a>
 
-<nav>
-    {% for page in section.pages %}
-    <a class="nav-item subtitle-text" href="{{ page.permalink }}">{{ page.title }}</a>
-    {% endfor %}
-    {% if config.extra.juice_extra_menu %}
-        {% for menu in config.extra.juice_extra_menu %}
-        <a class="nav-item subtitle-text" href="{{ menu.link }}">{{ menu.title }}</a>
-        {% endfor %}
-    {% endif %}
+<nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-item" href="https://github.com/actonlang/acton">GitHub</a>
+    <a class="nav-item" href="{{ get_url(path="/blog") }}">Blog</a>
+    <a class="nav-item" href="https://acton.guide/">Guide</a>
+    <a class="nav-item" href="https://play.acton.guide/">Play</a>
+    <a class="nav-item" href="https://ask.acton.guide/">Ask</a>
 </nav>
 {% endmacro render_header %}

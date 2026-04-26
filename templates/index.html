@@ -6,148 +6,620 @@
     <meta charset="UTF-8">
     <title>{% block title %}{{ section.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Acton is a programming language for building concurrent systems with simple, direct code.">
     {% block favicon %}
     <link rel="icon" type="image/png" href="/favicon.ico">
     {% endblock favicon %}
     {% include "_variables.html" %}
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/juice.css">
+    <link rel="stylesheet" href="{{ get_url(path="juice.css") }}">
     {% block head %}
     {% endblock head %}
 </head>
 
-<body>
-    {% block header %}
-
-    <header class="pos-absolute" style="background-color: transparent">
+<body class="home-page">
+    <header class="site-header">
         {{ macros::render_header() }}
     </header>
 
-    <div class="hero" style="overflow: hidden;">
-        {% block hero %}
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <section class="text-center" style="margin-top: 4em">
-            <h1 class="heading-text" style="font-size: 50px; border-left: none;">
-                Distributed cloud systems made easy
-            </h1>
-            <h3 class="title-text" style="border-left: none;">
-                <b>Acton</b> is a fault tolerant distributed programming platform for building mission critical systems. The easy way.
-            </h3>
-            <!--
-            <div>
-                <a class="github-button" href="https://github.com/actonlang/acton" data-size="large" data-show-count="true"
-                   aria-label="Star actonlang/acton on GitHub">Star</a>
-                <a class="github-button" href="https://github.com/actonlang/acton/fork" data-size="large"
-                   data-show-count="true" aria-label="Fork actonlang/acton on GitHub">Fork</a>
-            </div>
-            -->
-        </section>
-        <img class="hero-image" style="width: 50%; margin-right: 10em; max-height: 80%;" src="{{ get_url(path="logo.svg") }}">
-
-        <div class="explore-more text"
-            onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
-            Explore More ⇩
-        </div>
-        <style>
-            .hero section {
-                padding: 0 5rem;
-            }
-            @media screen and (max-width: 768px) {
-                .hero section {
-                    padding: 0 2rem;
-                }
-
-                .hero-image {
-                    display: none
-                }
-            }
-        </style>
-        {% endblock hero %}
-    </div>
-
-    {% endblock header %}
-
-    <main style="flex-direction: column;">
-        <section class="section section-sm justify-content-center" style="display: flex;">
-            <div class="content text">
-                <h1 style="font-size: 80px; line-height: 1em;">
-                    Why Acton?
-                </h1>
-                {% if section.extra.list %}
-                <div class="row justify-content-center" style="margin-bottom: 100px;">
-                    {% for val in section.extra.list %}
-                    <div class="col-lg-3">
-                    <h2 class="h4">{{ val.title }}</h2>
-                    <p>{{ val.content | safe }}</p>
-                    </div>
-                    {% endfor %}
+    <main class="home">
+        <section class="home-hero" aria-labelledby="hero-title">
+            <div class="home-hero__copy">
+                <p class="eyebrow">Acton Programming Language</p>
+                <h1 id="hero-title">Concurrent by design.<br><span>Simple by choice.</span></h1>
+                <p class="hero-lede">
+                    Acton is an actor-based language for writing reactive,
+                    robust concurrent systems with a powerful static type
+                    system and clear, direct code.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="https://acton.guide/">Start with the guide</a>
+                    <a class="button button-secondary" href="https://play.acton.guide/">Try Acton online</a>
                 </div>
-                {% endif %}
-                {% block content %}
-                {{ section.content | safe }}
-                {% endblock content %}
+            </div>
+
+            <div class="hero-panel" aria-label="Acton language summary">
+                <div class="hero-panel__mark" aria-hidden="true">
+                    <img src="{{ get_url(path="acton-mark.svg") }}" alt="">
+                </div>
+                <p class="hero-panel__line">Actors are the unit of state, isolation, and concurrency.</p>
+                <p class="hero-panel__line">Types are checked before your system runs.</p>
+                <p class="hero-panel__line">Many actors can cooperate without turning control flow into a maze.</p>
+            </div>
+        </section>
+
+        <section class="examples-section" id="examples" aria-label="Acton examples">
+            <div class="example-browser">
+                <div class="example-tabs" role="tablist" aria-label="Acton examples">
+                    <button class="example-tab is-active" type="button" id="tab-simple" role="tab" aria-controls="example-simple" aria-selected="true" data-example="simple">Simple</button>
+                    <button class="example-tab" type="button" id="tab-types" role="tab" aria-controls="example-types" aria-selected="false" data-example="types">Types</button>
+                    <button class="example-tab" type="button" id="tab-speed" role="tab" aria-controls="example-speed" aria-selected="false" data-example="speed">Fast</button>
+                    <button class="example-tab" type="button" id="tab-actors" role="tab" aria-controls="example-actors" aria-selected="false" data-example="actors">Actors</button>
+                    <button class="example-tab" type="button" id="tab-http" role="tab" aria-controls="example-http" aria-selected="false" data-example="http">Rich stdlib</button>
+                </div>
+
+                <article class="example-panel is-active" id="example-simple" role="tabpanel" aria-labelledby="tab-simple" data-example-panel="simple">
+                    <div class="example-copy">
+                        <p>
+                            <strong>Simple, familiar syntax</strong> makes
+                            programs simple to express and keeps users
+                            productive. The compiler infers and checks types,
+                            giving you static correctness guarantees without
+                            type noise.
+                        </p>
+                    </div>
+                    <div class="example-runner">
+                        <div class="example-editor">
+                            <div class="example-toolbar">
+                                <span>Source</span>
+                                <button class="run-example" type="button">Run</button>
+                            </div>
+                            <textarea class="example-code" spellcheck="false">def greeting(name):
+    return "Hello {name}"
+
+actor main(env):
+    names = ["Ada", "Vint", "Edsger"]
+    for name in names:
+        print(greeting(name))
+    env.exit(0)</textarea>
+                        </div>
+                        <div class="example-output" hidden>
+                            <div class="example-toolbar">
+                                <span>Output</span>
+                                <span class="example-status">Ready</span>
+                            </div>
+                            <div class="example-progress" aria-hidden="true">
+                                <span></span>
+                            </div>
+                            <pre></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="example-panel" id="example-types" role="tabpanel" aria-labelledby="tab-types" data-example-panel="types" hidden>
+                    <div class="example-copy">
+                        <p>
+                            <strong>Expressive types, inferred at use</strong>
+                            write code with the ease of a dynamic language
+                            while keeping the guarantees of static checking.
+                            Acton infers the types you leave out and checks the
+                            operations you use. Mistakes are caught before the
+                            program runs, when they are cheapest to fix.
+                        </p>
+                        <p>
+                            Click <em>Show types</em> to see the generic type
+                            variables and constraints inferred in this
+                            example.
+                        </p>
+                    </div>
+                    <div class="example-runner">
+                        <div class="example-editor">
+                            <div class="example-toolbar">
+                                <span>Source</span>
+                                <button class="run-example run-example--secondary" type="button" data-result-view="types">Show types</button>
+                            </div>
+                            <textarea class="example-code" spellcheck="false">def first(items):
+    return items[0]
+
+def maximum(a, b):
+    if a > b:
+        return a
+    return b
+
+actor main(env):
+    numbers = [10, 20, 30]
+    names = ["Ada", "Vint", "Edsger"]
+
+    number = first(numbers)
+    name = first(names)
+    bigger = maximum(number, 20)
+    later = maximum(name, "Vint")
+    env.exit(0)</textarea>
+                        </div>
+                        <div class="example-output" hidden>
+                            <div class="example-toolbar">
+                                <span>Output</span>
+                                <span class="example-status">Ready</span>
+                            </div>
+                            <div class="example-progress" aria-hidden="true">
+                                <span></span>
+                            </div>
+                            <pre></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="example-panel" id="example-speed" role="tabpanel" aria-labelledby="tab-speed" data-example-panel="speed" hidden>
+                    <div class="example-copy">
+                        <h3>Static types give the compiler facts.</h3>
+                        <p>
+                            Armed with static types, Acton can generate
+                            efficient code for fast execution. With concrete
+                            types known at compile time, this DCT loop turns
+                            into the kind of optimal C you would write by hand:
+                            <code>double</code> locals, direct arithmetic, and
+                            ordinary <code>while</code> loops. Read more in the
+                            <a href="/blog/2024-05-unboxing/">unboxing post</a>.
+                        </p>
+                    </div>
+                    <div class="example-runner example-runner--static">
+                        <div class="example-editor">
+                            <div class="example-toolbar">
+                                <span>Acton source</span>
+                            </div>
+                            <pre class="example-static-code"><code>import math
+
+def dct(k, n, l):
+    return math.cos(math.pi/l * (n + 0.5) * k)
+
+def dct_sum(l):
+    s = 0
+    k = 0
+    while k &lt; l:
+        n = 0
+        while n &lt; l:
+            s += dct(k, n, l)
+            n += 1
+        k += 1
+    return s</code></pre>
+                        </div>
+                        <div class="example-compiled">
+                            <div class="example-toolbar">
+                                <span>Generated C</span>
+                            </div>
+                            <pre class="example-static-code"><code>double dctQ_U_dct(double U_1k, double U_2n, double U_3l) {
+    double U_4N_tmp = cos((((mathQ_pi-&gt;val / U_3l) * (U_2n + 0.5)) * U_1k));
+    return U_4N_tmp;
+}
+
+double dctQ_U_5dct_sum(double U_6l) {
+    double U_7s = 0;
+    double U_8k = 0;
+    while ((U_8k &lt; U_6l)) {
+        double U_9n = 0;
+        while ((U_9n &lt; U_6l)) {
+            U_7s += dctQ_U_dct(U_8k, U_9n, U_6l);
+            U_9n += 1;
+        }
+        U_8k += 1;
+    }
+    return U_7s;
+}</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="example-panel" id="example-actors" role="tabpanel" aria-labelledby="tab-actors" data-example-panel="actors" hidden>
+                    <div class="example-copy">
+                        <h3>Serial code. Concurrent execution.</h3>
+                        <p>
+                            Each actor runs sequentially and owns its state,
+                            making behavior easy to reason about. You call
+                            methods, not share memory. Concurrency emerges from
+                            composing actors, making systems structured,
+                            predictable, and easier to evolve.
+                        </p>
+                    </div>
+                    <div class="example-runner">
+                        <div class="example-editor">
+                            <div class="example-toolbar">
+                                <span>Source</span>
+                                <button class="run-example" type="button" data-run-args="--rts-wthreads=8">Run</button>
+                            </div>
+                            <textarea class="example-code" spellcheck="false">actor Collector(expected, env):
+    var seen = 0
+    var total = 0
+
+    def result(name, value):
+        print("done {name}: {value}")
+        seen += 1
+        total += value
+        if seen == expected:
+            print("sum: {total}")
+            env.exit(0)
+
+actor Worker(name, collector):
+    def checksum(start, stop):
+        print("start {name}")
+        total = 0
+        for n in range(start, stop):
+            total += (n % 97) * (n % 97)
+        collector.result(name, total)
+
+actor main(env):
+    collector = Collector(4, env)
+
+    Worker("A", collector).checksum(0, 1000000)
+    Worker("B", collector).checksum(1000000, 2000000)
+    Worker("C", collector).checksum(2000000, 3000000)
+    Worker("D", collector).checksum(3000000, 4000000)</textarea>
+                        </div>
+                        <div class="example-output" hidden>
+                            <div class="example-toolbar">
+                                <span>Output</span>
+                                <span class="example-status">Ready</span>
+                            </div>
+                            <div class="example-progress" aria-hidden="true">
+                                <span></span>
+                            </div>
+                            <pre></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="example-panel" id="example-http" role="tabpanel" aria-labelledby="tab-http" data-example-panel="http" hidden>
+                    <div class="example-copy">
+                        <h3>Productive with a rich standard library.</h3>
+                        <p>
+                            Useful batteries are included: HTTP, networking,
+                            JSON, logging, time, files, testing, and more.
+                        </p>
+                        <p>
+                            This example fetches JSON over HTTPS, decodes the
+                            response, and keeps the surrounding actor responsive
+                            while network I/O completes.
+                        </p>
+                    </div>
+                    <div class="example-runner">
+                        <div class="example-editor">
+                            <div class="example-toolbar">
+                                <span>Source</span>
+                                <button class="run-example" type="button">Run</button>
+                            </div>
+                            <textarea class="example-code" spellcheck="false">import http
+import net
+
+actor main(env):
+    connect_cap = net.TCPConnectCap(net.TCPCap(net.NetCap(env.cap)))
+
+    def on_connect(client):
+        client.get("/products/1", on_response)
+
+    def on_response(client, response):
+        product = response.decode_json()
+
+        print("status:", response.status)
+        print("title:", product["title"])
+        print("price:", product["price"])
+        client.close()
+        env.exit(0)
+
+    def on_error(client, error):
+        print("HTTP error:", error)
+        env.exit(1)
+
+    http.Client(
+        connect_cap,
+        "dummyjson.com",
+        on_connect,
+        on_error,
+    )</textarea>
+                        </div>
+                        <div class="example-output" hidden>
+                            <div class="example-toolbar">
+                                <span>Output</span>
+                                <span class="example-status">Ready</span>
+                            </div>
+                            <div class="example-progress" aria-hidden="true">
+                                <span></span>
+                            </div>
+                            <pre></pre>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="principles" aria-label="Acton principles">
+            <article>
+                <span>01</span>
+                <h2>Actor-based concurrency</h2>
+                <p>
+                    Actors are built into the language, not bolted on as a
+                    library convention. That gives programs a natural unit for
+                    state, communication, and scheduling.
+                </p>
+            </article>
+            <article>
+                <span>02</span>
+                <h2>Static checks, less ceremony</h2>
+                <p>
+                    Acton has static types and type inference. You can add
+                    annotations where they clarify intent, without turning every
+                    local binding into type noise.
+                </p>
+            </article>
+            <article>
+                <span>03</span>
+                <h2>Reactive by default</h2>
+                <p>
+                    Build systems from actors that react to calls, callbacks,
+                    timers, and I/O. The result is concurrent code that remains
+                    explicit about where work happens.
+                </p>
+            </article>
+        </section>
+
+        <section class="home-cta" aria-labelledby="cta-title">
+            <p class="eyebrow">Next step</p>
+            <h2 id="cta-title">Read the guide, run code, or ask a question.</h2>
+            <div class="hero-actions">
+                <a class="button button-primary" href="https://acton.guide/">Guide</a>
+                <a class="button button-secondary" href="https://play.acton.guide/">Play</a>
+                <a class="button button-secondary" href="https://ask.acton.guide/">Ask</a>
             </div>
         </section>
     </main>
 
-    <main style="background-color: var(--tertiary-color);">
-        <section class="section section-sm justify-content-center" style="display: flex;">
-            <div class="content text">
-                <h1 style="font-size: 80px; line-height: 1em;">
-                    Get involved
-                </h1>
-                <h2 class="h2" style="font-size: 30px;">Contribute code</h2>
-                <p>One of the best ways of helping Acton development is to start using Acton for writing your programs and reporting on any bugs found or the overall experience.</p>
-                <p>You are of course more than welcome to make direct contributions too, e.g. writing documentation, designing this web page, hacking on the actonc compiler or expanding the standard library.</p>
-                <p>Come help us make Acton better!</p>
-            </div>
-        </section>
-    </main>
-
-
-    {% block footer %}
-    <footer>
-        <small class="subtext">
-            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2021
+    <footer class="site-footer">
+        <small>
+            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2026
         </small>
     </footer>
-    {% endblock footer %}
-</body>
-<script>
-    function highlightNav(heading) {
-        let pathname = location.pathname;
-        document.querySelectorAll(".toc a").forEach((item) => {
-            item.classList.remove("active");
-        });
-        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
-    }
 
-    let currentHeading = "";
-    window.onscroll = function () {
-        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
-        let elementArr = [];
+    <script>
+        const playgroundRunUrl = "https://play.acton.guide/api/run/stream";
+        const tabs = document.querySelectorAll("[data-example]");
+        const panels = document.querySelectorAll("[data-example-panel]");
+        const textareas = document.querySelectorAll(".example-code");
+        const stageLabels = {
+            preparing: "Preparing",
+            starting: "Starting sandbox",
+            typing: "Inferring types",
+            compiling: "Compiling",
+            running: "Running",
+            complete: "Complete"
+        };
+        const stageProgress = {
+            preparing: 8,
+            starting: 18,
+            typing: 36,
+            compiling: 58,
+            running: 82,
+            complete: 100
+        };
 
-        h.forEach(item => {
-            if (item.id !== "") {
-                elementArr[item.id] = item.getBoundingClientRect().top;
-            }
-        });
-        elementArr.sort();
-        for (let key in elementArr) {
-            if (!elementArr.hasOwnProperty(key)) {
-                continue;
-            }
-            if (elementArr[key] > 0 && elementArr[key] < 300) {
-                if (currentHeading !== key) {
-                    highlightNav(key);
-                    currentHeading = key;
+        for (const tab of tabs) {
+            tab.addEventListener("click", () => {
+                const target = tab.getAttribute("data-example");
+
+                for (const item of tabs) {
+                    const active = item === tab;
+                    item.classList.toggle("is-active", active);
+                    item.setAttribute("aria-selected", active ? "true" : "false");
                 }
-                break;
+
+                for (const panel of panels) {
+                    const active = panel.getAttribute("data-example-panel") === target;
+                    panel.classList.toggle("is-active", active);
+                    panel.hidden = !active;
+
+                    if (active) {
+                        requestAnimationFrame(() => {
+                            for (const textarea of panel.querySelectorAll(".example-code")) {
+                                resizeTextarea(textarea);
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        for (const button of document.querySelectorAll(".run-example")) {
+            button.addEventListener("click", () => runExample(button));
+        }
+
+        for (const textarea of textareas) {
+            textarea.addEventListener("input", () => resizeTextarea(textarea));
+            resizeTextarea(textarea);
+        }
+
+        window.addEventListener("resize", () => {
+            for (const textarea of textareas) {
+                resizeTextarea(textarea);
+            }
+        });
+
+        async function runExample(button) {
+            const panel = button.closest(".example-panel");
+            const runner = panel.querySelector(".example-runner");
+            const code = panel.querySelector(".example-code");
+            const output = panel.querySelector(".example-output pre");
+            const outputPanel = panel.querySelector(".example-output");
+            const outputTitle = panel.querySelector(".example-output .example-toolbar span:first-child");
+            const status = panel.querySelector(".example-status");
+            const progress = panel.querySelector(".example-progress span");
+            const preferredView = button.dataset.resultView === "types" ? "types" : "output";
+
+            button.disabled = true;
+            runner.classList.add("has-output");
+            outputPanel.hidden = false;
+            outputTitle.textContent = preferredView === "types" ? "Types" : "Output";
+            setStage(status, progress, "preparing");
+            output.textContent = "";
+
+            try {
+                const payload = {
+                    code: code.value
+                };
+                const args = parseRunArgs(button);
+
+                if (args.length > 0) {
+                    payload.args = args;
+                }
+
+                const response = await fetch(playgroundRunUrl, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    if (response.status === 429) {
+                        throw new Error("playground_busy");
+                    }
+                    throw new Error(`Playground returned ${response.status}`);
+                }
+
+                const result = await readRunStream(response, output, status, progress);
+
+                if (!result) {
+                    throw new Error("Playground stream ended without a result");
+                }
+
+                setStage(status, progress, "complete", result.durationMs);
+                output.textContent = preferredView === "types" ? formatTypes(result) : formatOutput(result);
+            } catch (error) {
+                status.textContent = "Failed";
+                progress.style.width = "100%";
+                output.textContent =
+                    error instanceof Error && error.message === "playground_busy"
+                        ? "The playground is busy. Runs are not queued, so try again in a few seconds."
+                        : "The playground is unavailable right now.";
+                console.error(error);
+            } finally {
+                button.disabled = false;
             }
         }
-    }
-</script>
+
+        async function readRunStream(response, output, status, progress) {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = "";
+            let result;
+
+            while (true) {
+                const { done, value } = await reader.read();
+
+                if (done) {
+                    break;
+                }
+
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split("\n");
+                buffer = lines.pop() ?? "";
+
+                for (const line of lines) {
+                    if (line.trim().length === 0) {
+                        continue;
+                    }
+
+                    const event = JSON.parse(line);
+                    result = handleRunEvent(event, output, status, progress) ?? result;
+                }
+            }
+
+            const tail = buffer + decoder.decode();
+
+            if (tail.trim().length > 0) {
+                const event = JSON.parse(tail);
+                result = handleRunEvent(event, output, status, progress) ?? result;
+            }
+
+            return result;
+        }
+
+        function handleRunEvent(event, output, status, progress) {
+            if (event.type === "result") {
+                return event.result;
+            }
+
+            if (event.type === "status") {
+                setStage(status, progress, event.stage, event.elapsedMs);
+                return undefined;
+            }
+
+            if (event.type === "stdout" || event.type === "stderr") {
+                output.textContent += event.text;
+                output.scrollTop = output.scrollHeight;
+                return undefined;
+            }
+
+            if (event.type === "error") {
+                throw new Error(event.error);
+            }
+
+            return undefined;
+        }
+
+        function setStage(status, progress, stage, elapsedMs) {
+            const label = stageLabels[stage] ?? "Running";
+            const suffix = Number.isFinite(elapsedMs) ? ` (${elapsedMs} ms)` : "";
+            status.textContent = `${label}${suffix}`;
+            progress.style.width = `${stageProgress[stage] ?? 30}%`;
+        }
+
+        function formatOutput(result) {
+            const sections = [];
+
+            if (result.stdout) {
+                sections.push(result.stdout.trimEnd());
+            }
+
+            if (result.stderr) {
+                sections.push(result.stderr.trimEnd());
+            }
+
+            if (result.exitCode !== 0 && result.exitCode !== null) {
+                sections.push(`exit code: ${result.exitCode}`);
+            }
+
+            if (result.truncated) {
+                sections.push("output truncated");
+            }
+
+            return sections.join("\n\n");
+        }
+
+        function formatTypes(result) {
+            if (result.signatures) {
+                return result.signatures.trimEnd();
+            }
+
+            return "No inferred signatures were produced.";
+        }
+
+        function parseRunArgs(button) {
+            const raw = button.dataset.runArgs ?? "";
+
+            if (raw.trim().length === 0) {
+                return [];
+            }
+
+            return raw.trim().split(/\s+/);
+        }
+
+        function resizeTextarea(textarea) {
+            if (textarea.offsetParent === null) {
+                return;
+            }
+
+            textarea.style.height = "auto";
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+    </script>
+</body>
 
 </html>
