@@ -229,6 +229,37 @@ header {
   line-height: 1.5;
 }
 
+.hero-release {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1rem;
+  border-top: 1px solid var(--border-color);
+  margin: 0;
+  padding: 1rem 0;
+  color: var(--secondary-text-color);
+  font-size: 0.96rem;
+  line-height: 1.4;
+}
+
+.hero-release strong {
+  color: var(--primary-text-color);
+}
+
+.hero-release a {
+  color: var(--primary-link-color);
+  font-weight: 850;
+  text-decoration-line: underline;
+  text-decoration-color: var(--acton-yellow);
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.18em;
+}
+
+.hero-release a:hover {
+  color: var(--primary-text-color);
+  text-decoration-color: currentColor;
+}
+
 .examples-section {
   margin-top: clamp(2rem, 6vw, 5rem);
 }
@@ -522,6 +553,58 @@ header {
   background:
     linear-gradient(120deg, rgba(255, 212, 42, 0.2), transparent 24rem),
     var(--panel-color);
+}
+
+.quick-install {
+  display: grid;
+  margin-top: 2.25rem;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quick-install__intro {
+  padding: 1.25rem 0 0.5rem;
+}
+
+.quick-install__intro p {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--secondary-text-color);
+  line-height: 1.55;
+}
+
+.quick-install__option {
+  min-width: 0;
+  border-top: 1px solid var(--border-color);
+  padding: 1.25rem 0;
+}
+
+.quick-install h3 {
+  border-left: 0;
+  margin: 0 0 0.75rem;
+  padding-left: 0;
+  color: var(--primary-text-color);
+  font-family: inherit;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.quick-install pre {
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  background: var(--code-color);
+  color: var(--primary-text-color);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.quick-install code {
+  white-space: inherit;
 }
 
 main:not(.home) {

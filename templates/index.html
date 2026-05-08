@@ -34,8 +34,9 @@
                     system and clear, direct code.
                 </p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="https://acton.guide/">Start with the guide</a>
+                    <a class="button button-primary" href="https://acton.guide/">Read the guide</a>
                     <a class="button button-secondary" href="https://play.acton.guide/">Try Acton online</a>
+                    <a class="button button-secondary" href="#install">Install locally</a>
                 </div>
             </div>
 
@@ -43,6 +44,10 @@
                 <div class="hero-panel__mark" aria-hidden="true">
                     <img src="{{ get_url(path="acton-mark.svg") }}" alt="">
                 </div>
+                <p class="hero-release">
+                    <span>Latest release: <strong>v0.27.0</strong></span>
+                    <a href="{{ get_url(path="/blog/2026-05-acton-v0-27-0-release-notes/") }}">Release notes</a>
+                </p>
                 <p class="hero-panel__line">Actors are the unit of state, isolation, and concurrency.</p>
                 <p class="hero-panel__line">Types are checked before your system runs.</p>
                 <p class="hero-panel__line">Many actors can cooperate without turning control flow into a maze.</p>
@@ -361,13 +366,38 @@ actor main(env):
             </article>
         </section>
 
-        <section class="home-cta" aria-labelledby="cta-title">
-            <p class="eyebrow">Next step</p>
+        <section class="home-cta" id="install" aria-labelledby="cta-title">
+            <p class="eyebrow">Next steps</p>
             <h2 id="cta-title">Read the guide, run code, or ask a question.</h2>
             <div class="hero-actions">
-                <a class="button button-primary" href="https://acton.guide/">Guide</a>
-                <a class="button button-secondary" href="https://play.acton.guide/">Play</a>
-                <a class="button button-secondary" href="https://ask.acton.guide/">Ask</a>
+                <a class="button button-primary" href="https://acton.guide/">Read the guide</a>
+                <a class="button button-secondary" href="https://play.acton.guide/">Try Acton online</a>
+                <a class="button button-secondary" href="https://ask.acton.guide/">Ask Acton</a>
+                <a class="button button-secondary" href="https://acton.guide/install.html">Full install guide</a>
+            </div>
+            <div class="quick-install" aria-label="Quick install commands">
+                <div class="quick-install__intro">
+                    <h3>Install locally</h3>
+                    <p>
+                        Use the Acton APT repository on Debian or Ubuntu, or
+                        Homebrew on macOS.
+                    </p>
+                </div>
+                <section class="quick-install__option" aria-labelledby="install-apt-title">
+                    <h3 id="install-apt-title">Debian / Ubuntu</h3>
+                    <pre><code>sudo install -m 0755 -d /etc/apt/keyrings
+sudo wget -q -O /etc/apt/keyrings/acton.asc https://apt.acton-lang.io/acton.gpg
+sudo chmod a+r /etc/apt/keyrings/acton.asc
+echo "deb [signed-by=/etc/apt/keyrings/acton.asc]" \
+  "http://apt.acton-lang.io/ stable main" \
+  | sudo tee -a /etc/apt/sources.list.d/acton.list
+sudo apt-get update
+sudo apt-get install -qy acton</code></pre>
+                </section>
+                <section class="quick-install__option" aria-labelledby="install-macos-title">
+                    <h3 id="install-macos-title">macOS</h3>
+                    <pre><code>brew install actonlang/acton/acton</code></pre>
+                </section>
             </div>
         </section>
     </main>
