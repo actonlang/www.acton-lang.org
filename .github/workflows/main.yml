@@ -17,9 +17,22 @@ jobs:
         if: github.ref == 'refs/heads/main'
       - name: 'Checkout'
         uses: actions/checkout@master
+      - name: "Set repo-specific site vars"
+        run: |
+          if [ "$GITHUB_REPOSITORY" = "actonlang/acton.now" ]; then
+            echo "SITE_DOMAIN=acton.now" >> $GITHUB_ENV
+            echo "SITE_BASE_URL=https://acton.now" >> $GITHUB_ENV
+          else
+            echo "SITE_DOMAIN=www.acton-lang.org" >> $GITHUB_ENV
+            echo "SITE_BASE_URL=https://www.acton-lang.org" >> $GITHUB_ENV
+          fi
+      - name: "Set deploy CNAME"
+        run: |
+          printf '%s\n' "$SITE_DOMAIN" > static/CNAME
       - name: 'Build and deploy'
         uses: shalzz/zola-deploy-action@master
         env:
           BUILD_DIR: .
           TOKEN: ${{ secrets.ACTBOT_PAT }}
           PAGES_BRANCH: ${{ env.PAGES_BRANCH }}
+          BUILD_FLAGS: --base-url ${{ env.SITE_BASE_URL }}
