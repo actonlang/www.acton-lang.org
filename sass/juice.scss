@@ -198,6 +198,11 @@ header {
   filter: brightness(1.04);
 }
 
+.hero-side {
+  display: grid;
+  gap: 0.9rem;
+}
+
 .hero-panel {
   position: relative;
   overflow: hidden;
@@ -234,9 +239,8 @@ header {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.45rem 1rem;
-  border-top: 1px solid var(--border-color);
   margin: 0;
-  padding: 1rem 0;
+  padding: 0 0.35rem;
   color: var(--secondary-text-color);
   font-size: 0.96rem;
   line-height: 1.4;

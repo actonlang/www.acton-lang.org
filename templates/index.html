@@ -40,17 +40,19 @@
                 </div>
             </div>
 
-            <div class="hero-panel" aria-label="Acton language summary">
-                <div class="hero-panel__mark" aria-hidden="true">
-                    <img src="{{ get_url(path="acton-mark.svg") }}" alt="">
+            <div class="hero-side">
+                <div class="hero-panel" aria-label="Acton language summary">
+                    <div class="hero-panel__mark" aria-hidden="true">
+                        <img src="{{ get_url(path="acton-mark.svg") }}" alt="">
+                    </div>
+                    <p class="hero-panel__line">Actors are the unit of state, isolation, and concurrency.</p>
+                    <p class="hero-panel__line">Types are checked before your system runs.</p>
+                    <p class="hero-panel__line">Many actors can cooperate without turning control flow into a maze.</p>
                 </div>
                 <p class="hero-release">
                     <span>Latest release: <strong>v0.27.0</strong></span>
                     <a href="{{ get_url(path="/blog/2026-05-acton-v0-27-0-release-notes/") }}">Release notes</a>
                 </p>
-                <p class="hero-panel__line">Actors are the unit of state, isolation, and concurrency.</p>
-                <p class="hero-panel__line">Types are checked before your system runs.</p>
-                <p class="hero-panel__line">Many actors can cooperate without turning control flow into a maze.</p>
             </div>
         </section>
 
