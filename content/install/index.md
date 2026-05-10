@@ -49,6 +49,28 @@ brew install actonlang/acton/acton
 ```
 
 
+# Container image
+
+Acton also publishes a container image for trying Acton without installing it
+locally, running builds in CI, or pinning a reproducible toolchain for examples
+and tutorials. For day-to-day development, the native APT and Homebrew packages
+are usually more convenient.
+
+Check the installed Acton version in the image:
+
+```sh
+docker run --rm ghcr.io/actonlang/acton:latest version
+```
+
+Build the Acton project in the current directory:
+
+```sh
+docker run --rm -v "$PWD":/work -w /work ghcr.io/actonlang/acton:latest build
+```
+
+For CI and long-lived examples, pin a version tag instead of using `latest`.
+
+
 # Binary release tar ball
 
 There are pre-built binary release tar balls available for download for Linux
