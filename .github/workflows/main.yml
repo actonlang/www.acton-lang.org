@@ -30,7 +30,7 @@ jobs:
         run: |
           printf '%s\n' "$SITE_DOMAIN" > static/CNAME
       - name: 'Build and deploy'
-        uses: shalzz/zola-deploy-action@master
+        uses: shalzz/zola-deploy-action@v0.22.1
         env:
           BUILD_DIR: .
           TOKEN: ${{ secrets.ACTBOT_PAT }}
