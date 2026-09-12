@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Acton mark</title>
+  <desc id="desc">Cleaned geometric Acton A mark based on the approved reference.</desc>
+  <defs>
+    <linearGradient id="acton-yellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE15D"/>
+      <stop offset="1" stop-color="#FFD42A"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#acton-yellow)">
+    <!-- Main angular A body. Coordinates cleaned from reference image, aligned to the inner apex axis. -->
+    <path d="M 86 31 L 109 31 L 178 176 Q 179 179 175 179 L 151 179 Q 148 179 146 176 L 98 70 L 63 143 Q 61 147 57 147 L 36 147 Q 32 147 34 143 Z"/>
+    <!-- Lower crossbar. Centered on x=93.5, matching the approved reference proportions. -->
+    <path d="M 69 154 L 118 154 Q 121 154 122 157 L 130 176 Q 132 180 127 180 L 61 180 Q 56 180 58 176 L 66 157 Q 67 154 69 154 Z"/>
+  </g>
+</svg>
