@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <style>
+    :root {
+        --acton-yellow: #ffd42a;
+        --acton-yellow-soft: #fff3b4;
+        --acton-yellow-strong: #9c7412;
+        --acton-steel-950: #151617;
+        --acton-steel-900: #202326;
+        --acton-steel-800: #33373a;
+        --acton-steel-700: #454b4f;
+        --acton-steel-600: #5f666a;
+        --acton-steel-300: #c8cdd0;
+        --acton-steel-200: #dfe2e3;
+        --acton-steel-100: #eef0ef;
+        --acton-paper: #f7f8f6;
+
+        --primary-color: var(--acton-yellow);
+        --primary-color-touch: var(--acton-yellow);
+        --primary-text-color: #191b1c;
+        --primary-hero-text-color: var(--acton-paper);
+        --nav-text-color: var(--acton-paper);
+        --primary-link-color: #785600;
+        --secondary-color: var(--acton-steel-100);
+        --secondary-color-accent: var(--acton-paper);
+        --secondary-text-color: var(--acton-steel-700);
+        --toc-highlight-text-color: var(--acton-yellow-strong);
+        --tertiary-color: var(--acton-steel-900);
+        --panel-color: rgba(247, 248, 246, 0.94);
+        --border-color: rgba(35, 38, 40, 0.16);
+        --chrome-color: var(--acton-steel-900);
+        --code-color: #f4f4f1;
+        color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark){
+        :root {
+            --primary-text-color: #f2f3ef;
+            --nav-text-color: var(--acton-paper);
+            --primary-link-color: var(--acton-yellow);
+            --secondary-color: var(--acton-steel-950);
+            --secondary-color-accent: var(--acton-steel-900);
+            --secondary-text-color: var(--acton-steel-300);
+            --toc-highlight-text-color: var(--acton-yellow);
+            --tertiary-color: #111213;
+            --panel-color: rgba(32, 35, 38, 0.9);
+            --border-color: rgba(255, 255, 255, 0.14);
+            --chrome-color: #111213;
+            --code-color: #1a1c1d;
+        }
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://www.acton-lang.org/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+<a class="site-logo" href="https://www.acton-lang.org">
+    <span class="brand-mark" aria-hidden="true">
+        <img src="https://www.acton-lang.org/acton-mark.svg" alt="">
+    </span>
+    <span>Acton</span>
+</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-item" href="https://github.com/actonlang/acton">GitHub</a>
+    <a class="nav-item" href="https://www.acton-lang.org/blog">Blog</a>
+    <a class="nav-item" href="https://acton.guide/">Guide</a>
+    <a class="nav-item" href="https://play.acton.guide/">Play</a>
+    <a class="nav-item" href="https://ask.acton.guide/">Ask</a>
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/install/from-tar-ball/#install-acton-from-binary-release-tar-ball">Install Acton from binary release tar ball</a>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<h1 id="install-acton-from-binary-release-tar-ball">Install Acton from binary release tar ball</h1>
+<p>There are pre-built binary release tar balls available for download for Linux
+and Mac OS X in case the above package formats are not suitable. Download a
+tar ball from <a rel="external" href="https://github.com/actonlang/acton/releases">the Release page</a>.
+Pick the latest stable versioned release.</p>
+<p>In case you are looking to live on the bleeding edge or have been asked by a
+developer (in case you ran into a bug) you can pick <code>tip</code>, which is built
+directly from the <code>main</code> branch.</p>
+<p>Extract the Acton tar ball:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>$ tar jxvf acton-*</span></span></code></pre>
+<p>You will want to include the <code>acton/bin</code> directory in your <code>PATH</code> so you can use
+<code>actonc</code>.</p>
+
+
+        </div>
+
+        
+        
+    </main>
+
+    
+    <footer>
+        <small class="subtext">
+            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2021
+        </small>
+    </footer>
+    
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
