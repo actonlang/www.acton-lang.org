@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <style>
+    :root {
+        --acton-yellow: #ffd42a;
+        --acton-yellow-soft: #fff3b4;
+        --acton-yellow-strong: #9c7412;
+        --acton-steel-950: #151617;
+        --acton-steel-900: #202326;
+        --acton-steel-800: #33373a;
+        --acton-steel-700: #454b4f;
+        --acton-steel-600: #5f666a;
+        --acton-steel-300: #c8cdd0;
+        --acton-steel-200: #dfe2e3;
+        --acton-steel-100: #eef0ef;
+        --acton-paper: #f7f8f6;
+
+        --primary-color: var(--acton-yellow);
+        --primary-color-touch: var(--acton-yellow);
+        --primary-text-color: #191b1c;
+        --primary-hero-text-color: var(--acton-paper);
+        --nav-text-color: var(--acton-paper);
+        --primary-link-color: #785600;
+        --secondary-color: var(--acton-steel-100);
+        --secondary-color-accent: var(--acton-paper);
+        --secondary-text-color: var(--acton-steel-700);
+        --toc-highlight-text-color: var(--acton-yellow-strong);
+        --tertiary-color: var(--acton-steel-900);
+        --panel-color: rgba(247, 248, 246, 0.94);
+        --border-color: rgba(35, 38, 40, 0.16);
+        --chrome-color: var(--acton-steel-900);
+        --code-color: #f4f4f1;
+        color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark){
+        :root {
+            --primary-text-color: #f2f3ef;
+            --nav-text-color: var(--acton-paper);
+            --primary-link-color: var(--acton-yellow);
+            --secondary-color: var(--acton-steel-950);
+            --secondary-color-accent: var(--acton-steel-900);
+            --secondary-text-color: var(--acton-steel-300);
+            --toc-highlight-text-color: var(--acton-yellow);
+            --tertiary-color: #111213;
+            --panel-color: rgba(32, 35, 38, 0.9);
+            --border-color: rgba(255, 255, 255, 0.14);
+            --chrome-color: #111213;
+            --code-color: #1a1c1d;
+        }
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://www.acton-lang.org/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+<a class="site-logo" href="https://www.acton-lang.org">
+    <span class="brand-mark" aria-hidden="true">
+        <img src="https://www.acton-lang.org/acton-mark.svg" alt="">
+    </span>
+    <span>Acton</span>
+</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-item" href="https://github.com/actonlang/acton">GitHub</a>
+    <a class="nav-item" href="https://www.acton-lang.org/blog">Blog</a>
+    <a class="nav-item" href="https://acton.guide/">Guide</a>
+    <a class="nav-item" href="https://play.acton.guide/">Play</a>
+    <a class="nav-item" href="https://ask.acton.guide/">Ask</a>
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#acton-v0-27-0-release-notes">Acton v0.27.0 Release Notes</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#table-of-contents"><small>- Table of Contents</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#incremental-compilation"><small>- Incremental Compilation</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#concurrent-builds"><small>- Concurrent Builds</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#watch-mode-and-file-builds"><small>- Watch Mode and File Builds</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#vs-code-and-language-server-support"><small>- VS Code and Language Server Support</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#documentation-generation"><small>- Documentation Generation</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#inspecting-signatures"><small>- Inspecting Signatures</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#projects-and-package-management"><small>- Projects and Package Management</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#language-changes"><small>- Language Changes</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#standard-library-and-runtime"><small>- Standard Library and Runtime</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#testing"><small>- Testing</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#diagnostics-and-debugging"><small>- Diagnostics and Debugging</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#toolchain-and-platform-changes"><small>- Toolchain and Platform Changes</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#breaking-changes-and-migration-notes"><small>- Breaking Changes and Migration Notes</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#bug-fixes"><small>- Bug Fixes</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#thank-you"><small>- Thank You</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<h1 id="acton-v0-27-0-release-notes">Acton v0.27.0 Release Notes</h1>
+<p>Acton v0.27.0 is a large release, with around a thousand commits since
+v0.26.0.</p>
+<p>This is a longer release cycle than we normally want. During this period, most
+day-to-day feedback has gone through Acton tip releases, which let us keep a
+tighter development loop while larger compiler and tooling work was still in
+motion. v0.27.0 closes that cycle. After this release, the goal is to return to
+a more regular cadence, roughly monthly, so future release notes should be
+smaller and easier to digest.</p>
+<p>The main theme is that Acton is becoming a more complete, more capable, and
+more polished toolchain. v0.27.0 improves the daily user experience with
+concurrent builds, content-hash based caching, watch mode, editor diagnostics,
+completion, hover, signature help, and package management centered around
+deterministic <code>Build.act</code> metadata. The practical effect is a much snappier
+edit-build-test loop: Acton computes the build graph incredibly fast, so real
+work can start almost immediately, and when little or nothing has changed the
+compiler can reuse the unaffected parts of the build instead of dragging the
+whole project through the pipeline again.</p>
+<p>There is more in the release as well: <code>acton doc</code>, <code>acton sig</code>, optional
+chaining, test caching, stress testing, the LLDB plugin, the Zig 0.15.2
+upgrade, and a long list of language, standard library, runtime, and diagnostics
+fixes.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#incremental-compilation">Incremental Compilation</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#concurrent-builds">Concurrent Builds</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#watch-mode-and-file-builds">Watch Mode and File Builds</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#vs-code-and-language-server-support">VS Code and Language Server Support</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#documentation-generation">Documentation Generation</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#inspecting-signatures">Inspecting Signatures</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#projects-and-package-management">Projects and Package Management</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#language-changes">Language Changes</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#standard-library-and-runtime">Standard Library and Runtime</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#testing">Testing</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#diagnostics-and-debugging">Diagnostics and Debugging</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#toolchain-and-platform-changes">Toolchain and Platform Changes</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#breaking-changes-and-migration-notes">Breaking Changes and Migration Notes</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#bug-fixes">Bug Fixes</a></li>
+<li><a href="https://www.acton-lang.org/blog/2026-05-acton-v0-27-0-release-notes/#thank-you">Thank You</a></li>
+</ul>
+<h2 id="incremental-compilation">Incremental Compilation</h2>
+<p>The compiler now has a content-hash based incremental compilation model.
+Previous builds are reused when their source, public interface, implementation,
+generated code, and dependency hashes are still valid.</p>
+<p>This is not a timestamp-only cache. Acton records source file metadata such as
+file size, modification time, change time, and device / inode information where
+the platform provides it. If that metadata still matches, and the source file
+is strictly older than the cached <code>.ty</code> interface, the compiler can take a fast
+path without rereading the whole source file.</p>
+<p>That metadata is only a fast path; content hashes are the authority. If the
+metadata is ambiguous, for example because the source and <code>.ty</code> file have the
+same visible timestamp, Acton reads the source and compares its hash instead.
+Cached <code>.ty</code> interface files record module source hashes, module public and
+implementation hashes, per-name source hashes, per-name public type-signature
+hashes, per-name implementation hashes, and the per-name dependency hashes that
+were used when a module was compiled.</p>
+<p>"Public" here means the public type-signature hash of a top-level name. That
+is tracked separately from the implementation hash. Type checking downstream
+modules only depends on the public type signatures of their dependencies, so a
+downstream module only needs to re-typecheck when one of those public
+type-signature hashes changes. If only an implementation hash changes, Acton
+can skip downstream front passes and rerun only the back passes, code
+generation, and tests that depend on the changed implementation. Since
+implementation-only edits are the common case, this saves a lot of repeated
+work.</p>
+<p>That distinction gives Acton much sharper rebuild decisions:</p>
+<ul>
+<li>A file whose mtime changed but whose contents did not change only needs a
+fast whole-file content hash. If that hash matches the source hash stored in
+the <code>.ty</code> interface, there is nothing further to compile. Acton also refreshes
+the cached file metadata in the <code>.ty</code> file, so the next check can use the
+metadata fast path again without hashing the <code>.act</code> file.</li>
+<li>A body-only edit changes implementation hashes, so Acton can refresh back
+passes, generated code, and affected tests without re-typechecking downstream
+modules. Avoiding redundant typechecking here saves a lot of time, since
+typechecking is typically the dominant compiler pass.</li>
+<li>A public contract edit, such as changing a parameter type, return type, class
+field type, or protocol method signature, changes the public type-signature
+hash and re-triggers typechecking only for downstream code that depends on
+that name.</li>
+<li>A generated C or header file that is missing or has the wrong implementation
+hash can be regenerated while keeping the valid <code>.ty</code> interface and avoiding
+unnecessary front-pass work.</li>
+<li>Downstream importers are tracked at the granularity of the names they use,
+not as a dependency on the whole imported module. Editing one exported function
+does not force rebuilds of importers that only use other names from the same
+module.</li>
+</ul>
+<p>For example, suppose one module exports a small pricing helper and another
+module uses it:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span># pricing.act</span></span>
+<span class="giallo-l"><span>def tax(amount: int) -&gt; int:</span></span>
+<span class="giallo-l"><span>    return amount // 4</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span># invoice.act</span></span>
+<span class="giallo-l"><span>import pricing</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>def total(subtotal: int) -&gt; int:</span></span>
+<span class="giallo-l"><span>    return subtotal + pricing.tax(subtotal)</span></span></code></pre>
+<p>Changing the body of <code>pricing.tax()</code> to a different tax calculation changes
+its implementation hash. The public signature <code>(amount: int) -&gt; int</code> does not
+change, so <code>invoice</code> does not need to re-typecheck just to rediscover the same
+type fact. Acton still refreshes the downstream back passes or tests that
+depend on the changed implementation.</p>
+<p>If the signature changes instead:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>def tax(amount: float) -&gt; float:</span></span>
+<span class="giallo-l"><span>    return amount * 0.25</span></span></code></pre>
+<p>the public type-signature hash changes. Now affected downstream code, such as
+<code>invoice.total</code>, must re-run front passes because the type signature it depended
+on is different. The compiler tracks this per top-level name, so a signature
+change in one exported function does not automatically poison every module that
+imports the same file.</p>
+<p>Generated C and header files carry the module implementation hash. If those
+files are missing, or if the embedded hash no longer matches, Acton regenerates
+them even when the <code>.ty</code> interface is otherwise fresh.</p>
+<p>The practical result is sharper rebuild decisions. The compiler can now ask:
+what changed, who depended on that exact public type signature or implementation
+hash, and which compiler passes actually need to run?</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2447">#2447</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2497">#2497</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2581">#2581</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2674">#2674</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2717">#2717</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2747">#2747</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2752">#2752</a>.</p>
+<h2 id="concurrent-builds">Concurrent Builds</h2>
+<p>Acton now schedules module compilation across the build graph. Once a module's
+dependencies are ready, it can run, and independent branches of the project can
+make progress in parallel.</p>
+<p>Build graph construction is also separated from full parsing. Acton first
+discovers the project graph and resolves imports, then schedules parsing as its
+own stage. Independent modules can be parsed concurrently, and typechecking can
+start from parsed modules as soon as their dependencies and interfaces are ready.</p>
+<p>The later compiler stages are split as well. Once a module has been parsed,
+kind checked, and type checked, its interface is available to downstream
+modules. Acton can then begin dependent typechecking while normalization, C
+generation, and other back-end work for the completed module continues in
+parallel.</p>
+<p>Ready modules are prioritized by critical path. Acton estimates which module
+dependency chains are likely to dominate the build by looking at the graph and
+roughly how large the modules are. It then tries to start the early modules in
+those long chains as soon as possible, instead of spending all available workers
+on short side branches first. That keeps down the long tail of the build and
+leaves fewer compiler workers idle while the last dependency chain finishes.</p>
+<p>The same scheduler is used by normal project builds, watch mode, and the
+language server. That keeps editor feedback and command-line builds on the same
+compiler model.</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2524">#2524</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2527">#2527</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2478">#2478</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2526">#2526</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2628">#2628</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2665">#2665</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2731">#2731</a>.</p>
+<h2 id="watch-mode-and-file-builds">Watch Mode and File Builds</h2>
+<p><code>acton build --watch</code> now keeps a build running and automatically rebuilds when
+source files change.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-watch</span></span></code></pre>
+<p>Ordinary <code>.act</code> edits use the incremental compiler scheduler. Unchanged modules,
+dependencies, generated output, and test results can be reused instead of
+rebuilding the whole project. That makes <code>acton test --watch</code> a new way to work:
+keep the test runner open while editing, let content hashes identify which test
+results are still valid, and rerun only the tests affected by the code you just
+changed. The feedback loop stays focused on the code under active development
+instead of repeatedly paying for the whole project.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-watch</span></span></code></pre>
+<p>Adding or removing source files, or changing <code>Build.act</code>, triggers project
+rediscovery so the build graph stays aligned with the project layout.</p>
+<p>Single-file watch builds are also supported:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#032F62, #9ECBFF);"> src/main.act</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-watch</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> src/main.act</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-watch</span></span></code></pre>
+<p>This release also adds file-oriented builds through the main CLI:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#032F62, #9ECBFF);"> src/main.act</span></span></code></pre>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2471">#2471</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2571">#2571</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2592">#2592</a>.</p>
+<h2 id="vs-code-and-language-server-support">VS Code and Language Server Support</h2>
+<p>Acton now has editor support through the Acton language server.</p>
+<p>The VS Code integration can show syntax and type errors inline, using the same
+parser and typechecker as <code>acton build</code>. The language server keeps editor state
+in memory so diagnostics, completion, and hover can respond without starting
+from scratch every time.</p>
+<p>Completions now cover source-level names such as fields, properties, methods,
+and keyword arguments. For calls with named parameters, completion suggests the
+remaining parameter names and filters out names already supplied:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>o_router = o.netinfra.router.create(i.name, id=i.id, type=i.type, ro</span></span></code></pre>
+<p>can complete <code>role=</code> when that is the remaining matching keyword argument.</p>
+<p><a href="/blog/acton-lsp-role-completion.png"><img src="/blog/acton-lsp-role-completion.png" alt="VS Code completion showing the remaining role keyword argument" /></a></p>
+<p>The same completion path also suggests nested field names and properties:</p>
+<p><a href="/blog/acton-lsp-completion.png"><img src="/blog/acton-lsp-completion.png" alt="VS Code completion showing Acton field name suggestions" /></a></p>
+<p>Hover uses the compiler-visible type environment and can show the resolved
+Acton type for a value, field, or method under the cursor, including
+docstrings when available.</p>
+<p><a href="/blog/acton-lsp-hover.png"><img src="/blog/acton-lsp-hover.png" alt="VS Code hover showing the Acton print signature and docstring" /></a></p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2487">#2487</a> and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2753">#2753</a>.</p>
+<h2 id="documentation-generation">Documentation Generation</h2>
+<p><code>acton doc</code> is a new command for generating documentation from Acton source.
+It supports text, Markdown, and HTML output.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> doc</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> doc</span><span style="color: light-dark(#032F62, #9ECBFF);"> src/foo.act</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">t</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> doc</span><span style="color: light-dark(#032F62, #9ECBFF);"> src/foo.act</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-md</span></span></code></pre>
+<p>Plain <code>acton doc</code> opens the HTML index over modules in the current project when
+a window environment is available. In a terminal it falls back to colored text
+output.
+Piped text output falls back to plain ASCII and honors <code>NO_COLOR</code>.</p>
+<p>The generated HTML includes colorized types, links between modules and type
+definitions, and tooltips for generic types. The feature is backed by docstring
+support throughout the parser, AST, compiler name information, and interface
+files. Module docstrings before imports are now accepted, and declaration
+docstrings are preserved so tooling can show them later.</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2274">#2274</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2282">#2282</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2284">#2284</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2292">#2292</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2293">#2293</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2295">#2295</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2565">#2565</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2736">#2736</a>.</p>
+<h2 id="inspecting-signatures">Inspecting Signatures</h2>
+<p><code>acton sig</code> prints inferred type signatures using the same project-aware module
+and dependency resolution as <code>acton build</code>.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> sig</span><span style="color: light-dark(#032F62, #9ECBFF);"> directory.Contact</span></span></code></pre>
+<p>This is useful when an error points at an attribute selection but the relevant
+type is defined in another module or dependency. <code>acton sig foo.bar</code> first
+tries to resolve <code>foo.bar</code> as a module. If that does not exist, it resolves
+<code>bar</code> as a public name inside module <code>foo</code>.</p>
+<p>Because it uses normal build resolution, <code>acton sig</code> reads <code>Build.act</code>, fetches
+missing dependencies, honors local dependency overrides, and compiles the
+interfaces it needs without building the final executable.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> sig</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-dep</span><span style="color: light-dark(#032F62, #9ECBFF);"> directory=../directory</span><span style="color: light-dark(#032F62, #9ECBFF);"> directory.Contact</span></span></code></pre>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2746">#2746</a>.</p>
+<h2 id="projects-and-package-management">Projects and Package Management</h2>
+<p>Acton projects now use <code>Build.act</code> as the canonical project file. Root projects
+must declare both <code>name</code> and <code>fingerprint</code>.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>name = &quot;myproject&quot;</span></span>
+<span class="giallo-l"><span>fingerprint = 0x1234abcd5678ef00</span></span></code></pre>
+<p>The fingerprint represents project lineage. Content hashes identify a specific
+dependency archive; fingerprints identify the project itself so Acton can
+deduplicate dependencies and detect accidental identity conflicts. If a project
+is renamed or forked, it should get a new fingerprint.</p>
+<p>The CLI can inspect and update <code>Build.act</code> as JSON:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> spec</span><span style="color: light-dark(#032F62, #9ECBFF);"> dump</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> spec</span><span style="color: light-dark(#032F62, #9ECBFF);"> update</span><span style="color: light-dark(#032F62, #9ECBFF);"> build.json</span></span></code></pre>
+<p>Package management has also expanded:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> pkg</span><span style="color: light-dark(#032F62, #9ECBFF);"> update</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> pkg</span><span style="color: light-dark(#032F62, #9ECBFF);"> search</span><span style="color: light-dark(#032F62, #9ECBFF);"> http</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> pkg</span><span style="color: light-dark(#032F62, #9ECBFF);"> add</span><span style="color: light-dark(#032F62, #9ECBFF);"> foo</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> pkg</span><span style="color: light-dark(#032F62, #9ECBFF);"> add</span><span style="color: light-dark(#032F62, #9ECBFF);"> foo</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-repo-url</span><span style="color: light-dark(#032F62, #9ECBFF);"> https://github.com/actonlang/foo</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-repo-ref</span><span style="color: light-dark(#032F62, #9ECBFF);"> main</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> pkg</span><span style="color: light-dark(#032F62, #9ECBFF);"> upgrade</span></span></code></pre>
+<p>Dependencies are pinned by archive URL and content hash in <code>Build.act</code>, then
+fetched and validated at build time. Local dependency overrides are available
+for development:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-dep</span><span style="color: light-dark(#032F62, #9ECBFF);"> foo=../foo</span></span></code></pre>
+<p>Zig package dependencies can be managed from the Acton CLI as well:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> zig-pkg</span><span style="color: light-dark(#032F62, #9ECBFF);"> add</span><span style="color: light-dark(#032F62, #9ECBFF);"> https://github.com/allyourcodebase/zlib/archive/refs/tags/1.3.1.tar.gz</span><span style="color: light-dark(#032F62, #9ECBFF);"> zlib</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-artifact</span><span style="color: light-dark(#032F62, #9ECBFF);"> z</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> zig-pkg</span><span style="color: light-dark(#032F62, #9ECBFF);"> remove</span><span style="color: light-dark(#032F62, #9ECBFF);"> zlib</span></span></code></pre>
+<p>This release also adds application package install and uninstall commands.
+Application packages are built from source in release mode and installed under
+<code>~/.acton/bin</code>, with manifests under <code>~/.acton</code> so Acton can track ownership of
+installed binaries.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> install</span><span style="color: light-dark(#032F62, #9ECBFF);"> PACKAGE</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> uninstall</span><span style="color: light-dark(#032F62, #9ECBFF);"> PACKAGE</span></span></code></pre>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2534">#2534</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2554">#2554</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2555">#2555</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2586">#2586</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2596">#2596</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2634">#2634</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2643">#2643</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2644">#2644</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2668">#2668</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2690">#2690</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2696">#2696</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2758">#2758</a>.</p>
+<h2 id="language-changes">Language Changes</h2>
+<h3 id="optional-chaining-and-forced-unwrapping">Optional Chaining and Forced Unwrapping</h3>
+<p>Optional chaining is a shorter way to keep <code>None</code> flowing through a single
+expression:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>def residence_name(person: ?Person) -&gt; ?str:</span></span>
+<span class="giallo-l"><span>    return person?.residence?.name</span></span></code></pre>
+<p>If the value to the left of <code>?.</code> is <code>None</code>, the whole expression evaluates to
+<code>None</code>. Indexing and slicing use <code>?[...]</code>:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>def first_port(config: ?dict[str, list[int]]) -&gt; ?int:</span></span>
+<span class="giallo-l"><span>    return config?.get(&quot;ports&quot;)?[0]</span></span></code></pre>
+<p>Forced unwrapping uses <code>!</code> when absence is a broken invariant and should raise
+<code>ValueError</code>:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>def required_residence_name(person: ?Person) -&gt; str:</span></span>
+<span class="giallo-l"><span>    return person!.residence!.name!.upper()</span></span></code></pre>
+<p>Attribute and method access use <code>!.</code>; indexing and slicing use <code>![...]</code>.</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2672">#2672</a> and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2726">#2726</a>.</p>
+<h3 id="string-interpolation">String Interpolation</h3>
+<p>String parsing was rewritten. Interpolation now works in ordinary string
+literals; an <code>f</code> prefix is no longer required.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>name = &quot;Acton&quot;</span></span>
+<span class="giallo-l"><span>print(&quot;hello {name}&quot;)</span></span>
+<span class="giallo-l"><span>print(f&quot;hello {name}&quot;)</span></span></code></pre>
+<p>Nested interpolation strings, escape sequences, slices, and complex expressions
+inside interpolations are now handled more consistently.</p>
+<p>This is a backwards-incompatible change. A normal string containing literal
+curly braces must escape them or use a raw string:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>print(&quot;{{literal braces}}&quot;)</span></span>
+<span class="giallo-l"><span>print(r&quot;{literal braces}&quot;)</span></span></code></pre>
+<p>Classic <code>%</code> formatting is still supported for now, and curly braces inside
+that form are not interpolated. The <code>%</code> style is expected to be deprecated in
+the future.</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2321">#2321</a>.</p>
+<h3 id="hashable-and-hash">Hashable and <code>hash()</code></h3>
+<p>The old <code>__hash__</code> special method has been replaced by a composable
+<code>Hashable</code> protocol and a <code>hash()</code> builtin.</p>
+<p>Types implement:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>def hash(self, hasher):</span></span>
+<span class="giallo-l"><span>    self.x.hash(hasher)</span></span>
+<span class="giallo-l"><span>    self.y.hash(hasher)</span></span></code></pre>
+<p>The builtin computes the final hash value:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>h = hash(value)</span></span></code></pre>
+<p>Built-in types implement the protocol, and the implementation uses wyhash.</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2255">#2255</a> and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2304">#2304</a>.</p>
+<h3 id="other-language-and-builtin-changes">Other Language and Builtin Changes</h3>
+<p>Other notable language and builtin changes include:</p>
+<ul>
+<li><code>u1</code>, <code>u8</code>, <code>i8</code>, and builtin <code>i64</code> support.</li>
+<li><code>repr(None)</code> and <code>type(None)</code> now work.</li>
+<li><code>after</code> accepts any expression, including method calls and actor methods.</li>
+<li><code>list.count()</code> was added.</li>
+<li><code>re.match()</code> accepts an optional <code>start_pos</code>.</li>
+<li>JSON encode/decode supports list values at the document root.</li>
+<li><code>xml.Node.encode(pretty=True)</code> produces pretty XML output.</li>
+<li>URI <code>quote()</code> and <code>unquote()</code> helpers were added.</li>
+</ul>
+<h2 id="standard-library-and-runtime">Standard Library and Runtime</h2>
+<p>The standard library and runtime received a broad set of fixes and additions.
+Highlights include:</p>
+<ul>
+<li>HTTPS server and TLS listener support.</li>
+<li>HTTP request and response validation for malformed input.</li>
+<li>HTTP response callbacks now pass headers and treat defaults
+case-insensitively.</li>
+<li>Logging accepts optional values in structured data dictionaries.</li>
+<li><code>file.mkdir()</code> and <code>file.rmdir()</code> are idempotent.</li>
+<li>Temporary directories use <code>mkdtemp</code> semantics.</li>
+<li>XML parsing and encoding fixes for namespaces, CDATA, UTF-8, special
+characters, prefixed attributes, and error types.</li>
+<li>Regular expression Unicode handling fixes.</li>
+<li><code>process.pid()</code> is safe after the process has exited.</li>
+<li>The RTS message waiting path was fixed so actors are not missed between
+waiting states and message delivery.</li>
+<li>One-byte ASCII strings are prebuilt to reduce allocation churn.</li>
+</ul>
+<p>Related work includes <a rel="external" href="https://github.com/actonlang/acton/pull/2576">#2576</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2698">#2698</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2689">#2689</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2693">#2693</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2695">#2695</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2705">#2705</a>.</p>
+<h2 id="testing">Testing</h2>
+<p><code>acton test</code> is significantly more capable in v0.27.0.</p>
+<p>Test results can now be cached by content hash. A cached result is reusable
+when the test implementation, implementation dependencies, expected snapshot
+data, and run context still match.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-no-cache</span></span></code></pre>
+<p>Cached failures are still shown by default. Cached successes stay hidden unless
+requested.</p>
+<p>The test command also gained JSON output:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-json</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#032F62, #9ECBFF);"> list</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-json</span></span></code></pre>
+<p>Snapshot testing now uses <code>snapshots/expected</code> and <code>snapshots/output</code>, and
+<code>acton test --accept</code> is available as an alias for accepting snapshot or golden
+output.</p>
+<p>Test capability tags can skip tests that require unavailable resources:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>testing.require(&quot;tls&quot;)</span></span></code></pre><pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-tag</span><span style="color: light-dark(#032F62, #9ECBFF);"> tls</span></span></code></pre>
+<p>Stress testing is a new mode for finding concurrency bugs, especially in FFI
+and C integration code:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#032F62, #9ECBFF);"> stress</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#032F62, #9ECBFF);"> stress</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-stress-workers</span><span style="color: light-dark(#005CC5, #79B8FF);"> 24</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-max-time</span><span style="color: light-dark(#005CC5, #79B8FF);"> 30000</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#032F62, #9ECBFF);"> stress</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-max-time</span><span style="color: light-dark(#005CC5, #79B8FF);"> 0</span></span></code></pre>
+<p>Stress mode runs multiple workers of the same test in one process, combines
+synchronized workers with drifted workers, and reports live per-worker progress
+in an interactive terminal.</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2598">#2598</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2651">#2651</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2655">#2655</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2683">#2683</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2691">#2691</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2692">#2692</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2694">#2694</a>.</p>
+<h2 id="diagnostics-and-debugging">Diagnostics and Debugging</h2>
+<p>Parser and syntax errors are now rendered through the Diagnose library with
+structured source locations, notes, and hints.</p>
+<p>For example, single uppercase letters are reserved for type variables, and the
+parser now explains that directly:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>[error Parse error]: Invalid name (reserved for type variables)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>     +--&gt; test/syntaxerrors/err41.act@1:7-1:8</span></span>
+<span class="giallo-l"><span>     |</span></span>
+<span class="giallo-l"><span>   1 | class Z(value):</span></span>
+<span class="giallo-l"><span>     :       ^</span></span>
+<span class="giallo-l"><span>     :       `- invalid name &#39;Z&#39;</span></span>
+<span class="giallo-l"><span>     :</span></span>
+<span class="giallo-l"><span>     | Hint: Single upper case character (optionally followed by digits) are reserved for type variables. Use a longer name.</span></span>
+<span class="giallo-l"><span>-----+</span></span></code></pre>
+<p>The compiler also gained many type-system diagnostics and correctness fixes,
+including better handling of generic tuples, scoped constraints, optional
+bounds, optional equality, class/protocol witnesses, <code>Self</code>, uninitialized
+attributes, and optional narrowing.</p>
+<p>For native debugging, v0.27.0 adds an Acton LLDB plugin:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>acton bt</span></span>
+<span class="giallo-l"><span>acton locals</span></span>
+<span class="giallo-l"><span>acton demangle</span></span>
+<span class="giallo-l"><span>acton break src/main.act:42</span></span></code></pre>
+<p>The plugin shows Acton-demangled backtraces, argument values, local variables,
+boxed values, strings, objects, actors, classes, and generic value slots.</p>
+<p>Generated C line directives are now behind <code>--dbg-no-lines</code>, so normal builds
+can preserve source mapping for more useful backtraces.</p>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2306">#2306</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2307">#2307</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2309">#2309</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2391">#2391</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2518">#2518</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2520">#2520</a>.</p>
+<h2 id="toolchain-and-platform-changes">Toolchain and Platform Changes</h2>
+<p>The bundled Zig toolchain was upgraded to 0.15.2.</p>
+<p>Acton now follows Zig optimization mode names more closely:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-optimize</span><span style="color: light-dark(#032F62, #9ECBFF);"> Debug</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-optimize</span><span style="color: light-dark(#032F62, #9ECBFF);"> ReleaseFast</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-release</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-release=safe</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-release=small</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-release=fast</span></span></code></pre>
+<p>Debug is the default build mode. Bare <code>--release</code> and <code>--optimize=release</code>
+select <code>ReleaseFast</code>; explicit <code>safe</code>, <code>small</code>, and <code>fast</code> variants are still
+available.</p>
+<p>Other toolchain and CI changes include:</p>
+<ul>
+<li>architecture-based default CPU settings for Zig targets</li>
+<li>generated <code>build.zig</code> and <code>build.zig.zon</code> dependency wiring moved into the
+compiler</li>
+<li>generated <code>build.zig.zon</code> files use canonical dependency roots</li>
+<li>transitive Zig dependency names are isolated to avoid collisions</li>
+<li>container image builds for Acton Debian packages</li>
+<li>Debian package builds moved to Ubuntu 22.04</li>
+<li>macOS CI updated for newer macOS runners, with workarounds for macOS 26.4
+command-line tools breaking Zig</li>
+<li>Linux container image builds from Debian packages</li>
+<li>GitHub Actions dependencies refreshed</li>
+</ul>
+<p>Related work: <a rel="external" href="https://github.com/actonlang/acton/pull/2362">#2362</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2590">#2590</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2594">#2594</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2708">#2708</a>,
+<a rel="external" href="https://github.com/actonlang/acton/pull/2756">#2756</a>, and
+<a rel="external" href="https://github.com/actonlang/acton/pull/2761">#2761</a>.</p>
+<h2 id="breaking-changes-and-migration-notes">Breaking Changes and Migration Notes</h2>
+<p>This release contains a few changes worth checking before upgrading.</p>
+<p>Normal strings now interpolate <code>{...}</code>. Literal braces in ordinary strings must
+be escaped, or the string should be raw:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>&quot;{{&quot;</span></span>
+<span class="giallo-l"><span>&quot;}}&quot;</span></span>
+<span class="giallo-l"><span>r&quot;{&quot;</span></span></code></pre>
+<p>The old <code>__hash__</code> method is gone. Implement the <code>Hashable</code> protocol and use
+the <code>hash()</code> builtin.</p>
+<p>Projects should have <code>Build.act</code> at the root. Root project files need <code>name</code>
+and <code>fingerprint</code>. Older <code>Acton.toml</code> and <code>build.act.json</code> based workflows
+should move to <code>Build.act</code>.</p>
+<p>The old Acton-written CLI implementation has been removed. The Haskell compiler
+package now provides the <code>acton</code> executable directly, and the compiler, package
+manager, test runner, LSP, and scheduler share the same code paths.</p>
+<p><code>--dev</code> has been removed. Use <code>--optimize Debug</code> for debug builds or
+<code>--release</code> / <code>--release=fast</code> for optimized release builds.</p>
+<p>Numpy support was removed from the compiler, parser, standard library, and
+tests.</p>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<p>The full changelog has the complete list, but several groups are worth calling
+out:</p>
+<ul>
+<li>parsing fixes for strings, escaped braces, triple-quoted strings, negative
+integer literals, and unclosed string diagnostics</li>
+<li>type solver fixes for generic tuples, skolemized type variables, optional
+bounds, scoped constraints, row casts, and coerced index targets</li>
+<li>code generation fixes for C23 keywords, unboxed boolean logic, negative
+literals, most-negative <code>i64</code>, lambda lifting, CPS, closure conversion, and
+generated name collisions</li>
+<li>optional handling fixes for <code>is not None</code>, optional equality, optional
+narrowing in comprehension heads, tuple/list printing with <code>None</code>, and
+optional logging</li>
+<li>dependency and cache invalidation fixes for stale <code>.ty</code> files, compiler
+version mismatches, missing name hashes, import renames, path overrides,
+transitive imports, generated output drift, syspath changes, and removed
+modules</li>
+<li>standard library fixes for XML, JSON, HTTP, regex Unicode, UTF-8 string
+invariants, <code>bytes</code>, <code>bytearray</code>, <code>argparse</code>, process handling, and file
+paths containing spaces</li>
+<li>runtime fixes around actor waiting, libuv file requests, and TLS coverage</li>
+</ul>
+<h2 id="thank-you">Thank You</h2>
+<p>Thank you to everyone who contributed code, tests, documentation, reviews,
+bug reports, and real-world projects during the v0.27.0 cycle.</p>
+<p>The shape of this release is important because it changes what Acton feels like
+to work with day to day. The language and runtime keep improving, but the bigger
+step is that the surrounding developer experience is now much more complete:
+faster feedback, better editor support, stronger project workflows, clearer
+diagnostics, and more tooling that works from the same compiler view of the
+program.</p>
+<p>That matters for adoption. A wider group of developers can now become
+productive with Acton without needing to understand as much of the compiler or
+project internals up front. v0.27.0 is a large release, but the direction after
+it is simple: keep making Acton easier to try, easier to trust, and faster to
+use in real projects.</p>
+
+
+        </div>
+
+        
+        
+    </main>
+
+    
+    <footer>
+        <small class="subtext">
+            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2021
+        </small>
+    </footer>
+    
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
