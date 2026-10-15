@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 40000 40000"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   id="svg3"
+   width="40000"
+   height="40000"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title">Acton mark</title>
+  <desc
+     id="desc">Cleaned geometric Acton A mark based on the approved reference.</desc>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="acton-yellow"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
+      <stop
+         offset="0"
+         stop-color="#FFE15D"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#FFD42A"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#acton-yellow"
+       id="linearGradient3"
+       x1="36.02824"
+       y1="258.29739"
+       x2="36.02824"
+       y2="301.90604"
+       gradientTransform="matrix(1.6772557,0,-0.04508456,0.596212,12.616544,-1.0005515)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#acton-yellow"
+       id="linearGradient2"
+       x1="33.691891"
+       y1="30.670092"
+       x2="33.691891"
+       y2="177.09505"
+       gradientTransform="scale(0.98935779,1.0107567)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#acton-yellow"
+       id="linearGradient4"
+       x1="33.691891"
+       y1="30.670092"
+       x2="33.691891"
+       y2="177.09505"
+       gradientTransform="scale(0.98935779,1.0107567)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     fill="url(#acton-yellow)"
+     id="g3"
+     style="fill:url(#linearGradient4)">
+    <!-- Main angular A body. Coordinates cleaned from reference image, aligned to the inner apex axis. -->
+    <path
+       d="m 86,31 h 23 l 69,145 q 1,3 -3,3 h -24 q -3,0 -5,-3 L 98,70 63,143 q -2,4 -6,4 H 36 q -4,0 -2,-4 z"
+       id="path2"
+       style="fill:url(#linearGradient2)" />
+    <!-- Lower crossbar. Centered on x=98, aligned with the inner apex/top axis. Original shape translated +3 units only. -->
+    <path
+       d="m 72.971319,152.99945 h 49.000001 q 3,0 3.77314,3 l 6.56325,19 q 1.69753,4 -3.30247,4 H 63.005243 q -5,0 -2.697527,-4 l 9.436748,-19 q 1.226855,-3 3.226855,-3 z"
+       id="path3"
+       style="fill:url(#linearGradient3)" />
+  </g>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Acton mark</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
