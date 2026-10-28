@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <style>
+    :root {
+        --acton-yellow: #ffd42a;
+        --acton-yellow-soft: #fff3b4;
+        --acton-yellow-strong: #9c7412;
+        --acton-steel-950: #151617;
+        --acton-steel-900: #202326;
+        --acton-steel-800: #33373a;
+        --acton-steel-700: #454b4f;
+        --acton-steel-600: #5f666a;
+        --acton-steel-300: #c8cdd0;
+        --acton-steel-200: #dfe2e3;
+        --acton-steel-100: #eef0ef;
+        --acton-paper: #f7f8f6;
+
+        --primary-color: var(--acton-yellow);
+        --primary-color-touch: var(--acton-yellow);
+        --primary-text-color: #191b1c;
+        --primary-hero-text-color: var(--acton-paper);
+        --nav-text-color: var(--acton-paper);
+        --primary-link-color: #785600;
+        --secondary-color: var(--acton-steel-100);
+        --secondary-color-accent: var(--acton-paper);
+        --secondary-text-color: var(--acton-steel-700);
+        --toc-highlight-text-color: var(--acton-yellow-strong);
+        --tertiary-color: var(--acton-steel-900);
+        --panel-color: rgba(247, 248, 246, 0.94);
+        --border-color: rgba(35, 38, 40, 0.16);
+        --chrome-color: var(--acton-steel-900);
+        --code-color: #f4f4f1;
+        color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark){
+        :root {
+            --primary-text-color: #f2f3ef;
+            --nav-text-color: var(--acton-paper);
+            --primary-link-color: var(--acton-yellow);
+            --secondary-color: var(--acton-steel-950);
+            --secondary-color-accent: var(--acton-steel-900);
+            --secondary-text-color: var(--acton-steel-300);
+            --toc-highlight-text-color: var(--acton-yellow);
+            --tertiary-color: #111213;
+            --panel-color: rgba(32, 35, 38, 0.9);
+            --border-color: rgba(255, 255, 255, 0.14);
+            --chrome-color: #111213;
+            --code-color: #1a1c1d;
+        }
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://www.acton-lang.org/juice.css">
+    
+    
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+<a class="site-logo" href="https://www.acton-lang.org">
+    <span class="brand-mark" aria-hidden="true">
+        <img src="https://www.acton-lang.org/acton-mark.svg" alt="">
+    </span>
+    <span>Acton</span>
+</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-item" href="https://github.com/actonlang/acton">GitHub</a>
+    <a class="nav-item" href="https://www.acton-lang.org/blog">Blog</a>
+    <a class="nav-item" href="https://acton.guide/">Guide</a>
+    <a class="nav-item" href="https://play.acton.guide/">Play</a>
+    <a class="nav-item" href="https://ask.acton.guide/">Ask</a>
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#acton-v0-31-0-faster-programs-better-tools">Acton v0.31.0: Faster Programs, Better Tools</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#less-work-in-everyday-operations"><small>- Less work in everyday operations</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#lazy-generator-expressions"><small>- Lazy generator expressions</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#our-own-garbage-collector-fork"><small>- Our own garbage collector fork</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#measuring-performance-and-how-it-scales"><small>- Measuring performance and how it scales</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#new-collections-for-different-workloads"><small>- New collections for different workloads</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#cleaner-builds-and-a-more-reliable-standard-library"><small>- Cleaner builds and a more reliable standard library</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://www.acton-lang.org/blog/2026-10-acton-v0-31-0-release-notes/#before-upgrading"><small>- Before upgrading</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<h1 id="acton-v0-31-0-faster-programs-better-tools">Acton v0.31.0: Faster Programs, Better Tools</h1>
+<p>This release brings a broad performance boost, from iteration and arithmetic
+to actor scheduling and timers. It also introduces our own fork of the Boehm
+garbage collector, lazy generator expressions, new immutable and compact
+collections, and better tools for measuring performance. There are improvements
+to project builds and fixes throughout the standard library.</p>
+<h2 id="less-work-in-everyday-operations">Less work in everyday operations</h2>
+<p>Iteration now finishes through ordinary control flow. <code>next()</code> returns a
+<code>maybe</code> value, using <code>just(value)</code> for an item and <code>nothing()</code> for exhaustion,
+instead of throwing an exception when the iterator runs out. The compiler can
+often eliminate the allocation of that result. Fewer allocations reduce
+pressure on the memory subsystem and leave less garbage for the collector to
+reclaim later. Some iteration-heavy applications now run more than twice as
+fast.</p>
+<p>There are savings in other common operations, too. Direct loops over <code>range()</code>
+avoid heap allocations, fixed-width numeric conversions avoid unnecessary
+boxing, and hashing strings, bytes, and integers creates fewer temporary
+objects.</p>
+<p>The runtime also spends less time moving actors through queues and coordinating
+workers. On Linux and macOS, timed messages now use kernel timers instead of
+spinning while they wait. In timer-heavy workloads, that reduces CPU time by
+more than 90%.</p>
+<h2 id="lazy-generator-expressions">Lazy generator expressions</h2>
+<p>Generator expressions bring comprehension syntax to lazy iteration. They
+produce values as a consumer asks for them, without first building a list:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="python"><span class="giallo-l"><span>total</span><span style="color: light-dark(#D73A49, #F97583);"> =</span><span style="color: light-dark(#005CC5, #79B8FF);"> sum</span><span>(</span><span>n</span><span style="color: light-dark(#D73A49, #F97583);"> *</span><span> n</span><span style="color: light-dark(#D73A49, #F97583);"> for</span><span> n</span><span style="color: light-dark(#D73A49, #F97583);"> in</span><span style="color: light-dark(#005CC5, #79B8FF);"> range</span><span>(</span><span style="color: light-dark(#005CC5, #79B8FF);">1000</span><span>)</span><span style="color: light-dark(#D73A49, #F97583);"> if</span><span> n</span><span style="color: light-dark(#D73A49, #F97583);"> %</span><span style="color: light-dark(#005CC5, #79B8FF);"> 2</span><span style="color: light-dark(#D73A49, #F97583);"> ==</span><span style="color: light-dark(#005CC5, #79B8FF);"> 0</span><span>)</span></span></code></pre>
+<p>A generator is a single-pass iterator: once consumed, it is exhausted. The
+outermost iterable is evaluated when the generator is created; result
+expressions, filters, and nested iterables are evaluated as iteration advances
+and must be pure.</p>
+<p>The compiler can fuse a generator with a consumer such as <code>sum()</code> or a
+<code>for</code> loop, turning the whole operation into direct loops. It can also do
+this when the generator is stored in a local variable and consumed once.
+Fusion avoids allocating the intermediate iterator pipeline while preserving
+the lazy evaluation rules.</p>
+<p>The new <code>flatmap()</code> builtin adds lazy flattening: a pure callback returns an
+iterator for each input, and its elements are consumed before moving to the
+next input.</p>
+<h2 id="our-own-garbage-collector-fork">Our own garbage collector fork</h2>
+<p>Acton now uses a maintained fork of the
+<a rel="external" href="https://github.com/actonlang/bdwgc">Boehm garbage collector</a>. This gives us room
+to improve collection for Acton's workloads and expose settings that
+applications can measure and tune.</p>
+<p>Several improvements are enabled by default, including parallel mark-stack
+range stealing and immediate use of thread-local free lists. Other choices
+are opt-in. Applications can adjust mark layout, dirty-page tracking, heap
+growth, and allocation budgets through <code>build_options</code> in <code>Build.act</code>.
+<code>acton.rts.get_gc_info</code> exposes the active mode and settings, making it
+easier to check which configuration a program is actually using.</p>
+<p>The useful setting depends on the workload. The performance tools described
+below let you compare configurations on the same program and input, so you can
+choose settings for the work your application actually does.</p>
+<p>Linux and macOS applications can also select mimalloc for ordinary C and
+native-library allocations. This is a separate choice: Acton objects continue
+to use garbage collection.</p>
+<h2 id="measuring-performance-and-how-it-scales">Measuring performance and how it scales</h2>
+<p>Performance and scaling studies use ordinary Acton test definitions. Benchmarks
+mark their measured body with <code>t.loop()</code>, so setup and cleanup outside that loop
+do not contribute to operation time or allocation totals. Process peak memory
+still includes setup, which matters when a benchmark prepares a large input.</p>
+<h3 id="compare-a-benchmark-with-acton-test-perf">Compare a benchmark with <code>acton test perf</code></h3>
+<p><code>acton test perf</code> has been reworked throughout. It builds optimized code by
+default, calibrates a workload size when needed, warms up, and then measures
+repeated invocations. Reports show wall time, allocation volume, peak memory
+use, and GC statistics.</p>
+<p>The old runner forced collections in an attempt to improve memory statistics.
+The new runner leaves GC on its natural schedule, with no forced collections
+between invocations. Collections that happen during the measured work remain
+part of the reported wall time.</p>
+<p>Where supported, we now collect retired instructions and CPU cycles across
+all threads in the test process, alongside CPU time and instructions per cycle
+(IPC). These counters give another view of the work behind a timing result.</p>
+<p>The measurement techniques and terminal UI take inspiration from
+<a rel="external" href="https://github.com/andrewrk/poop">poop</a>. We've also adopted its lightning (⚡)
+and poop (💩) markers for clear improvements and regressions.</p>
+<p>Measurements can be compared with a saved report or another Git revision:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#032F62, #9ECBFF);"> perf</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-name</span><span style="color: light-dark(#032F62, #9ECBFF);"> my_test</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-compare</span><span style="color: light-dark(#032F62, #9ECBFF);"> git:main</span></span></code></pre>
+<p>This measures <code>main</code> and the current working tree, including uncommitted
+changes, at the same workload size. Fresh processes and interleaved pairs help
+reduce noise, and the report includes an estimate of uncertainty. Both project
+versions use the running compiler and runtime; <code>utils/perf-compare</code> supports
+comparisons of changes to Acton's compiler, runtime, or builtins themselves.</p>
+<p><a href="/blog/acton-v0.31-perf.png"><img src="/blog/acton-v0.31-perf.png" alt="acton test perf comparing two list-building implementations, with timing, instruction and cycle counts, allocations, and lightning markers" /></a></p>
+<p><em>Comparing appends with repeated list concatenation at 4,096 elements, using a
+saved baseline. Both implementations use the same compiler and runtime.</em></p>
+<h3 id="explore-growth-with-acton-test-scale">Explore growth with <code>acton test scale</code></h3>
+<p><code>acton test scale</code> studies how a benchmark's cost grows with its workload.
+The benchmark defines what scale means, such as the number of elements to
+sort, and reads the selected size with <code>t.scale()</code>.</p>
+<p>The study increases that size, usually doubling it, and measures each size in
+fresh processes. It continues until observed growth settles over a broad range
+or a time or memory limit stops it. Results include a table of growth between
+sizes and terminal charts of time, time per unit of scale, and allocated bytes.
+Ghostty and Kitty display those charts as inline images.</p>
+<p>Scaling studies can also compare saved results or Git revisions:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">acton</span><span style="color: light-dark(#032F62, #9ECBFF);"> test</span><span style="color: light-dark(#032F62, #9ECBFF);"> scale</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-name</span><span style="color: light-dark(#032F62, #9ECBFF);"> my_test</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-compare</span><span style="color: light-dark(#032F62, #9ECBFF);"> git:main</span></span></code></pre>
+<p>With the default settings, both versions are measured at the same completed
+workload sizes and their curves are overlaid. That shows where a change saves
+work and whether the savings hold as the input grows.</p>
+<p><a href="/blog/acton-v0.31-scale.png"><img src="/blog/acton-v0.31-scale.png" alt="acton test scale comparing repeated list concatenation with appends across increasing input sizes, using native image charts and logarithmic axes" /></a></p>
+<p><em>Repeated concatenation (orange baseline) versus appends (solid curves), from
+1,024 to 65,536 elements. Logarithmic axes keep both visible and show the cost
+of repeatedly copying the growing list. Both implementations use the same
+compiler and runtime.</em></p>
+<h2 id="new-collections-for-different-workloads">New collections for different workloads</h2>
+<p>The new <code>ilist</code>, <code>idict</code>, and <code>iset</code> types provide immutable collection APIs.
+<code>freeze()</code> turns mutable collections into their immutable forms, and hashable
+<code>iset</code> values can be used as dictionary keys or nested inside other sets.</p>
+<p>For numeric and Boolean workloads, <code>array</code>, <code>bitarray</code>, and <code>bitset</code> provide
+compact storage. The new <code>matrix</code> module adds numeric matrices with row,
+column, transposed, and reshaped views that share the underlying data. You can
+work with a different view of a matrix without copying all its elements.</p>
+<p>Mutable collections also gain in-place augmented assignment. Operations
+such as <code>+=</code> on lists and bytearrays and <code>|=</code> on sets update the existing
+collection, avoiding copies and making those changes visible through aliases.</p>
+<h2 id="cleaner-builds-and-a-more-reliable-standard-library">Cleaner builds and a more reliable standard library</h2>
+<p>Generated Zig build files now live under <code>out/zig/</code>, keeping them out of the
+project root. Dependencies can select a subdirectory of a monorepo archive,
+so several packages can share one repository. Focused test builds and watch
+mode also handle dependency refreshes and cancellation more reliably.</p>
+<p>The standard library has fixes across string and byte operations, Unicode
+handling, regular expressions, dictionaries, and file I/O. File writes now
+preserve the correct position and complete partial writes, and TCP servers
+drain queued data before closing a connection.</p>
+<h2 id="before-upgrading">Before upgrading</h2>
+<p>A few changes deserve a look when updating an existing project:</p>
+<ul>
+<li>Custom iterators must return <code>just(value)</code> for an item and <code>nothing()</code> at
+exhaustion. Direct callers of <code>next()</code> must handle the returned <code>maybe</code>.</li>
+<li>Generic APIs that only read collections should use the new read-only
+protocols, such as <code>ISequence</code> and <code>IMapping</code>.</li>
+<li>In-place augmented assignment changes what aliases observe. Check code that
+relied on a list or set being replaced by a copy.</li>
+<li>Native extensions must use the lengths of <code>bytes</code> and <code>bytearray</code> buffers;
+those buffers no longer have a trailing NUL byte.</li>
+<li>Predicates passed to <code>filter()</code> must return <code>bool</code> explicitly.</li>
+</ul>
+<p>The <a rel="external" href="https://github.com/actonlang/acton/blob/main/CHANGELOG.md">full changelog</a>
+has the complete list of changes and compatibility notes. The
+<a href="https://www.acton-lang.org/install/">installation guide</a> covers getting Acton on your system.</p>
+
+
+        </div>
+
+        
+        
+    </main>
+
+    
+    <footer>
+        <small class="subtext">
+            <a href="https://www.acton-lang.org">Acton-lang.org</a> © 2021
+        </small>
+    </footer>
+    
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
